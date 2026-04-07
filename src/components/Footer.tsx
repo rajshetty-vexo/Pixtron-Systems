@@ -5,11 +5,11 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-white border-t border-slate-100 pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14 sm:mb-16">
           <div className="flex flex-col gap-6">
-            <div className="w-[240px] overflow-hidden">
+            <div className="w-[210px] sm:w-[240px] overflow-hidden">
               <PixtronLogo className="w-[280px] max-w-none -ml-[46px]" />
             </div>
             <p className="text-slate-600 leading-relaxed">
@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-8">Quick Links</h4>
+            <h4 className="text-lg font-bold text-slate-900 mb-6 sm:mb-8">Quick Links</h4>
             <ul className="space-y-4">
               {[
                 { label: 'Home', href: '/' },
@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-8">Products</h4>
+            <h4 className="text-lg font-bold text-slate-900 mb-6 sm:mb-8">Products</h4>
             <ul className="space-y-4">
               {['Inspectra', 'Rapid', 'Codex', 'Opus', 'Panorama'].map((item) => (
                 <li key={item}>
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-8">Contact Us</h4>
+            <h4 className="text-lg font-bold text-slate-900 mb-6 sm:mb-8">Contact Us</h4>
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary shrink-0" size={20} />
@@ -80,11 +80,11 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-slate-500 text-sm">
+        <div className="pt-8 sm:pt-12 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+          <p className="text-slate-500 text-sm text-center md:text-left">
             © 2026 Pixtron Systems. All rights reserved.
           </p>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8">
             <a href="#" className="text-slate-500 text-sm hover:text-primary">Privacy Policy</a>
             <a href="#" className="text-slate-500 text-sm hover:text-primary">Terms of Service</a>
           </div>

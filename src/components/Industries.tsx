@@ -21,8 +21,8 @@ const industries = [
 
 export const Industries: React.FC = () => {
   return (
-    <section id="industries" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
+    <section id="industries" className="py-20 lg:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <motion.div
@@ -34,14 +34,14 @@ export const Industries: React.FC = () => {
               <PixtronArrows size={24} />
               <span className="text-primary font-bold tracking-widest uppercase text-sm">Global Impact</span>
             </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Industries We Empower</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">Industries We Empower</h2>
           </div>
           <p className="text-slate-600 max-w-sm">
             Our vision systems are versatile enough to adapt to the most rigorous standards of diverse global sectors.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {industries.map((industry, i) => (
             <motion.div
               key={industry.name}
@@ -50,7 +50,7 @@ export const Industries: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all"
+              className="group p-6 sm:p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all"
             >
               <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
                 {industry.icon}

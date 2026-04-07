@@ -125,10 +125,10 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-          <div className="bg-primary rounded-[2.5rem] p-10 text-white relative overflow-hidden">
+          <div className="bg-primary rounded-[2rem] sm:rounded-[2.5rem] p-7 sm:p-10 text-white relative overflow-hidden">
             <div className="absolute -right-24 -bottom-20 opacity-10 pointer-events-none">
               <PixtronArrows size={380} />
             </div>
@@ -137,8 +137,8 @@ export const ContactForm: React.FC = () => {
                 <PixtronArrows size={20} />
                 <span className="font-bold tracking-widest uppercase text-sm text-secondary">Get In Touch</span>
               </div>
-              <h3 className="text-4xl font-black leading-tight mb-6">Work With Vision Experts</h3>
-              <p className="text-white/80 text-lg leading-relaxed mb-8">
+              <h3 className="text-3xl sm:text-4xl font-black leading-tight mb-6">Work With Vision Experts</h3>
+              <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8">
                 Share your production challenges and quality goals. Our vision experts will connect with a practical plan.
               </p>
               <div className="space-y-4 text-sm font-medium text-white/90">
@@ -151,7 +151,7 @@ export const ContactForm: React.FC = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-200 shadow-xl shadow-slate-200/60"
+            className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 border border-slate-200 shadow-xl shadow-slate-200/60"
           >
             <h4 className="text-2xl font-black text-slate-900 mb-8">Contact Form</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">

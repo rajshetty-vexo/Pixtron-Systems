@@ -44,14 +44,14 @@ const visionProducts: VisionProduct[] = [
 
 export const ProductsPage: React.FC = () => {
   return (
-    <main className="pt-32 pb-24 bg-slate-50 min-h-screen">
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 mb-16">
+    <main className="pt-28 sm:pt-32 pb-20 sm:pb-24 bg-slate-50 min-h-screen">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         <div className="flex items-center gap-2 mb-4">
           <PixtronArrows size={20} />
           <span className="text-primary font-bold tracking-widest uppercase text-sm">Products</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">Pixtron Inspection Suite</h1>
-        <p className="text-slate-600 max-w-3xl text-lg">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6">Pixtron Inspection Suite</h1>
+        <p className="text-slate-600 max-w-3xl text-base sm:text-lg">
           Explore the Pixtron portfolio built for speed, reliability, and actionable inspection insights.
         </p>
         <p className="text-slate-500 max-w-3xl mt-3">
@@ -59,8 +59,8 @@ export const ProductsPage: React.FC = () => {
         </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {visionProducts.map((product, index) => {
             const isLastOddTile = visionProducts.length % 2 === 1 && index === visionProducts.length - 1;
             return (
@@ -71,7 +71,7 @@ export const ProductsPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -6 }}
-              className={`bg-white rounded-3xl p-8 border border-slate-200 shadow-lg shadow-slate-200/60 ${
+              className={`bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg shadow-slate-200/60 ${
                 isLastOddTile ? 'md:col-span-2 md:w-[calc(50%-1rem)] md:mx-auto' : ''
               }`}
             >
@@ -79,7 +79,7 @@ export const ProductsPage: React.FC = () => {
                 <PixtronArrows size={18} />
                 <span className="text-sm font-bold uppercase tracking-widest text-slate-500">{product.category}</span>
               </div>
-              <h2 className="text-3xl font-black text-slate-900 mb-4">{product.name}</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">{product.name}</h2>
 
               {product.description ? (
                 <p className="text-slate-600 leading-relaxed mb-5">{product.description}</p>

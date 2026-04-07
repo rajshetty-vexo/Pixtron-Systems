@@ -23,13 +23,13 @@ const values = [
 
 export const AboutPage: React.FC = () => {
   return (
-    <main className="pt-32 pb-24 bg-white min-h-screen">
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 mb-16">
+    <main className="pt-28 sm:pt-32 pb-20 sm:pb-24 bg-white min-h-screen">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         <div className="flex items-center gap-2 mb-4">
           <PixtronArrows size={20} />
           <span className="text-primary font-bold tracking-widest uppercase text-sm">About</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-slate-900 mb-8">About Pixtron Systems</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-8">About Pixtron Systems</h1>
         <div className="grid lg:grid-cols-2 gap-10">
           <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
             <h2 className="text-2xl font-black text-slate-900 mb-4">Company Overview</h2>
@@ -62,7 +62,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 mb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
         <h3 className="text-3xl font-black text-slate-900 mb-8">Values & Approach</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, index) => (
@@ -84,11 +84,11 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-secondary rounded-[2.5rem] p-10 md:p-14 text-primary flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <h3 className="text-4xl font-black mb-3">Build With Vision Experts</h3>
-            <p className="text-primary/80 text-lg">Work with us to plan, validate, and deploy your inspection strategy.</p>
+            <h3 className="text-3xl sm:text-4xl font-black mb-3">Build With Vision Experts</h3>
+            <p className="text-primary/80 text-base sm:text-lg">Work with us to plan, validate, and deploy your inspection strategy.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="/contact" className="bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all">

@@ -13,21 +13,21 @@ const offices = [
 
 export const ContactPage: React.FC = () => {
   return (
-    <main className="pt-32 bg-white min-h-screen">
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 pb-16">
+    <main className="pt-28 sm:pt-32 bg-white min-h-screen">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
         <div className="flex items-center gap-2 mb-4">
           <PixtronArrows size={20} />
           <span className="text-primary font-bold tracking-widest uppercase text-sm">Contact</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">Connect With Vision Experts</h1>
-        <p className="text-slate-600 max-w-3xl text-lg">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6">Connect With Vision Experts</h1>
+        <p className="text-slate-600 max-w-3xl text-base sm:text-lg">
           Reach out to Pixtron Systems for high-speed inspection planning, deployment guidance, and support.
         </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <article className="bg-slate-50 border border-slate-200 rounded-3xl p-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <article className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8">
             <h2 className="text-2xl font-black text-slate-900 mb-6">Contact Details</h2>
             <ul className="space-y-5">
               <li className="flex items-center gap-3 text-slate-700">
@@ -49,7 +49,7 @@ export const ContactPage: React.FC = () => {
             </ul>
           </article>
 
-          <article className="bg-primary rounded-3xl p-8 text-white">
+          <article className="bg-primary rounded-3xl p-6 sm:p-8 text-white">
             <h2 className="text-2xl font-black mb-6">Our Presence</h2>
             <ul className="space-y-4">
               {offices.map((office) => (
