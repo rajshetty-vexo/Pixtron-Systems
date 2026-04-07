@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 
 interface PixtronArrowsProps {
@@ -9,41 +8,20 @@ interface PixtronArrowsProps {
 
 export const PixtronArrows: React.FC<PixtronArrowsProps> = ({ className, size = 24 }) => {
   return (
-    <div 
-      className={cn("relative inline-block", className)} 
+    <svg
+      viewBox="860 40 190 180"
+      className={cn('inline-block', className)}
       style={{ width: size, height: size }}
+      aria-hidden="true"
     >
-      {/* Yellow Corner (Behind/Bottom-Left) */}
-      <motion.svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#fbbb0d"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute bottom-[10%] left-[10%] w-[65%] h-[65%]"
-        initial={{ opacity: 0, x: -4, y: 4 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <path d="M4 12V4H12" />
-      </motion.svg>
-      
-      {/* Blue Corner (Front/Top-Right) */}
-      <motion.svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#003985"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute top-[10%] right-[10%] w-[65%] h-[65%]"
-        initial={{ opacity: 0, x: -4, y: 4 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <path d="M4 12V4H12" />
-      </motion.svg>
-    </div>
+      <path
+        fill="#fbbb0d"
+        d="M 981.265625 101.882812 L 889.097656 97.789062 C 871.296875 96.996094 868.289062 131.675781 889.382812 132.246094 L 946.734375 133.800781 L 942.351562 191.507812 C 941.019531 209.082031 975.289062 210.9375 976.269531 193.078125 Z M 981.265625 101.882812"
+      />
+      <path
+        fill="#003985"
+        d="M 1035.816406 51.464844 L 943.652344 47.367188 C 925.847656 46.574219 922.84375 81.253906 943.933594 81.824219 L 1001.285156 83.378906 L 996.90625 141.085938 C 995.570312 158.660156 1029.84375 160.515625 1030.824219 142.65625 Z M 1035.816406 51.464844"
+      />
+    </svg>
   );
 };

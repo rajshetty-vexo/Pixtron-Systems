@@ -29,7 +29,7 @@ const steps = [
 export const Workflow: React.FC = () => {
   return (
     <section id="workflow" className="py-24 bg-slate-900 text-white overflow-hidden">
-      <div className="container mx-auto px-6 relative">
+      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 relative">
         {/* Background Decorative Element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none">
           <PixtronArrows size={800} />
@@ -71,7 +71,7 @@ export const Workflow: React.FC = () => {
                 {/* Arrow Connector (Mobile/Tablet) */}
                 {i < steps.length - 1 && (
                   <div className="lg:hidden mt-8 text-secondary">
-                    <PixtronArrows size={32} className="rotate-90" />
+                    <PixtronArrows size={32} />
                   </div>
                 )}
               </motion.div>

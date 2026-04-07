@@ -1,16 +1,16 @@
 import React from 'react';
 import { PixtronArrows } from './PixtronArrows';
+import { PixtronLogo } from './PixtronLogo';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="bg-white border-t border-slate-100 pt-24 pb-12">
-      <div className="container mx-auto px-6">
+    <footer className="bg-white border-t border-slate-100 pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-primary">Pixtron</span>
-              <PixtronArrows size={20} />
+            <div className="w-[240px] overflow-hidden">
+              <PixtronLogo className="w-[280px] max-w-none -ml-[46px]" />
             </div>
             <p className="text-slate-600 leading-relaxed">
               Leading the future of automated machine vision inspection. Fast, accurate, and reliable solutions for global industries.
@@ -31,11 +31,16 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold text-slate-900 mb-8">Quick Links</h4>
             <ul className="space-y-4">
-              {['Home', 'Products', 'Industries', 'Workflow', 'About Us'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-slate-600 hover:text-primary transition-colors flex items-center gap-2">
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Products', href: '/products' },
+                { label: 'About', href: '/about' },
+                { label: 'Contact', href: '/contact' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-slate-600 hover:text-primary transition-colors flex items-center gap-2">
                     <PixtronArrows size={12} className="opacity-0 hover:opacity-100 transition-opacity" />
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -61,15 +66,15 @@ export const Footer: React.FC = () => {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary shrink-0" size={20} />
-                <span className="text-slate-600">123 Vision Way, Tech Park, Industrial Area, City - 560001</span>
+                <span className="text-slate-600">Head Office: Goa</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary shrink-0" size={20} />
-                <span className="text-slate-600">+1 (800) PIXTRON</span>
+                <span className="text-slate-600">+91 9637495512</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="text-primary shrink-0" size={20} />
-                <span className="text-slate-600">info@pixtronsystems.com</span>
+                <span className="text-slate-600">projects@pixtronsystems.com</span>
               </li>
             </ul>
           </div>

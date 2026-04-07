@@ -22,7 +22,7 @@ const industries = [
 export const Industries: React.FC = () => {
   return (
     <section id="industries" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <motion.div

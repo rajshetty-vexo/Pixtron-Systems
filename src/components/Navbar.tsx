@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PixtronArrows } from './PixtronArrows';
+import { PixtronLogo } from './PixtronLogo';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -14,25 +14,18 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Products', href: '#products' },
-    { name: 'Industries', href: '#industries' },
-    { name: 'Workflow', href: '#workflow' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Products', href: '/products' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1">
-              <span className={`text-2xl font-bold tracking-tight ${isScrolled ? 'text-primary' : 'text-primary'}`}>Pixtron</span>
-              <PixtronArrows size={20} className="mt-1" />
-            </div>
-            <span className={`text-sm font-medium -mt-1 ${isScrolled ? 'text-slate-600' : 'text-slate-700'}`}>Systems</span>
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 flex items-center justify-between">
+        <a href="/" className="flex items-center">
+          <PixtronLogo className={isScrolled ? 'h-10' : 'h-11'} />
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -45,9 +38,9 @@ export const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-          <button className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20">
+          <a href="/contact" className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20">
             Get a Quote
-          </button>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -65,7 +58,7 @@ export const Navbar: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -76,9 +69,9 @@ export const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="bg-primary text-white px-6 py-3 rounded-xl text-center font-bold">
+              <a href="/contact" className="bg-primary text-white px-6 py-3 rounded-xl text-center font-bold">
                 Get a Quote
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

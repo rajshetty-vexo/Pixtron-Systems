@@ -50,7 +50,7 @@ const versions = [
 export const Products: React.FC = () => {
   return (
     <section id="products" className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-1 md:px-2 lg:px-2">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
