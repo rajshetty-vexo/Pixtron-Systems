@@ -6,9 +6,9 @@ import { ContactForm } from '../components/ContactForm';
 const offices = [
   { region: 'North', city: 'Chandigarh' },
   { region: 'East', city: 'Kolkata' },
-  { region: 'West', city: 'Pune' },
   { region: 'South', city: 'Chennai' },
-  { region: 'Head Office', city: 'Goa' },
+  { region: 'Head Office', city: 'Pune' },
+  { region: 'R&D', city: 'Goa' },
 ];
 
 export const ContactPage: React.FC = () => {
@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <MapPin size={20} className="text-primary shrink-0" />
-                <span>Head Office: Goa</span>
+                <span>Head Office: Pune</span>
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <Clock size={20} className="text-primary shrink-0" />

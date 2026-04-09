@@ -12,21 +12,21 @@ interface VisionProduct {
 const visionProducts: VisionProduct[] = [
   {
     name: 'Inspectra',
-    category: 'Tetra Brik Inspection',
-    description: 'Advanced vision system designed for high-speed liquid packaging lines with seal and print verification.',
-    features: ['Seal integrity checks', 'Print verification', 'High-speed processing'],
+    category: 'Dot Print Inspection',
+    description: 'High precision, high speed dot print inspection.',
+    features: ['OCR/OCV', 'Dot print verification', 'Seal integrity checks', 'High-speed processing'],
   },
   {
     name: 'Rapid',
-    category: 'Cable & Wire Inspection',
-    description: 'Real-time surface defect detection and dimensional measurement for continuous extrusion processes.',
-    features: ['Continuous profile tracking', 'Micron-level defect detection', 'Live alarms'],
+    category: 'Continuous Flow Production Line Inspection',
+    description: 'Fast, accurate inspection with OCR/OCV for continuous flow production lines, with real-time monitoring and inspection of surface defects and dimensions.',
+    features: ['OCR/OCV', 'Continuous profile tracking', 'Micron-level defect detection', 'Live alarms'],
   },
   {
     name: 'Codex',
-    category: 'Code Reading',
-    description: 'Ultra-fast reading and verification of 1D/2D codes, including pharma-grade traceability labels.',
-    features: ['1D and 2D decoding', 'Pharma compatibility', 'Reject integration'],
+    category: 'Code Reading & OCR',
+    description: 'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
+    features: ['1D and 2D decoding', 'OCR for text and batch data', 'Pharma compatibility', 'Reject integration'],
   },
   {
     name: 'Opus',

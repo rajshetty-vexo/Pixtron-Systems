@@ -11,7 +11,9 @@ export const PixtronLogo: React.FC<PixtronLogoProps> = ({ className }) => {
     <img
       src={pixtronLogo}
       alt="Pixtron Systems"
-      className={cn('h-11 w-auto object-contain', className)}
+      draggable={false}
+      onContextMenu={(e) => e.preventDefault()}
+      className={cn('h-11 w-auto object-contain select-none pointer-events-auto', className)}
     />
   );
 };

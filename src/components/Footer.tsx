@@ -5,9 +5,9 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-12">
+    <footer className="bg-white border-t border-slate-100 pt-10 sm:pt-12 lg:pt-14 pb-8 sm:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-10 sm:mb-12">
           <div className="flex flex-col gap-6">
             <div className="w-[210px] sm:w-[240px] overflow-hidden">
               <PixtronLogo className="w-[280px] max-w-none -ml-[46px]" />
@@ -66,7 +66,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary shrink-0" size={20} />
-                <span className="text-slate-600">Head Office: Goa</span>
+                <span className="text-slate-600">Head Office: Pune</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <MapPin className="text-primary shrink-0" size={20} />
+                <span className="text-slate-600">R&amp;D: Goa</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary shrink-0" size={20} />

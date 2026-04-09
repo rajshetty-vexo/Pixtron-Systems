@@ -1,31 +1,31 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PixtronArrows } from './PixtronArrows';
-import { CheckCircle2, Zap, ShieldCheck, BarChart3 } from 'lucide-react';
+import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit } from 'lucide-react';
 
 const products = [
   {
     id: 'inspectra',
     name: 'Inspectra',
-    tagline: 'Tetra Brik Inspection',
-    description: 'High precision dot print inspection for high speed inspection.',
-    inspections: ['Seal integrity checks', 'Print and graphic verification', 'Package damage detection', 'High-speed line integration'],
+    tagline: 'Dot Print Inspection',
+    description: 'High precision, high speed dot print inspection.',
+    inspections: ['OCR/OCV', 'Dot print verification', 'Seal integrity checks', 'Package damage detection', 'High-speed line integration'],
     icon: <ShieldCheck className="text-primary" size={32} />,
   },
   {
     id: 'rapid',
     name: 'Rapid',
-    tagline: 'Cable & Wire Inspection',
-    description: 'Fast, accurate inspection for cable and wire production with continuous monitoring of defects and dimensions.',
-    inspections: ['Surface defect detection', 'Diameter and concentricity checks', 'High-speed throughput', 'Inline alerts'],
+    tagline: 'Continuous Flow Production Line Inspection',
+    description: 'Fast, accurate inspection with OCR/OCV for continuous flow production lines, with real-time monitoring and inspection of surface defects and dimensions.',
+    inspections: ['OCR/OCV', 'Surface defect detection', 'Diameter and concentricity checks', 'High-speed throughput', 'Inline alerts'],
     icon: <Zap className="text-primary" size={32} />,
   },
   {
     id: 'codex',
     name: 'Codex',
-    tagline: 'Code Reading',
-    description: 'Reliable decoding for QR, 2D, 3D and pharma codes with high-speed verification and compliance logging.',
-    inspections: ['QR, 2D & 3D decoding', 'Pharma code support', 'Low-contrast reading', 'Verification reporting'],
+    tagline: 'Code Reading & OCR',
+    description: 'Reliable decoding and OCR for QR, 1D, 2D and pharma codes with high-speed verification and compliance logging.',
+    inspections: ['QR, 1D & 2D decoding', 'OCR for text and batch data', 'Pharma code support', 'Low-contrast reading', 'Verification reporting'],
     icon: <CheckCircle2 className="text-primary" size={32} />,
   },
   {
@@ -42,13 +42,13 @@ const products = [
     tagline: '360° Inspection',
     description: 'Complete 360-degree inspection for containers and products with full surface coverage.',
     inspections: ['Full circumference inspection', 'Multi-camera synchronization', 'High-speed scanning', 'Defect localization'],
-    icon: <PixtronArrows size={32} />,
+    icon: <Orbit className="text-primary" size={32} />,
   },
 ];
 
 export const Products: React.FC = () => {
   return (
-    <section id="products" className="py-24 bg-slate-50">
+    <section id="products" className="py-14 lg:py-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
@@ -66,7 +66,7 @@ export const Products: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {products.map((product, index) => {
             const isLastOddTile = products.length % 2 === 1 && index === products.length - 1;
             return (

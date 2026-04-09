@@ -10,7 +10,7 @@ import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'luci
 export const HomePage: React.FC = () => {
   return (
     <>
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden bg-white">
+      <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-24 overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -124,7 +124,7 @@ export const HomePage: React.FC = () => {
       <Products />
       <Workflow />
 
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      <section className="py-12 sm:py-14 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-secondary rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[4rem] p-8 sm:p-10 md:p-14 lg:p-20 text-primary flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative overflow-hidden">
             <div className="absolute -bottom-20 -left-20 opacity-10 rotate-12">

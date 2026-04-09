@@ -28,7 +28,7 @@ const steps = [
 
 export const Workflow: React.FC = () => {
   return (
-    <section id="workflow" className="py-20 lg:py-24 bg-slate-900 text-white overflow-hidden">
+    <section id="workflow" className="py-14 lg:py-16 bg-slate-900 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Background Decorative Element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none">
