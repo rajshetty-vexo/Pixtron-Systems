@@ -3,15 +3,23 @@ import { PixtronArrows } from './PixtronArrows';
 import { PixtronLogo } from './PixtronLogo';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
 
+// Footer logo horizontal offset (px). Adjust until it lines up with the text.
+// Positive = move logo RIGHT (e.g. 8, 12, 16). Negative = move LEFT (e.g. -8).
+const FOOTER_LOGO_MARGIN_LEFT = 0;
+
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-100 pt-10 sm:pt-12 lg:pt-14 pb-8 sm:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-10 sm:mb-12">
-          <div className="flex flex-col gap-6">
-            <div className="w-[210px] sm:w-[240px] overflow-hidden">
-              <PixtronLogo className="w-[280px] max-w-none -ml-[46px]" />
-            </div>
+          <div className="flex flex-col gap-6 items-start">
+            <a
+              href="/"
+              className="inline-block"
+              style={FOOTER_LOGO_MARGIN_LEFT !== 0 ? { marginLeft: `${FOOTER_LOGO_MARGIN_LEFT}px` } : undefined}
+            >
+              <PixtronLogo className="h-10 sm:h-11 w-auto" />
+            </a>
             <p className="text-slate-600 leading-relaxed">
               Leading the future of automated machine vision inspection. Fast, accurate, and reliable solutions for global industries.
             </p>
@@ -74,7 +82,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="text-primary shrink-0" size={20} />
-                <span className="text-slate-600">+91 9637495512</span>
+                <span className="text-slate-600">+91 9146707884</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="text-primary shrink-0" size={20} />

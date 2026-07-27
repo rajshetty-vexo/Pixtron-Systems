@@ -36,7 +36,7 @@ export const ContactPage: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <Phone size={20} className="text-primary shrink-0" />
-                <span>+91 9637495512</span>
+                <span>+91 9146707884</span>
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <MapPin size={20} className="text-primary shrink-0" />

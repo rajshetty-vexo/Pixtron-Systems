@@ -8,22 +8,24 @@
 product details
 
 Inspectra
-Tetra Brik Inspection
+Dot Print Inspection
 
-High precision Dot print inspection for high speed inspection
+High precision, high speed dot print inspection.
 
+OCR/OCV
+Dot print verification
 Seal integrity checks
-Print and graphic verification
 Package damage detection
 High-speed line integration
 
 
 
 Rapid
-Cable & Wire Inspection
+Continuous Flow Production Line Inspection
 
-Fast, accurate inspection for cable and wire production with continuous monitoring of defects and dimensions.
+Fast, accurate inspection with OCR/OCV for continuous flow production lines, with real-time monitoring and inspection of surface defects and dimensions.
 
+OCR/OCV
 Surface defect detection
 Diameter and concentricity checks
 High-speed throughput
@@ -33,9 +35,9 @@ Inline alerts
 Codex
 Code Reading
 
-Reliable decoding for QR, 2D, 3D and pharma codes with high-speed verification and compliance logging.
+Reliable decoding for QR, 1D, 2D and pharma codes with high-speed verification and compliance logging.
 
-QR, 2D & 3D decoding
+QR, 1D & 2D decoding
 Pharma code support
 Low-contrast reading
 Verification reporting

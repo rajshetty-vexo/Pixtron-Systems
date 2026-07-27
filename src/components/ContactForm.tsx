@@ -143,7 +143,7 @@ export const ContactForm: React.FC = () => {
               </p>
               <div className="space-y-4 text-sm font-medium text-white/90">
                 <p>Email: projects@pixtronsystems.com</p>
-                <p>Phone: +91 9637495512</p>
+                <p>Phone: +91 9146707884</p>
                 <p>Office Hours: 10:00 AM - 4:00 PM IST</p>
               </div>
             </div>
