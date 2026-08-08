@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
 
   return (
 <nav 
-  className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-slate-200/80 px-6 py-3 ${
+  className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2.5rem)] max-w-7xl rounded-full border border-slate-200/80 px-6 py-3 ${
     isScrolled 
       ? 'bg-white/95 backdrop-blur-md shadow-xl shadow-slate-900/10 border-slate-300/80' 
       : 'bg-white/80 backdrop-blur-md shadow-lg shadow-slate-900/5'
