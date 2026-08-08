@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #003985;
+  --color-secondary: #fbbb0d;
+  
+  --font-sans: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased;
+  }
+}
+
+.arrow-identity {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+.arrow-identity::before,
+.arrow-identity::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  border-top: 0.25em solid currentColor;
+  border-left: 0.25em solid currentColor;
+  border-radius: 0.1em;
+  transform: rotate(0deg);
+}
+
+.arrow-identity::before {
+  bottom: 0;
+  left: 0;
+  color: var(--color-secondary);
+}
+
+.arrow-identity::after {
+  top: 0;
+  right: 0;
+  color: var(--color-primary);
+}
+
+@keyframes slowGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-slow-glow {
+  background-size: 200% 200%;
+  animation: slowGlow 2s ease infinite;
+}
+html {
+  scrollbar-gutter: stable;
+}
