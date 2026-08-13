@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
 import { PixtronLogo } from './PixtronLogo';
-import { Mail, Phone, MapPin, Linkedin, Youtube, Instagram,} from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Youtube, Instagram,Facebook} from 'lucide-react';
 
 const FOOTER_LOGO_MARGIN_LEFT = 0;
 
@@ -26,13 +26,13 @@ export const Footer: React.FC = () => {
            </svg>
             </a>
           <a 
-        href="https://www.instagram.com/pixtronsystems/"
+        href="https://www.facebook.com/people/Pixtron-Systems/61592436106112/"
         target="_blank" 
         rel="noopener noreferrer"
         className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#fbbb0d] hover:text-slate-900 transition-all"
-        aria-label="Instagram"
+        aria-label="Facebook"
       >
-         <Instagram size={18} />
+         <Facebook size={18} />
       </a>
       <a 
         href="https://www.youtube.com/@PixtronSystems" 

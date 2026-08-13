@@ -18,12 +18,20 @@ export const PixtronLogo: React.FC<PixtronLogoProps> = ({
   const bottomArrowColor = '#fbbb0d'; // Always Yellow!
 
   return (
-    <div className={cn('inline-flex items-center gap-2 select-none h-11', className)} style={style}>
+    <div className={cn('inline-flex items-center select-none', className)} style={style}>
       <div className="flex flex-col leading-none">
-        <span className="text-2xl font-black tracking-tight flex items-center gap-1" style={{ color: textColor }}>
-          Pixtron
-          {/* Dual Arrow Icon */}
-          <svg viewBox="860 40 190 180" className="h-6 w-auto inline-block">
+        
+        {/* Main Brand Title Container */}
+        <div className="relative inline-flex items-start">
+          <span className="text-2xl font-black tracking-tight" style={{ color: textColor }}>
+            Pixtron
+          </span>
+
+          {/* Floating Dual Arrow - Pixel Matched to Image 2 */}
+          <svg 
+            viewBox="860 40 190 180" 
+            className="h-[17px] w-auto -ml-[6px] -mt-0.1 shrink-0"
+          >
             {/* Bottom Arrow - Yellow */}
             <path
               fill={bottomArrowColor}
@@ -35,10 +43,13 @@ export const PixtronLogo: React.FC<PixtronLogoProps> = ({
               d="M 1035.816406 51.464844 L 943.652344 47.367188 C 925.847656 46.574219 922.84375 81.253906 943.933594 81.824219 L 1001.285156 83.378906 L 996.90625 141.085938 C 995.570312 158.660156 1029.84375 160.515625 1030.824219 142.65625 Z M 1035.816406 51.464844"
             />
           </svg>
-        </span>
-        <span className="text-xs tracking-widest uppercase font-bold opacity-80" style={{ color: textColor }}>
+        </div>
+
+        {/* Subtitle */}
+        <span className="text-[10px] tracking-[0.22em] uppercase font-bold mt-0.5 opacity-90" style={{ color: textColor }}>
           Systems
         </span>
+
       </div>
     </div>
   );

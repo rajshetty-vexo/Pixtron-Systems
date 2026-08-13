@@ -220,9 +220,6 @@ const buildUserEmailHtml = ({
                         <a href="https://www.linkedin.com/in/pixtron-systems-5165aa427/"><img src="https://res.cloudinary.com/rjfewkks/image/upload/v1783518263/Linkdin_icon_wh7mxy.png" width="28" alt="LinkedIn"/></a>
                       </td>
                       <td style="padding-right:12px;">
-                        <a href="https://www.instagram.com/pixtronsystems/"><img src="https://res.cloudinary.com/rjfewkks/image/upload/v1783518264/Instagram_icon_shsvje.png" width="28" alt="Instagram"/></a>
-                      </td>
-                      <td style="padding-right:12px;">
                         <a href="https://www.youtube.com/@PixtronSystems"><img src="https://res.cloudinary.com/rjfewkks/image/upload/v1783518264/Youtube_icon_qwpbai.png" width="28" alt="YouTube"/></a>
                       </td>
                       <td style="padding-right:12px;">

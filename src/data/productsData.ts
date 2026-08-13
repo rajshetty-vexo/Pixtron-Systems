@@ -99,6 +99,10 @@ export const productsData: ProductDetail[] = [
         title: 'Pharma Traceability Compliance',
         description: 'Ensures strict compliance with GS1 and global track-and-trace mandates.',
       },
+      {
+    title: "High-Speed Industrial Processing",
+    description: "Captures and decodes high-density codes on fast-moving conveyor lines without frame loss."
+  },
     ],
     industriesUsed: [
       'Pharmaceutical Supply Chain',
@@ -128,11 +132,20 @@ export const productsData: ProductDetail[] = [
         title: 'Spectrum Color Matching',
         description: 'Identifies faint color mismatches across batches under standardized light conditions.',
       },
+      {
+    title: "Surface Defect Inspection",
+    description: "Detects micro-scratches, cracks, dents, and surface irregularities in real-time."
+      },
     ],
     industriesUsed: [
       'Automotive Parts',
       'Electronics Assembly',
     ],
+  images: [
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/Opus1_lt5q51.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/opus2_tip7ou.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/opus3_vci5vx.jpg", 
+],
   },
   {
     id: 'panorama',
@@ -151,6 +164,10 @@ export const productsData: ProductDetail[] = [
         title: 'Cap & Label Alignment',
         description: 'Verifies seal crimping, ring integrity, and precise label placement.',
       },
+      {
+        title: "Panoramic Image Unwrapping",
+        description: "Stitches multi-camera angles into a flattened, single high-resolution panoramic view."
+     },
     ],
     industriesUsed: [
       'Beverages & Distilleries',
@@ -174,6 +191,10 @@ export const productsData: ProductDetail[] = [
       title: 'Seal & Foil Quality Inspection',
       description: 'Identifies pinholes, foil wrinkles, sealing defects, and foreign particle contamination.',
     },
+    {
+    title: "High-Speed Multi-Cavity Analysis",
+    description: "Inspects complex multi-row cavity layouts simultaneously on ultra-fast packaging lines."
+  },
   ],
   industriesUsed: [
     'Pharmaceutical & Healthcare Packaging',
