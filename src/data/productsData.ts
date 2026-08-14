@@ -81,6 +81,11 @@ export const productsData: ProductDetail[] = [
       'Metal & Sheet Inspection',
       'Textile & Paper Rolls',
     ],
+    images: [
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723312/rapid_1_shtsln.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723312/rapid_2_snlkky.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723313/rapid_3_x0hy0g.jpg",
+],
   },
   {
     id: 'codex',
@@ -177,6 +182,7 @@ export const productsData: ProductDetail[] = [
   "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma1_si3be5.jpg",
   "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma2_cnzmhy.jpg",
   "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma3_pedrvo.jpg", 
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723312/panaroma_4_gs1lsn.jpg",
     ],
   },
   {
