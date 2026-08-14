@@ -173,6 +173,11 @@ export const productsData: ProductDetail[] = [
       'Beverages & Distilleries',
       'Cosmetics & Tubes',
     ],
+       images: [
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma1_si3be5.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma2_cnzmhy.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma3_pedrvo.jpg", 
+    ],
   },
   {
   id: 'blister-inspection-system',

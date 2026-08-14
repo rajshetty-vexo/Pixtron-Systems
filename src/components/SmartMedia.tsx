@@ -54,11 +54,16 @@ export const SmartMedia = ({
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {/* ── DARK SHIMMER WAVE SKELETON ── */}
-      {!isLoaded && (
-        <div className="absolute inset-0 z-10 bg-slate-900/90 overflow-hidden">
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-slate-700/50 to-transparent animate-shimmer" />
-        </div>
-      )}
+    {!isLoaded && (
+  <div className="absolute inset-0 z-10 bg-slate-900 overflow-hidden">
+    <div 
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/60 to-transparent"
+      style={{
+        animation: 'shimmer 1.8s infinite linear'
+      }}
+    />
+  </div>
+)}
 
       {/* ── MEDIA ── */}
       {type === "image" ? (
