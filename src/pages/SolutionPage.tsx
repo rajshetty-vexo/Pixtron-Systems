@@ -22,6 +22,7 @@ import foodBeverageImg from '../assets/Industries/Food & Beverage.png';
 import logisticsImg from '../assets/Industries/Logistics.jpg';
 import manufacturingImg from '../assets/Industries/Manufacturing.png';
 import pharmaceuticalsImg from '../assets/Industries/Pharmaceuticals.jpeg';
+import {SmartMedia} from "../components/SmartMedia";
 
 interface SubIndustry {
   name: string;
@@ -425,11 +426,14 @@ const filteredIndustries = industriesList.filter((industry) => {
               <div className="overflow-y-auto flex-1 no-scrollbar">
                 {/* 1. FIXED: Compact Image Header with Sleek Title */}
                 <div className="relative h-48 sm:h-56 w-full overflow-hidden flex items-center justify-center">
-                  <img 
-                    src={selectedIndustry.image} 
-                    alt={selectedIndustry.name} 
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                 <div className="absolute inset-0 pointer-events-none">
+                <SmartMedia 
+                type="image"
+                src={selectedIndustry.image} 
+                alt={selectedIndustry.name} 
+                className="w-full h-full [&>img]:object-cover"
+                />
+                 </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
                   
                   <h2 className="relative z-10 text-2xl sm:text-3xl font-bold text-white tracking-tight text-center px-4">

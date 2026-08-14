@@ -9,7 +9,7 @@ import { BrochureModal } from '../components/BrochureModal';
 import { SeoMeta } from "../components/SeoMeta";
 import { Download, ArrowLeft, Building2, CheckCircle2 } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
-
+import {SmartMedia} from "../components/SmartMedia";
 
 export const ProductDetailPage: React.FC = () => {
 
@@ -20,7 +20,7 @@ const product = productsData.find((p) => p.id === productId) || productsData[0];
 const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // 3. AB 'product.images' ACCESS KARO (Kyunki product ab defined hai)
+  
   const productImages = product.images && product.images.length > 0 
     ? product.images 
     : ["/placeholder-image.jpg"];
@@ -192,21 +192,15 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
       className="relative rounded-[1.5rem] sm:rounded-[3rem] p-[3px] bg-gradient-to-r from-primary via-primary/90 to-secondary w-full aspect-video flex items-center justify-center overflow-hidden group cursor-pointer"
     >
       {/* Inner Image Box */}
-      {/* Inner Image Box */}
 <div className="relative w-full h-full rounded-[calc(2rem-3px)] sm:rounded-[calc(3rem-3px)] overflow-hidden bg-slate-950 flex items-center justify-center">
   
-  <AnimatePresence initial={false}>
-    <motion.img
-      key={currentImageIndex}
-      src={productImages[currentImageIndex]}
-      alt={`${product.name} visual ${currentImageIndex + 1}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="absolute inset-0 w-full h-full object-cover z-0"
-    />
-  </AnimatePresence>
+<SmartMedia
+                key={currentImageIndex}
+                type="image"
+                src={productImages[currentImageIndex]}
+                alt={`${product.name} visual ${currentImageIndex + 1}`}
+                className="w-full h-full [&>img]:object-cover z-0"
+              />
 
   {/* Bottom Dot Indicators - z-20 & relative added for click priority */}
   {productImages.length > 1 && (

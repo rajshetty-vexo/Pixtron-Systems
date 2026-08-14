@@ -200,5 +200,11 @@ export const productsData: ProductDetail[] = [
     'Pharmaceutical & Healthcare Packaging',
     'Nutraceutical Manufacturing',
   ],
+    images: [
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister1_dczcxv.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister2_euuz5n.jpg",
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister3_zittfi.jpg", 
+  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister4_znj1o5.jpg",
+    ]
 },
 ];

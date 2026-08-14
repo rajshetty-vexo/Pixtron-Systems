@@ -3,14 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
 import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit, Eye, ArrowRight } from 'lucide-react';
-
-// Product images imports
-import inspectraImg from '../assets/Industries/Pharmaceuticals.jpeg';
-import rapidImg from '../assets/Industries/Car automotive.jpeg';
-import codexImg from '../assets/Industries/Electronics.png';
-import opusImg from '../assets/Industries/Manufacturing.png';
-import panoramaImg from '../assets/Industries/Food & Beverage.png';
-import blisterImg from '../assets/Industries/Pharmaceuticals.jpeg';
+import {SmartMedia} from "../components/SmartMedia";
 
 const products = [
   {
@@ -204,14 +197,12 @@ export const Products: React.FC = () => {
                       transform: 'rotateY(180deg)'
                     }}
                   >
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover opacity-80"
-                      onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
-                      }}
-                    />
+              <SmartMedia 
+              type="image"
+              src={product.image} 
+              alt={product.name} 
+              className="w-full h-full [&>img]:object-cover opacity-80"
+                />
                     
                     {/* Backside Content + Interactive Buttons */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-350 via-slate-350/60 to-transparent p-5 sm:p-7 md:p-8 flex flex-col justify-between">

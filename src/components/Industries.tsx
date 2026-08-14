@@ -1,9 +1,4 @@
-import carautomotive from "../assets/Industries/Car automotive.jpeg";
-import Parameuticals from "../assets/Industries/Pharmaceuticals.jpeg";
-import Food_Bevearge from "../assets/Industries/Food & Beverage.png";
-import Manufacturing from "../assets/Industries/Manufacturing.png";
-import Electronics from "../assets/Industries/Electronics.png";
-import Logistics from "../assets/Industries/Logistics.jpg";
+import {SmartMedia} from "../components/SmartMedia";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { PixtronArrows } from './PixtronArrows';
@@ -21,7 +16,7 @@ const industries = [
     name: 'Automotive', 
     icon: <Car size={40} />, 
     desc: 'Component verification and assembly inspection.',
-    image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786118092/Car_automotive_mbryhm.jpg"
+    image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786685341/drilldown_vjdq9a.png"
   },
   { 
     name: 'Electronics', 
@@ -126,11 +121,14 @@ export const Industries: React.FC = () => {
                 className="group relative min-w-[82vw] sm:min-w-[340px] md:min-w-0 snap-center p-6 sm:p-8 rounded-3xl border border-slate-200/80 bg-slate-900 overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500"
               >
                 {/* BACKGROUND IMAGE - Always Visible (Steady Position) */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-all duration-500 scale-100 group-hover:scale-105 opacity-100"
-                  style={{ backgroundImage: `url(${industry.image})` }}
-                />
-                
+                <div className="absolute inset-0 pointer-events-none transition-transform duration-500 scale-100 group-hover:scale-105">
+                  <SmartMedia
+                    type="image"
+                    src={industry.image}
+                    alt={industry.name}
+                    className="w-full h-full [&>img]:object-cover"
+                  />
+                </div>
                 {/* DARK OVERLAY LAYER - Readability ke liye text overlay */}
                 <div 
                   className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-slate-900/80 pointer-events-none transition-opacity duration-500 group-hover:opacity-90" 
