@@ -1,0 +1,22 @@
+{
+  "short_name": "Pixtron",
+  "name": "Pixtron Systems - Machine Vision Solutions",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#003985",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "Pixtron Systems delivers high-speed machine vision and computer vision inspection solutions in India."
+}
