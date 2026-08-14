@@ -3,8 +3,7 @@ import { PixtronArrows } from './PixtronArrows';
 import { PixtronLogo } from './PixtronLogo';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react';
 
-// Footer logo horizontal offset (px). Adjust until it lines up with the text.
-// Positive = move logo RIGHT (e.g. 8, 12, 16). Negative = move LEFT (e.g. -8).
+
 const FOOTER_LOGO_MARGIN_LEFT = 0;
 
 export const Footer: React.FC = () => {
