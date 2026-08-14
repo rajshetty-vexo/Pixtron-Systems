@@ -325,8 +325,7 @@ export default async function handler(req: any, res: any) {
 try {
     const fromAddress = process.env.CONTACT_FROM_EMAIL || "Pixtron Systems <onboarding@resend.dev>";
     
-    // Testing mode safety check:
-    // Unverified account pe saare emails "social.pixtronsystems@gmail.com" par hi lene padenge.
+ 
     const isProduction = process.env.NODE_ENV === "production";
     
     const targetUserEmail = isProduction 
