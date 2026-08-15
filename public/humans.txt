@@ -1,0 +1,15 @@
+/* TEAM */
+Company: Pixtron Systems
+Location: Pune, Maharashtra, India
+Contact: projects@pixtronsystems.com
+Website: https://www.pixtronsystems.com
+
+/* SITE */
+Last update: 2026-08-01
+Language: English (India)
+Standards: HTML5, CSS3, React, TypeScript
+Components: Vite, React Router, Tailwind CSS
+Hosting: Vercel
+
+/* THANKS */
+Thanks to all our manufacturing and industrial partners across India who trust Pixtron Systems for high-speed machine vision and AI quality inspection solutions.

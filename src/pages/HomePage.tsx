@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { VisionGraphic } from '../components/VisionGraphic';
 import { Industries } from '../components/Industries';
@@ -8,12 +9,26 @@ import { PixtronArrows } from '../components/PixtronArrows';
 import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
+  // Mouse position tracking for the cursor-following grid + glow effect
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <>
-      <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-24 overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+ <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-24 overflow-hidden bg-white group">
+        {/* Base faint grid — always visible, subtle */}
+{/* Base faint grid — always visible, subtle */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808016_1px,transparent_1px),linear-gradient(to_bottom,#80808016_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="flex-1 text-center lg:text-left">
               <motion.div
@@ -51,24 +66,24 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full sm:w-auto"
               >
-                <a
-                  href="/products"
+                <Link
+                  to="/solutions"
                   className="bg-primary text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-primary/95 transition-all shadow-2xl shadow-primary/30 flex items-center justify-center gap-3 group w-full sm:w-auto"
                 >
                   Explore Solutions
                   <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
                     <ArrowRight size={18} />
                   </div>
-                </a>
-                <a
-                  href="/about"
+                </Link>
+                <Link
+                  to="/company"
                   className="flex items-center justify-center sm:justify-start gap-4 px-6 sm:px-8 py-3 sm:py-4 text-slate-900 font-bold hover:text-primary transition-all group w-full sm:w-auto"
                 >
                   <div className="w-14 h-14 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-primary group-hover:bg-primary/5 transition-all">
                     <Play size={20} className="ml-1 text-primary" fill="currentColor" />
                   </div>
                   About Pixtron
-                </a>
+                </Link>
               </motion.div>
 
               <motion.div
@@ -139,12 +154,12 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full lg:w-auto">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="bg-primary text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-black text-base sm:text-lg md:text-xl shadow-2xl hover:scale-105 transition-transform text-center w-full sm:w-auto"
               >
                 Get Started Now
-              </a>
+              </Link>
             </div>
           </div>
         </div>

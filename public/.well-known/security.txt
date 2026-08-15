@@ -1,0 +1,6 @@
+# Security Policy for Pixtron Systems
+Contact: mailto:projects@pixtronsystems.com
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en, hi, mr
+Canonical: https://www.pixtronsystems.com/.well-known/security.txt
+Policy: https://www.pixtronsystems.com/privacy-policy

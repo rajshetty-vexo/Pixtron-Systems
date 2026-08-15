@@ -39,7 +39,9 @@ function validateForm(data: ContactFormData): string | null {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[+\d\s()-]{8,20}$/;
 
+  // Checking all fields as required
   if (!data.fullName) return 'Full name is required.';
+  if (!data.company) return 'Company name is required.';
   if (!data.email || !emailRegex.test(data.email)) return 'Please enter a valid email address.';
   if (!data.phone || !phoneRegex.test(data.phone)) return 'Please enter a valid phone number.';
   if (!data.message || data.message.length < 10) return 'Please share at least 10 characters about your requirement.';
@@ -102,7 +104,7 @@ export const ContactForm: React.FC = () => {
           const payload = (await response.json()) as { message?: string };
           if (payload.message) serverMessage = payload.message;
         } catch {
-          // Ignore JSON parsing issues and keep default error text.
+          // Ignore JSON parsing issues
         }
         throw new Error(serverMessage);
       }
@@ -134,7 +136,7 @@ export const ContactForm: React.FC = () => {
             </div>
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-6">
-                <PixtronArrows size={20} />
+                <PixtronArrows variant="white" size={20} />
                 <span className="font-bold tracking-widest uppercase text-sm text-secondary">Get In Touch</span>
               </div>
               <h3 className="text-3xl sm:text-4xl font-black leading-tight mb-6">Work With Vision Experts</h3>
@@ -157,14 +159,16 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
               <input
                 type="text"
-                placeholder="Full Name"
+                placeholder="Full Name *"
+                required
                 value={formData.fullName}
                 onChange={handleChange('fullName')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
               <input
                 type="text"
-                placeholder="Company"
+                placeholder="Company *"
+                required
                 value={formData.company}
                 onChange={handleChange('company')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -173,14 +177,16 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
               <input
                 type="email"
-                placeholder="Work Email"
+                placeholder="Work Email *"
+                required
                 value={formData.email}
                 onChange={handleChange('email')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
               <input
                 type="tel"
-                placeholder="Phone Number"
+                placeholder="Phone Number *"
+                required
                 value={formData.phone}
                 onChange={handleChange('phone')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -188,7 +194,8 @@ export const ContactForm: React.FC = () => {
             </div>
             <textarea
               rows={5}
-              placeholder="Tell us about your inspection requirements"
+              placeholder="Tell us about your inspection requirements *"
+              required
               value={formData.message}
               onChange={handleChange('message')}
               className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 mb-4 resize-none"

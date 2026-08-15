@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
+
 @theme {
   --color-primary: #003985;
   --color-secondary: #fbbb0d;
@@ -49,4 +50,36 @@
   top: 0;
   right: 0;
   color: var(--color-primary);
+}
+
+@keyframes slowGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-slow-glow {
+  background-size: 200% 200%;
+  animation: slowGlow 2s ease infinite;
+}
+html {
+  scrollbar-gutter: stable;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 1.8s infinite linear;
 }
