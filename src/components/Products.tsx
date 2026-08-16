@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
-import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit, Eye, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit, ArrowRight } from 'lucide-react';
 import {SmartMedia} from "../components/SmartMedia";
 
 const products = [
@@ -66,18 +66,18 @@ const products = [
     icon: <Orbit className="text-primary" size={32} />,
     image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786117786/IMG_20260807_211740_vtalnq.jpg",
   },
-  {
-    id: 'blister-inspection-system',
-    name: 'Blister Inspection System',
-    tagline: 'Blister Packaging Inspection',
-    description: 'High-speed, real-time vision inspection designed for pharmaceutical blister lines to detect missing tablets, damaged products, color variations, and seal defects.',
-    inspections: [
-      'Cavity & Product Integrity Verification',
-      'Seal & Foil Quality Inspection'
-    ],
-    icon: <Eye className="text-primary" size={32} />,
-    image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786118093/Pharmaceuticals_fuouoq.jpg",
-  },
+  // {
+  //   id: 'blister-inspection-system',
+  //   name: 'Blister Inspection System',
+  //   tagline: 'Blister Packaging Inspection',
+  //   description: 'High-speed, real-time vision inspection designed for pharmaceutical blister lines to detect missing tablets, damaged products, color variations, and seal defects.',
+  //   inspections: [
+  //     'Cavity & Product Integrity Verification',
+  //     'Seal & Foil Quality Inspection'
+  //   ],
+  //   icon: <Eye className="text-primary" size={32} />,
+  //   image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786118093/Pharmaceuticals_fuouoq.jpg",
+  // },
 ];
 
 export const Products: React.FC = () => {
@@ -119,13 +119,16 @@ export const Products: React.FC = () => {
           onScroll={handleScroll}
           className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-4 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-2 lg:gap-8 lg:gap-y-10 lg:overflow-visible lg:pb-0"
         >
-          {products.map((product) => {
+          {products.map((product, index) => {
             const isHovered = hoveredCard === product.id;
+            const isLastOddTile = products.length % 2 === 1 && index === products.length - 1;
 
             return (
               <div
                 key={product.id}
-                className="relative h-auto sm:h-[380px] md:h-[400px] min-w-[86vw] sm:min-w-[420px] lg:min-w-0 w-full group snap-center shrink-0"
+                className={`relative h-auto sm:h-[380px] md:h-[400px] min-w-[86vw] sm:min-w-[420px] lg:min-w-0 w-full group snap-center shrink-0 ${
+                  isLastOddTile ? 'lg:col-span-2 lg:w-[calc(50%-1rem)] lg:mx-auto' : ''
+                }`}
                 style={{ perspective: 1200 }}
                 onMouseEnter={() => setHoveredCard(product.id)}
                 onMouseLeave={() => setHoveredCard(null)}

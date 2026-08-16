@@ -185,37 +185,37 @@ export const productsData: ProductDetail[] = [
   "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723312/panaroma_4_gs1lsn.jpg",
     ],
   },
-  {
-  id: 'blister-inspection-system',
-  name: 'Blister Inspection System',
-  category: 'Blister Packaging Inspection',
-  subtitle: 'Advanced Vision Quality Control',
-  description:
-    'High-speed, real-time vision inspection designed for pharmaceutical blister lines to detect missing tablets, damaged products, color variations, and seal defects.',
-  brochureUrl: '/brochures/blister-inspection-spec-sheet.pdf',
-  mainFeatures: [
-    {
-      title: 'Cavity & Product Integrity Verification',
-      description: 'Detects broken, chipped, wrong-color, or missing tablets and capsules in real time.',
-    },
-    {
-      title: 'Seal & Foil Quality Inspection',
-      description: 'Identifies pinholes, foil wrinkles, sealing defects, and foreign particle contamination.',
-    },
-    {
-    title: "High-Speed Multi-Cavity Analysis",
-    description: "Inspects complex multi-row cavity layouts simultaneously on ultra-fast packaging lines."
-  },
-  ],
-  industriesUsed: [
-    'Pharmaceutical & Healthcare Packaging',
-    'Nutraceutical Manufacturing',
-  ],
-    images: [
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister1_dczcxv.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister2_euuz5n.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister3_zittfi.jpg", 
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister4_znj1o5.jpg",
-    ]
-},
+  // {
+  // id: 'blister-inspection-system',
+  // name: 'Blister Inspection System',
+  // category: 'Blister Packaging Inspection',
+  // subtitle: 'Advanced Vision Quality Control',
+  // description:
+  //   'High-speed, real-time vision inspection designed for pharmaceutical blister lines to detect missing tablets, damaged products, color variations, and seal defects.',
+  // brochureUrl: '/brochures/blister-inspection-spec-sheet.pdf',
+  // mainFeatures: [
+  //   {
+  //     title: 'Cavity & Product Integrity Verification',
+  //     description: 'Detects broken, chipped, wrong-color, or missing tablets and capsules in real time.',
+  //   },
+  //   {
+  //     title: 'Seal & Foil Quality Inspection',
+  //     description: 'Identifies pinholes, foil wrinkles, sealing defects, and foreign particle contamination.',
+  //   },
+  //   {
+  //   title: "High-Speed Multi-Cavity Analysis",
+  //   description: "Inspects complex multi-row cavity layouts simultaneously on ultra-fast packaging lines."
+  // },
+  // ],
+  // industriesUsed: [
+  //   'Pharmaceutical & Healthcare Packaging',
+  //   'Nutraceutical Manufacturing',
+  // ],
+  //   images: [
+  // "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister1_dczcxv.jpg",
+  // "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister2_euuz5n.jpg",
+  // "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister3_zittfi.jpg",
+  // "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister4_znj1o5.jpg",
+  //   ]
+  // },
 ];
