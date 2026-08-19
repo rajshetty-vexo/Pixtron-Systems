@@ -677,7 +677,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
               <span className="isp-preview-label">DOT-MATRIX OCR</span>
               <div className="isp-preview-product">
                 <span className="isp-preview-brand">
-                  INSPECTRA<span>.AI</span>
+                  INSPECTRA
                 </span>
                 <div className="isp-preview-box" data-role="printedText">
                   &mdash;

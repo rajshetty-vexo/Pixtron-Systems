@@ -663,7 +663,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
               full line speed.
             </p>
             <div className="pnr-taglist">
-              <span className="pnr-pill">AI-POWERED MACHINE VISION</span>
+              <span className="pnr-pill">PANORAMA VISION</span>
             </div>
             {brochureHref && (
               <a className="pnr-cta" href={brochureHref} target="_blank" rel="noopener noreferrer">

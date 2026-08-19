@@ -484,7 +484,7 @@ export default function OpusAnimation({ brochureHref, className, variant = "full
             </p>
             <div className="opu-taglist">
               <span className="opu-pill">GEOMETRY &amp; COLOR MATCH</span>
-              <span className="opu-pill opu-pill-ghost">AI VISION</span>
+              <span className="opu-pill opu-pill-ghost">OPUS VISION</span>
             </div>
             {brochureHref && (
               <a className="opu-cta" href={brochureHref} target="_blank" rel="noopener noreferrer">
