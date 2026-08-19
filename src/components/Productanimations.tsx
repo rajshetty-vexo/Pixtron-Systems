@@ -2,7 +2,9 @@ import React from "react";
 import Codexanimation from "./Codexanimation";
 import Inspectraanimation from "./Inspectraanimation";
 import Opusanimation from "./Opusanimation";
-import PanoramaAnimation from "./PanoramaAnimation"; // add when ready
+import PanoramaAnimation from "./PanoramaAnimation"; 
+import RAPIDAnimation from "./RAPIDAnimation";
+// add when ready
 // import InspectraAnimation from "./InspectraAnimation"; // add when ready
 // import RapidAnimation from "./RapidAnimation";           // add when ready
 
@@ -22,5 +24,5 @@ export const productAnimations: Record<string, React.ComponentType<{ variant?: "
   inspectra: Inspectraanimation,
    opus: Opusanimation,
   panorama: PanoramaAnimation,
-  // rapid: RapidAnimation,
+  rapid: RAPIDAnimation,
 };

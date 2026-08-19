@@ -336,6 +336,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
             onComplete: () => {
               gsap.to(sweepArcRef.current!, { opacity: 0, duration: 0.2 });
               if (camRingPulseRef.current) gsap.to(camRingPulseRef.current, { opacity: 0.55, duration: 0.3 });
+              setText("stitchTime", 34 + Math.floor(Math.random() * 22) + " ms");
               onDone?.();
             },
           }
@@ -546,17 +547,32 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
 
     let interval: number | undefined;
     let speedInterval: number | undefined;
+    let uptimeInterval: number | undefined;
 
     resetPanel();
     setText("statSpeed", "180");
     setText("statInspected", "0");
     setText("statRejected", "0");
+    setText("stitchTime", "\u2013\u2013 ms");
+    setText("uptime", "00:00:00");
+
+    const startedAt = Date.now();
+    const formatUptime = (ms: number) => {
+      const totalSec = Math.max(0, Math.floor(ms / 1000));
+      const h = Math.floor(totalSec / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+      const s = totalSec % 60;
+      return [h, m, s].map((v) => String(v).padStart(2, "0")).join(":");
+    };
 
     if (!reduceMotion) {
       speedInterval = window.setInterval(() => {
         const speed = 172 + Math.floor(Math.random() * 18);
         setText("statSpeed", String(speed));
       }, 2000);
+      uptimeInterval = window.setInterval(() => {
+        setText("uptime", formatUptime(Date.now() - startedAt));
+      }, 1000);
     }
 
     const clearProducts = () => {
@@ -605,6 +621,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
       document.removeEventListener("visibilitychange", handleVisibility);
       stopSpawnLoop();
       if (speedInterval) window.clearInterval(speedInterval);
+      if (uptimeInterval) window.clearInterval(uptimeInterval);
       ambientTweens.forEach((t) => t.kill());
       gsap.killTweensOf([
         camRingPulseRef.current,
@@ -847,6 +864,38 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
                 ))}
               </g>
             </svg>
+          </div>
+
+          {/* LIVE METRICS STRIP — desktop-compact only; fills the space left
+              under the (short, wide) stage next to the taller panel. Hidden
+              entirely on narrow/mobile frames where the layout stacks and
+              there's no spare room for it. Doesn't touch any existing UI. */}
+          <div className="pnr-stage-foot">
+            <div className="pnr-mini">
+              <span className="pnr-mini-label">SCAN SPEED</span>
+              <span className="pnr-mini-value" data-role="statSpeed">
+                &mdash;
+              </span>
+              <span className="pnr-mini-unit">PPM</span>
+            </div>
+            <div className="pnr-mini">
+              <span className="pnr-mini-label">CAMERAS ACTIVE</span>
+              <span className="pnr-mini-value" data-role="mCams">
+                0/4
+              </span>
+            </div>
+            <div className="pnr-mini">
+              <span className="pnr-mini-label">STITCH TIME</span>
+              <span className="pnr-mini-value" data-role="stitchTime">
+                &mdash;
+              </span>
+            </div>
+            <div className="pnr-mini">
+              <span className="pnr-mini-label">UPTIME</span>
+              <span className="pnr-mini-value" data-role="uptime">
+                00:00:00
+              </span>
+            </div>
           </div>
 
           {/* STATUS */}
@@ -1226,15 +1275,28 @@ const CSS = `
 .pnr-compact .pnr-layout {
   height: auto;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-  grid-template-areas: "stage panel";
+  grid-template-areas:
+    "stage panel"
+    "stagefoot panel";
   align-items: start;
 }
 .pnr-compact .pnr-stage { aspect-ratio: 1200 / 380; height: auto; }
 .pnr-compact .pnr-panel { height: auto; overflow: visible; }
 
+.pnr-stage-foot { grid-area: stagefoot; display: none; }
+.pnr-compact .pnr-stage-foot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+.pnr-mini { position: relative; padding: 10px 11px; border-radius: 10px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 5px; }
+.pnr-mini-label { font-size: 7.5px; letter-spacing: 0.5px; color: var(--pnr-gray-400); font-weight: 700; }
+.pnr-mini-value { font-size: clamp(11px, 1.5cqw, 15px); font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.pnr-mini-unit { position: absolute; top: 10px; right: 11px; font-size: 7px; color: var(--pnr-gray-400); font-weight: 700; }
+
+@container pnr (max-width: 900px) {
+  .pnr-compact .pnr-stage-foot { grid-template-columns: repeat(2, 1fr); }
+}
 @container pnr (max-width: 680px) {
   .pnr-compact .pnr-layout { grid-template-columns: 1fr; grid-template-areas: "stage" "panel"; }
   .pnr-compact .pnr-stage { aspect-ratio: 4 / 3; }
+  .pnr-compact .pnr-stage-foot { display: none; }
 }
 @container pnr (max-width: 380px) {
   .pnr-compact .pnr-stage { aspect-ratio: 1 / 1; }
