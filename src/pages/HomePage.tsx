@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { VisionGraphic } from '../components/VisionGraphic';
 import { Industries } from '../components/Industries';
+import  OurClients  from '../components/OurClients';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { Products } from '../components/Products';
 import { Workflow } from '../components/Workflow';
 import { PixtronArrows } from '../components/PixtronArrows';
@@ -138,6 +140,8 @@ export const HomePage: React.FC = () => {
       <Industries />
       <Products />
       <Workflow />
+      <OurClients />
+      <TestimonialsSection />
 
       <section className="py-12 sm:py-14 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

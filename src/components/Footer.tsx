@@ -162,6 +162,15 @@ export const Footer: React.FC = () => {
         <span>About Us</span>
       </Link>
     </li>
+        <li>
+      <Link 
+        to="/company#partners" 
+        className="group text-white/80 hover:text-[#fbbb0d] transition-colors flex items-center gap-1.5 sm:gap-2"
+      >
+        <PixtronArrows size={10} variant="white" className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+        <span>Our Partners</span>
+      </Link>
+    </li>
     <li>
       <Link 
         to="/company#careers" 

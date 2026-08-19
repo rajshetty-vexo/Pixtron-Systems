@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, Mail, ArrowRight, Cpu, Rocket, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { PixtronArrows } from "./PixtronArrows";
 
 export const CareersSection: React.FC = () => {
   const email = "social.pixtronsystems@gmail.com";
@@ -53,11 +54,11 @@ Best regards,
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <Briefcase size={18} className="text-primary" />
-            <span className="text-primary font-bold tracking-wider uppercase text-xs">
-              Careers at Pixtron Systems
-            </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/5 mb-4">
+              <div className="inline-flex items-center justify-center gap-2 text-sm font-extrabold uppercase tracking-widest text-[#003882]">
+                   <PixtronArrows size={14} />
+                     Careers at Pixtron Systems
+                 </div>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-5 tracking-tight">

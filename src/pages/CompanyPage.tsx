@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 
 import { AboutSection } from '../components/AboutSection'; 
 import { CareersSection } from '../components/CareersSection';
-
+import { PartnersSection } from '../components/PartnersSection';
+// import  CodexAnimationProps  from '../components/CodexAnimation';
 export const CompanyPage: React.FC = () => {
   const { hash } = useLocation();
 
@@ -30,11 +31,22 @@ export const CompanyPage: React.FC = () => {
         <AboutSection />
       </section>
 
-      {/* 2. CAREERS SECTION */}
+        {/* 2. PARTNERS SECTION */}
+      {/* <section id="Codex" className="scroll-mt-24 border-t border-slate-200/80">
+        <CodexAnimationProps/>
+      </section> */}
+
+      <section id="partners" className="scroll-mt-24 border-t border-slate-200/80">
+        <PartnersSection />
+      </section>
+
+
+      {/* 3. CAREERS SECTION */}
       <section id="careers" className="scroll-mt-24 border-t border-slate-200/80">
         <CareersSection />
       </section>
 
+    
     </main>
   );
 };

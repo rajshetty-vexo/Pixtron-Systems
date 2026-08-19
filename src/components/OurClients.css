@@ -1,0 +1,207 @@
+:root {
+  --glow-blue-dark: #03152f;
+  --glow-blue-light: #0878e8;
+  --bg-dark: #070c14;
+  --card-bg: rgba(13, 22, 38, 0.7);
+  --text-main: #ffffff;
+  --text-sub: #8fa2ba;
+  /* Secondary Accent Color (Yellow/Gold) */
+  --secondary-accent: #ffd400; 
+}
+
+.clients-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 0;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gemini Soft Blue Center Ambient Glow */
+.glow-bg-radial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  height: 380px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(8, 120, 232, 0.28) 0%,
+    rgba(3, 21, 47, 0.18) 45%,
+    rgba(7, 12, 20, 0) 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.glow-bg-spot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 180px;
+  background: rgba(8, 120, 232, 0.22);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.clients-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styling */
+.clients-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.clients-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #587396;
+  text-transform: uppercase;
+}
+
+.clients-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 6px;
+}
+
+.clients-title span {
+  color: var(--secondary-accent);
+}
+
+/* Marquee Infinite Loop Structure */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Soft Edge Mask Fade Out Left/Right */
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollMarquee 20s linear infinite;
+  padding: 15px 0;
+}
+
+/* Pause Scrolling on Hover / Click / Touch Active */
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:active .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Client Card Layout & Hover Border Effects */
+.client-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  padding: 16px 28px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 240px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Secondary Color Border & Glow on Hover */
+.client-card:hover {
+  border-color: var(--secondary-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 212, 0, 0.12),
+              0 0 12px rgba(255, 212, 0, 0.2);
+}
+
+.client-logo-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.client-avatar {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--secondary-accent);
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.client-category {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .clients-section {
+    padding: 50px 0;
+  }
+  .client-card {
+    padding: 12px 20px;
+    min-width: 200px;
+  }
+}

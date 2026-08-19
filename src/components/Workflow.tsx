@@ -37,7 +37,7 @@ export const Workflow: React.FC = () => {
 
         <div className="text-center mb-14 sm:mb-20 relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">The Inspection Lifecycle</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed ">
             From high-speed capture to automated rejection, our process ensures that only flawless products reach your customers.
           </p>
         </div>

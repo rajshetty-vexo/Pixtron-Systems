@@ -9,6 +9,7 @@ import { BrochureModal } from '../components/BrochureModal';
 import { SeoMeta } from "../components/SeoMeta";
 import { Download, ArrowLeft, Building2, CheckCircle2 } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
+import { productAnimations } from "../components/Productanimations";
 import {SmartMedia} from "../components/SmartMedia";
 
 export const ProductDetailPage: React.FC = () => {
@@ -20,10 +21,16 @@ const product = productsData.find((p) => p.id === productId) || productsData[0];
 const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+const AnimationComponent = productAnimations[product.id];
+const hasRealImages = !!product.images && product.images.length > 0;
+const productImages = hasRealImages ? product.images! : (AnimationComponent ? [] : ["/placeholder-image.jpg"]);
+const showingAnimation = !!AnimationComponent && currentImageIndex === 0;
+const totalSlides = productImages.length + (AnimationComponent ? 1 : 0);
+
   
-  const productImages = product.images && product.images.length > 0 
-    ? product.images 
-    : ["/placeholder-image.jpg"];
+  // const productImages = product.images && product.images.length > 0 
+  //   ? product.images 
+  //   : ["/placeholder-image.jpg"];
 
   // 4. AUTO-SLIDE EFFECT
   useEffect(() => {
@@ -184,23 +191,48 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
   >
     {/* DUAL GLOW SHADOW BACKDROP */}
     <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[3rem] bg-gradient-to-r from-primary/80 via-secondary/60 to-primary/90 opacity-75 blur-xl pointer-events-none animate-slow-glow" />
-
-    {/* MAIN FRAME - Hover handler added */}
+ 
+    {/* MAIN FRAME - Hover handler added.
+        When the live animation is showing we DROP the fixed aspect-video
+        ratio and let the frame size itself around the animation's own
+        natural height (stage keeps its own aspect-ratio internally, panel
+        sizes to its content) — this is what stops it clipping/hiding on
+        mobile and stops the stray scrollbar on desktop. Real image/video
+        slides keep the original fixed aspect-video box. */}
     <div 
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative rounded-[1.5rem] sm:rounded-[3rem] p-[3px] bg-gradient-to-r from-primary via-primary/90 to-secondary w-full aspect-video flex items-center justify-center overflow-hidden group cursor-pointer"
+      className={`relative rounded-[1.5rem] sm:rounded-[3rem] p-[3px] bg-gradient-to-r from-primary via-primary/90 to-secondary w-full flex items-center justify-center group cursor-pointer ${
+        showingAnimation ? "overflow-hidden" : "aspect-video overflow-hidden"
+      }`}
     >
       {/* Inner Image Box */}
-<div className="relative w-full h-full rounded-[calc(2rem-3px)] sm:rounded-[calc(3rem-3px)] overflow-hidden bg-slate-950 flex items-center justify-center">
-  
-<SmartMedia
+<div className={`relative w-full rounded-[calc(2rem-3px)] sm:rounded-[calc(3rem-3px)] overflow-hidden bg-slate-950 flex items-center justify-center ${
+        showingAnimation ? "" : "h-full"
+      }`}>
+ 
+  {/* Live product animation, when this product has one registered.
+      IMPORTANT: this renders in normal flow (no position:absolute) so its
+      real content height is what the auto-height frame above measures
+      itself against — an absolutely positioned element here would collapse
+      to zero height and either get clipped or force the whole frame flat. */}
+  {showingAnimation && AnimationComponent && (
+    <div className="w-full z-0">
+      <AnimationComponent variant="compact" />
+    </div>
+  )}
+ 
+  {/* Real images / video — if an animation is registered it sits in slide 0
+      as a "virtual" slide, so real media starts from currentImageIndex 1 */}
+  {!showingAnimation && (
+    <SmartMedia
                 key={currentImageIndex}
                 type="image"
-                src={productImages[currentImageIndex]}
+                src={productImages[AnimationComponent ? currentImageIndex - 1 : currentImageIndex]}
                 alt={`${product.name} visual ${currentImageIndex + 1}`}
                 className="w-full h-full [&>img]:object-cover z-0"
               />
+  )}
 
   {/* Bottom Dot Indicators - z-20 & relative added for click priority */}
   {productImages.length > 1 && (

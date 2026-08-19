@@ -45,13 +45,7 @@ export const productsData: ProductDetail[] = [
       'FMCG High-Speed Assembly',
       'Automotive Component Marking',
     ],
-    images: [
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786173277/65911_hprlxx.png",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786173277/65912_eedjvz.png",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786173277/65914_h9iilf.png",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786173277/65915_vhadsf.png",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786173277/65919_e7qbaq.png",  
-],
+
   },
   {
     id: 'rapid',
@@ -113,12 +107,7 @@ export const productsData: ProductDetail[] = [
       'Pharmaceutical Supply Chain',
       'Logistics & Warehousing',
     ],
-        images: [
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786182619/WhatsApp_Image_2026-08-08_at_2.21.46_PM_jxfsid.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786183439/IMG_20260808_145650_svpjus.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786182619/WhatsApp_Image_2026-08-08_at_2.32.20_PM_paqjbw.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786182619/WhatsApp_Image_2026-08-08_at_2.35.38_PM_you4bs.jpg",  
-],
+      
   },
   {
     id: 'opus',
@@ -146,11 +135,6 @@ export const productsData: ProductDetail[] = [
       'Automotive Parts',
       'Electronics Assembly',
     ],
-  images: [
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/Opus1_lt5q51.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/opus2_tip7ou.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786629596/opus3_vci5vx.jpg", 
-],
   },
   {
     id: 'panorama',
@@ -178,12 +162,7 @@ export const productsData: ProductDetail[] = [
       'Beverages & Distilleries',
       'Cosmetics & Tubes',
     ],
-       images: [
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma1_si3be5.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma2_cnzmhy.jpg",
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786690931/panaroma3_pedrvo.jpg", 
-  "https://res.cloudinary.com/owsr7mjw/image/upload/v1786723312/panaroma_4_gs1lsn.jpg",
-    ],
+     
   },
   // {
   // id: 'blister-inspection-system',

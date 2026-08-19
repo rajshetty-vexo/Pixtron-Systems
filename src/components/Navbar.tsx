@@ -25,6 +25,7 @@ const solutionsList = [
 
 const companyList = [
   { label: 'About Us', path: '/company#about' },
+  { label: 'Our Partners', path: '/company#partners' },
   { label: 'Careers', path: '/company#careers' },
 ];
 
@@ -182,7 +183,7 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <Link 
-              to="/about" 
+              to="/company" 
               className="text-sm font-semibold text-slate-800 hover:text-primary flex items-center gap-1 py-2 transition-colors"
             >
               Company
