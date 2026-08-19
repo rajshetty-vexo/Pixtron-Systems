@@ -361,41 +361,44 @@ export const TestimonialsSection: React.FC = () => {
                           }}
                         />
                       ) : (
-                        <div
-                          role="button"
-                          tabIndex={0}
-                          onClick={() => playInline(current)}
-                          className="relative w-full h-full cursor-pointer overflow-hidden group/play"
-                        >
-                          <SmartMedia
-                            type="image"
-                            src={thumbnails[current.id] || `https://img.youtube.com/vi/${parseYouTubeId(current.mediaUrl)}/hqdefault.jpg`}
-                            alt={current.name}
-                            className="w-full h-full [&>img]:object-cover transition-transform duration-500 group-hover/play:scale-105"
-                          />
+                <div
+  role="button"
+  tabIndex={0}
+  onClick={() => playInline(current)}
+  className="relative w-full h-full cursor-pointer overflow-hidden group/play"
+>
+  <SmartMedia
+    type="image"
+    src={thumbnails[current.id] || `https://img.youtube.com/vi/${parseYouTubeId(current.mediaUrl)}/hqdefault.jpg`}
+    alt={current.name}
+    className="w-full h-full [&>img]:object-cover transition-transform duration-500 group-hover/play:scale-105"
+  />
 
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                          <div className="absolute top-3.5 left-3.5 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-700/60 z-10">
-                            <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-white text-[9px] font-black">
-                              P
-                            </div>
-                            <span className="text-white text-xs font-semibold tracking-wide">
-                              Pixtron Systems
-                            </span>
-                          </div>
+  {/* Top Badge - Scaled for Mobile */}
+  <div className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 flex items-center gap-1.5 sm:gap-2 bg-slate-950/80 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-slate-700/60 z-10">
+    <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-primary flex items-center justify-center text-white text-[8px] sm:text-[9px] font-black">
+      P
+    </div>
+    <span className="text-white text-[10px] sm:text-xs font-semibold tracking-wide">
+      Pixtron Systems
+    </span>
+  </div>
 
-                          <div className="absolute inset-0 flex items-center justify-center z-10">
-                            <div className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 group-hover/play:scale-110 transition-transform duration-300">
-                              <Play className="w-6 h-6 fill-current ml-0.5" />
-                            </div>
-                          </div>
+  {/* Center Play Button - Responsive Size */}
+  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 group-hover/play:scale-110 transition-transform duration-300">
+      <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-current ml-0.5" />
+    </div>
+  </div>
 
-                          <div className="absolute bottom-3.5 right-3.5 bg-slate-900/90 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700 z-10">
-                            <Youtube className="w-4 h-4 text-red-500" />
-                            Watch Video
-                          </div>
-                        </div>
+  {/* Bottom Badge - Scaled for Mobile */}
+  <div className="absolute bottom-2 right-2 sm:bottom-3.5 sm:right-3.5 bg-slate-900/90 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full flex items-center gap-1 sm:gap-1.5 border border-slate-700 z-10">
+    <Youtube className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500" />
+    <span>Watch Video</span>
+  </div>
+</div>
                       )}
                     </>
                   )}

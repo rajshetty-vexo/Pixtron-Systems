@@ -119,32 +119,34 @@ export const OurClients: React.FC = () => {
             }`}
           >
             {displayClients.map((client, idx) => (
-              <div
-                key={`${client.id}-${idx}`}
-                className="group relative flex items-center gap-4 bg-slate-50/90 hover:bg-white border border-slate-200/80 hover:border-[#FFD400] px-5 py-4 rounded-2xl min-w-[280px] sm:min-w-[320px] shrink-0 transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer hover:-translate-y-1 backdrop-blur-xs"
-              >
-                {/* Logo Box */}
-                <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-2xs group-hover:border-[#FFD400]/60 transition-colors overflow-hidden p-1">
-                  {client.logoUrl ? (
-                    <img
-                      src={client.logoUrl}
-                      alt={client.name}
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                  ) : (
-                    <span className="font-extrabold text-sm text-slate-800 group-hover:text-[#003882] transition-colors">
-                      {client.logoText}
-                    </span>
-                  )}
-                </div>
+   <div
+  key={`${client.id}-${idx}`}
+  // Solid 2px border (border-2) and ring effect to prevent layout movement/jitter
+  className="group relative flex items-center gap-4 bg-slate-50/90 border-2 border-slate-200/80 px-5 py-4 rounded-2xl min-w-[280px] sm:min-w-[320px] shrink-0 transition-colors duration-200 shadow-sm cursor-pointer backdrop-blur-xs hover:bg-white hover:border-[#FFD400] hover:shadow-md active:border-[#FFD400] focus:border-[#FFD400] focus:outline-none"
+  tabIndex={0}
+>
+  {/* Logo Box */}
+  <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-2xs group-hover:border-[#FFD400]/60 transition-colors overflow-hidden p-1">
+    {client.logoUrl ? (
+      <img
+        src={client.logoUrl}
+        alt={client.name}
+        className="w-full h-full object-contain rounded-lg"
+      />
+    ) : (
+      <span className="font-extrabold text-sm text-slate-800 group-hover:text-[#003882] transition-colors">
+        {client.logoText}
+      </span>
+    )}
+  </div>
 
-                {/* Client Name (Full text visible, no truncation/dots) */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-slate-900 font-bold text-sm sm:text-base leading-snug whitespace-nowrap group-hover:text-[#003882] transition-colors">
-                    {client.name}
-                  </h4>
-                </div>
-              </div>
+  {/* Client Name */}
+  <div className="flex-1 min-w-0">
+    <h4 className="text-slate-900 font-bold text-sm sm:text-base leading-snug whitespace-nowrap group-hover:text-[#003882] transition-colors">
+      {client.name}
+    </h4>
+  </div>
+</div>
             ))}
           </div>
         </div>
