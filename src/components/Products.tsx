@@ -1,11 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
-import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Zap, ShieldCheck, BarChart3, Orbit, ArrowRight,ScanLine } from 'lucide-react';
 import {SmartMedia} from "../components/SmartMedia";
 
-const products = [
+type SuiteType = 'vision' | 'trackTrace';
+
+const visionProducts = [
   {
     id: 'inspectra',
     name: 'Inspectra',
@@ -85,38 +87,105 @@ const products = [
   // },
 ];
 
-export const Products: React.FC = () => {
+const trackTraceProducts = [
+  {
+    id: 'primus',
+    name: 'Primus',
+    tagline: 'Serialization & Track & Trace',
+    description: 'End-to-end serialization, aggregation, and traceability platform that ensures product authenticity and regulatory compliance across the entire supply chain.',
+    inspections: [
+      'Unique Code Serialization',
+      'Parent-Child Aggregation',
+      'Regulatory Compliance Reporting',
+    ],
+    icon: <ScanLine className="text-primary" size={32} />,
+    image: "PUT_PRIMUS_IMAGE_URL_HERE",
+  },
+];
+
+
+interface ProductsProps {
+  activeSuite: SuiteType;
+  onToggle: (suite: SuiteType) => void;
+}
+
+export const Products: React.FC<ProductsProps> = ({ activeSuite, onToggle }) => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  // Scroll event handler for mobile slider dots sync
+  const products = activeSuite === 'vision' ? visionProducts : trackTraceProducts;
+
+  // reset the mobile slider position whenever the tab changes
+  useEffect(() => {
+    setActiveCardIndex(0);
+    scrollContainerRef.current?.scrollTo({ left: 0 });
+  }, [activeSuite]);
+
   const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = container.firstElementChild
-        ? (container.firstElementChild as HTMLElement).offsetWidth
-        : 300;
-      const index = Math.round(scrollLeft / cardWidth);
-      setActiveCardIndex(index);
-    }
+    // ...unchanged
   };
+
+  const headingContent = activeSuite === 'vision'
+  ? {
+      title: 'Pixtron Inspection Suite',
+      subtitle: 'Each of our systems is engineered for specific industrial challenges with targeted inspection capabilities.',
+    }
+  : {
+      title: 'Pixtron Track & Trace Suite', 
+      subtitle: 'End-to-end serialization and traceability solutions that secure your products from production to shelf.', 
+    };
+  
 
   return (
     <section id="products" className="py-10 sm:py-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-16">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <PixtronArrows size={22} />
-            <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">Our Products</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Pixtron Inspection Suite</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
-            Each of our systems is engineered for specific industrial challenges with targeted inspection capabilities.
-          </p>
-        </div>
+  <div className="text-center mb-10 sm:mb-16">
+  <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+    <PixtronArrows size={22} />
+    <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">Our Products</span>
+  </div>
+
+<div className={`inline-flex items-center bg-slate-100 border rounded-full p-1 mb-4 sm:mb-6 transition-colors duration-300 ${
+  activeSuite === 'vision' ? 'border-primary' : 'border-secondary'
+}`}>
+  {(['vision', 'trackTrace'] as const).map((tab) => {
+    const isActive = activeSuite === tab;
+    const isVisionTab = tab === 'vision';
+
+    return (
+      <button
+        key={tab}
+        onClick={() => onToggle(tab)}
+        className={`relative px-5 sm:px-7 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors z-10 ${
+          isActive
+            ? isVisionTab ? 'text-white' : 'text-slate-800'
+            : 'text-slate-500 hover:text-slate-700'
+        }`}
+      >
+        {isActive && (
+          <motion.div
+            layoutId="suiteToggleBg"
+            className={`absolute inset-0 rounded-full -z-10 ${
+              isVisionTab ? 'bg-primary' : 'bg-secondary'
+            }`}
+            transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
+          />
+        )}
+        {tab === 'vision' ? 'Vision' : 'Track & Trace'}
+      </button>
+    );
+  })}
+</div>
+
+  <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">
+    {headingContent.title}
+  </h2>
+  <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+    {headingContent.subtitle}
+  </p>
+</div>
 
         {/* 6 Products Grid on Desktop / Horizontal Scroll Slider on Mobile */}
         <div

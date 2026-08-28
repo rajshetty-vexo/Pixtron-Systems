@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PixtronArrows } from './PixtronArrows';
-import { Camera, Cpu, Zap, CheckCircle } from 'lucide-react';
+import { Camera, Cpu, Zap, CheckCircle, QrCode, Boxes, ScanLine, CloudUpload } from 'lucide-react';
 
-const steps = [
+type SuiteType = 'vision' | 'trackTrace';
+
+const visionSteps = [
   {
     title: 'Image Acquisition',
     desc: 'High-speed global shutter cameras capture crystal clear frames at up to 2500 FPS.',
@@ -26,22 +28,39 @@ const steps = [
   },
 ];
 
-export const Workflow: React.FC = () => {
+const trackTraceSteps = [
+  { title: 'Code Generation', desc: 'Unique, tamper-proof serial numbers are generated per unit as per GS1/regulatory standards.', icon: <QrCode size={24} /> },
+  { title: 'Print & Verify', desc: 'Codes are printed inline and instantly verified for grade and readability before packing.', icon: <ScanLine size={24} /> },
+  { title: 'Aggregation', desc: 'Unit, case, and pallet-level codes are linked in a parent-child hierarchy for full traceability.', icon: <Boxes size={24} /> },
+  { title: 'Cloud Reporting', desc: 'Serialization data syncs with your ERP/MES and regulatory systems in real time.', icon: <CloudUpload size={24} /> },
+];
+
+
+
+interface WorkflowProps {
+  activeSuite: SuiteType;
+}
+
+export const Workflow: React.FC<WorkflowProps> = ({ activeSuite }) => {
+  const steps = activeSuite === 'vision' ? visionSteps : trackTraceSteps;
+  const heading = activeSuite === 'vision' ? 'The Inspection Lifecycle' : 'The Track & Trace Lifecycle';
+  const subheading = activeSuite === 'vision'
+    ? 'From high-speed capture to automated rejection, our process ensures that only flawless products reach your customers.'
+    : 'From code generation to cloud reporting, our process ensures complete traceability across your supply chain.';
+
   return (
     <section id="workflow" className="py-14 lg:py-16 bg-slate-900 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Background Decorative Element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none">
           <PixtronArrows size={800} />
         </div>
 
         <div className="text-center mb-14 sm:mb-20 relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">The Inspection Lifecycle</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed ">
-            From high-speed capture to automated rejection, our process ensures that only flawless products reach your customers.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{heading}</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed">
+            {subheading}
           </p>
         </div>
-
         <div className="relative z-10">
           {/* Connector Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />

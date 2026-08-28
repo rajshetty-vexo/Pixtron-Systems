@@ -7,6 +7,7 @@ import  OurClients  from '../components/OurClients';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { Products } from '../components/Products';
 import { Workflow } from '../components/Workflow';
+import { SolutionsShowcase } from '../components/SolutionsShowcase';
 import { PixtronArrows } from '../components/PixtronArrows';
 import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'lucide-react';
 
@@ -14,6 +15,7 @@ export const HomePage: React.FC = () => {
   // Mouse position tracking for the cursor-following grid + glow effect
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [activeSuite, setActiveSuite] = useState<'vision' | 'trackTrace'>('vision');
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -138,8 +140,9 @@ export const HomePage: React.FC = () => {
       </section>
 
       <Industries />
-      <Products />
-      <Workflow />
+      <Products activeSuite={activeSuite} onToggle={setActiveSuite} />
+      <Workflow activeSuite={activeSuite} />
+      <SolutionsShowcase />
       <OurClients />
       <TestimonialsSection />
 

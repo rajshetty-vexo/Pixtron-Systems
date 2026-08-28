@@ -124,28 +124,31 @@ export const Footer: React.FC = () => {
 
           {/* 3. SOLUTIONS COLUMN */}
           <div className="col-span-1">
-            <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-6 border-b border-white/10 pb-2">Solutions</h4>
-            <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
-              {[
-                { name: 'Automotive' },
-                { name: 'Electronics' },
-                { name: 'Pharmaceuticals' },
-                { name: 'Food & Beverage' },
-                { name: 'Manufacturing' },
-                { name: 'Logistics' },
-              ].map((sol) => (
-                <li key={sol.name}>
-                  <Link 
-                    to={`/solutions?industry=${encodeURIComponent(sol.name)}`} 
-                    className="group text-white/80 hover:text-[#fbbb0d] transition-colors flex items-center gap-1.5 sm:gap-2"
-                  >
-                    <PixtronArrows size={10} variant="white" className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-                    <span>{sol.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-6 border-b border-white/10 pb-2">
+    Solutions
+  </h4>
+  <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
+    {[
+      { name: 'Tetra Pack Inspection', id: 'tetra-pack-inspection' },
+      { name: 'Cable & Wire Inspection', id: 'cable-wire-inspection' },
+      { name: 'Reflective Material Inspection', id: 'reflective-material-inspection' },
+      { name: 'Vial Counting Inspection', id: 'vial-counting-inspection' },
+      { name: 'Blister Inspection', id: 'blister-inspection' },
+      { name: '1D/2D Code, Pharma Code & OCR Inspection', id: '1d-2d-code-pharma-ocr-inspection' },
+      { name: 'Datamatrix & OCR Verification', id: 'datamatrix-ocr-verification' },
+    ].map((sol) => (
+      <li key={sol.id}>
+        <Link 
+          to={`/solutions/${sol.id}`} 
+          className="group text-white/80 hover:text-[#fbbb0d] transition-colors flex items-center gap-1.5 sm:gap-2"
+        >
+          <PixtronArrows size={10} variant="white" className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+          <span>{sol.name}</span>
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
           {/* 4. COMPANY COLUMN (NEWLY ADDED) */}
 <div className="col-span-1">
