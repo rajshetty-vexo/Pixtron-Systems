@@ -32,7 +32,7 @@ High-speed throughput
 Inline alerts
 
 
-Codex
+CodexQ
 Code Reading
 
 Reliable decoding for QR, 1D, 2D and pharma codes with high-speed verification and compliance logging.

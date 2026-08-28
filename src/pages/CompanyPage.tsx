@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { AboutSection } from '../components/AboutSection'; 
 import { CareersSection } from '../components/CareersSection';
 import { PartnersSection } from '../components/PartnersSection';
-// import  CodexAnimationProps  from '../components/CodexAnimation';
+// import  CodexQAnimationProps  from '../components/CodexQAnimation';
 export const CompanyPage: React.FC = () => {
   const { hash } = useLocation();
 
@@ -32,8 +32,8 @@ export const CompanyPage: React.FC = () => {
       </section>
 
         {/* 2. PARTNERS SECTION */}
-      {/* <section id="Codex" className="scroll-mt-24 border-t border-slate-200/80">
-        <CodexAnimationProps/>
+      {/* <section id="CodexQ" className="scroll-mt-24 border-t border-slate-200/80">
+        <CodexQAnimationProps/>
       </section> */}
 
       <section id="partners" className="scroll-mt-24 border-t border-slate-200/80">

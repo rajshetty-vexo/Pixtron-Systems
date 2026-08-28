@@ -1,9 +1,9 @@
 
 
 /**
- * CodexAnimation.tsx
+ * CodexQAnimation.tsx
  * ---------------------------------------------------------------------------
- * Animated product hero for PIXTRON CODEX (Code Reading & OCR).
+ * Animated product hero for PIXTRON CodexQ (Code Reading & OCR).
  *
  * - Built with GSAP for the conveyor / camera / decode animation.
  * - Fully self-contained: styles are injected via a scoped <style> tag,
@@ -20,8 +20,8 @@
  *
  * Usage:
  *   npm install gsap
- *   import CodexAnimation from "./CodexAnimation";
- *   <CodexAnimation brochureHref="/files/codex-brochure.pdf" />
+ *   import CodexQAnimation from "./CodexQAnimation";
+ *   <CodexQAnimation brochureHref="/files/CodexQ-brochure.pdf" />
  */
 
 import React, { useEffect, useId, useRef } from "react";
@@ -42,7 +42,7 @@ interface Product {
   exp: string;
 }
 
-export interface CodexAnimationProps {
+export interface CodexQAnimationProps {
   /** Optional link for the "Download Brochure" button. If omitted, the button is hidden. */
   brochureHref?: string;
   /** Extra class name on the outer wrapper. */
@@ -69,7 +69,7 @@ function pad(n: number) {
 
 function randomProduct(): Product {
   const brand = BRANDS[Math.floor(Math.random() * BRANDS.length)];
-  const codeType = CODE_TYPES[Math.floor(Math.random() * CODE_TYPES.length)];
+  const codeType: CodeType = "barcode";
   const lot = "BTH" + Math.floor(200000 + Math.random() * 90000);
   const d = new Date();
   const mfg = `${pad(d.getMonth() + 1)}/${d.getFullYear() - 1}`;
@@ -235,7 +235,7 @@ function buildCarton(product: Product): SVGGElement {
    COMPONENT
 ============================================================ */
 
-export default function CodexAnimation({ brochureHref, className, variant = "full" }: CodexAnimationProps) {
+export default function CodexQAnimation({ brochureHref, className, variant = "full" }: CodexQAnimationProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -361,10 +361,26 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
 
     let stopped = false;
 
+    // Deterministic sequence: exactly 2 faulty barcodes out of every batch of
+    // 5 (shuffled within the batch so it doesn't feel mechanical), instead
+    // of an independent random chance per spawn — loops continuously.
+    let batchQueue: boolean[] = [];
+    const nextFaulty = (): boolean => {
+      if (batchQueue.length === 0) {
+        const batch = [true, true, false, false, false];
+        for (let i = batch.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [batch[i], batch[j]] = [batch[j], batch[i]];
+        }
+        batchQueue = batch;
+      }
+      return batchQueue.shift()!;
+    };
+
     const spawnProduct = () => {
       if (stopped || !productsGroupRef.current) return;
       const product = randomProduct();
-      const faulty = Math.random() < 0.22;
+      const faulty = nextFaulty();
       const carton = buildCarton(product);
       productsGroupRef.current.appendChild(carton);
       gsap.set(carton, { x: -70, y: 0 });
@@ -433,7 +449,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
     setText("statusText", "SYSTEM READY");
     updateStats();
 
-    // Live metrics strip (line speed / camera fps / avg decode / uptime).
+    // Live metrics strip (line speed / scan dpi / avg decode / uptime).
     const startedAt = Date.now();
     const formatUptime = (ms: number) => {
       const totalSec = Math.max(0, Math.floor(ms / 1000));
@@ -443,7 +459,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
       return [h, m, s].map((v) => String(v).padStart(2, "0")).join(":");
     };
     setText("lineSpeed", "218 ppm");
-    setText("camFps", "240 fps");
+    setText("scanDpi", "600 dpi");
     setText("avgDecode", "34 ms");
     setText("uptime", "00:00:00");
 
@@ -451,7 +467,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
     if (!reduceMotion) {
       metricsInterval = window.setInterval(() => {
         setText("lineSpeed", `${205 + Math.floor(Math.random() * 22)} ppm`);
-        setText("camFps", `${236 + Math.floor(Math.random() * 10)} fps`);
+        setText("scanDpi", `${580 + Math.floor(Math.random() * 60)} dpi`);
         setText("avgDecode", `${29 + Math.floor(Math.random() * 14)} ms`);
         setText("uptime", formatUptime(Date.now() - startedAt));
       }, 1000);
@@ -544,7 +560,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
             </div>
             <div className="cxh-producttag">
               <span className="cxh-line" />
-              CODEX <em>|</em> CODE READING &amp; OCR
+              CodexQ <em>|</em> CODE READING &amp; OCR
             </div>
           </div>
 
@@ -648,8 +664,8 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
               </span>
             </div>
             <div className="cxh-mini">
-              <span className="cxh-mini-label">CAMERA FPS</span>
-              <span className="cxh-mini-value" data-role="camFps">
+              <span className="cxh-mini-label">SCAN DPI</span>
+              <span className="cxh-mini-value" data-role="scanDpi">
                 &mdash;
               </span>
             </div>
@@ -676,7 +692,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
           {/* SOFTWARE PANEL */}
           <div className="cxh-panel">
             <div className="cxh-panel-head">
-              <span className="cxh-panel-title">CODEX LIVE FEED</span>
+              <span className="cxh-panel-title">CodexQ LIVE FEED</span>
               <span className="cxh-running">
                 <i className="cxh-running-dot" /> LIVE
               </span>
@@ -688,7 +704,7 @@ export default function CodexAnimation({ brochureHref, className, variant = "ful
               </span>
               <div className="cxh-preview-product">
                 <span className="cxh-preview-brand">
-                  CODEX
+                  CodexQ
                 </span>
                 <div className="cxh-preview-box" />
               </div>
@@ -889,8 +905,15 @@ const CSS = `
   aspect-ratio: 1000 / 400;
 }
 .cxh-stage-label {
-  position: absolute; top: 10px; left: 12px; z-index: 2;
-  font-size: 9px; font-weight: 700; letter-spacing: 0.8px; color: #7EA0C7;
+  position: absolute; top: 8px; left: 8px; z-index: 2;
+  font-size: clamp(7px, 1.7cqw, 9px); font-weight: 700; letter-spacing: 0.7px; color: #9FC0E0;
+  background: rgba(2,11,24,0.75);
+  padding: 3px 7px;
+  border-radius: 5px;
+  max-width: calc(100% - 16px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .cxh-svg { width: 100%; height: 100%; display: block; }
 

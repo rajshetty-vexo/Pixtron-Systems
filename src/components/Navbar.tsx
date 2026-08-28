@@ -3,25 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PixtronLogo } from './PixtronLogo';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { solutionsData } from '../data/Solutionsdata';
 
 // Dropdown Items Data
 const productsList = [
   { label: 'Inspectra', id: 'inspectra' },
   { label: 'Rapid', id: 'rapid' },
-  { label: 'Codex', id: 'codex' },
+  { label: 'CodexQ', id: 'CodexQ' },
   { label: 'Opus', id: 'opus' },
   { label: 'Panorama', id: 'panorama' },
-  { label: 'Blister Inspection', id: 'blister-inspection-system' },
+  // { label: 'Blister Inspection', id: 'blister-inspection-system' },
 ];
-
-const solutionsList = [
-  'Automotive',
-  'Electronics',
-  'Pharmaceuticals',
-  'Food & Beverage',
-  'Manufacturing',
-  'Logistics',
-];
+const solutionsList = solutionsData.map((s) => ({ label: s.name, id: s.id }));
 
 const companyList = [
   { label: 'About Us', path: '/company#about' },
@@ -49,7 +42,7 @@ export const Navbar: React.FC = () => {
 
   return (
 <nav 
-  className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2.5rem)] max-w-7xl rounded-full border border-slate-200/80 px-6 py-3 ${
+  className={`fixed top-7 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2.5rem)] max-w-7xl rounded-full border border-slate-200/80 px-6 py-3 ${
     isScrolled 
       ? 'bg-white/95 backdrop-blur-md shadow-xl shadow-slate-900/10 border-slate-300/80' 
       : 'bg-white/80 backdrop-blur-md shadow-lg shadow-slate-900/5'
@@ -122,7 +115,8 @@ export const Navbar: React.FC = () => {
   </AnimatePresence>
 </div>
 
-{/* 2. SOLUTIONS DROPDOWN */}
+{/* 2. SOLUTIONS DROPDOWN — each item now links straight to its own
+    /solutions/:solutionId detail page instead of a filtered listing. */}
 <div 
   className="relative"
   onMouseEnter={() => setActiveDropdown('solutions')}
@@ -135,7 +129,7 @@ export const Navbar: React.FC = () => {
     Solutions
     <ChevronDown size={15} className={`transition-transform duration-200 ${activeDropdown === 'solutions' ? 'rotate-180 text-primary' : 'text-slate-500'}`} />
   </Link>
-
+ 
   <AnimatePresence>
     {activeDropdown === 'solutions' && (
       <motion.div
@@ -144,25 +138,25 @@ export const Navbar: React.FC = () => {
         exit={{ opacity: 0, y: 8, scale: 0.95 }}
         transition={{ type: 'spring', damping: 22, stiffness: 350 }}
         /* CENTER ALIGNMENT FIX */
-        className="absolute top-full left-1/2 -translate-x-1/2 w-60 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2.5 mt-3 z-50 overflow-hidden"
+        className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2.5 mt-3 z-50 overflow-hidden"
       >
         {/* TOP POINTER TRIANGLE */}
         <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-t border-l border-slate-100" />
-
+ 
         <div className="px-3 pt-1.5 pb-2 mb-1 border-b border-slate-100/80">
-          <p className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">Industries</p>
+          <p className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">Solutions</p>
         </div>
-
-        <div className="flex flex-col gap-0.5 relative z-10">
+ 
+        <div className="flex flex-col gap-0.5 relative z-10 max-h-[60vh] overflow-y-auto">
           {solutionsList.map((sol) => (
             <Link
-              key={sol}
-              to={`/solutions?industry=${encodeURIComponent(sol)}`}
+              key={sol.id}
+              to={`/solutions/${sol.id}`}
               onClick={() => setActiveDropdown(null)}
               className="group flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-200"
             >
               <span className="group-hover:translate-x-1.5 transition-transform duration-200">
-                {sol}
+                {sol.label}
               </span>
               {/* HORIZONTAL CURIOSITY ARROW */}
               <span className="text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 font-bold text-xl leading-none">
@@ -321,7 +315,7 @@ export const Navbar: React.FC = () => {
   </AnimatePresence>
 </div>
 
-{/* MOBILE SOLUTIONS ACCORDION */}
+{/* MOBILE SOLUTIONS ACCORDION — links straight to each solution's detail page */}
 <div className="border-b border-slate-100 pb-2">
   <div className="flex items-center justify-between py-1">
     <Link
@@ -331,7 +325,7 @@ export const Navbar: React.FC = () => {
     >
       Solutions
     </Link>
-
+ 
     <button
       type="button"
       onClick={(e) => {
@@ -347,7 +341,7 @@ export const Navbar: React.FC = () => {
       />
     </button>
   </div>
-
+ 
   <AnimatePresence initial={false}>
     {mobileSolutionsOpen && (
       <motion.div
@@ -360,12 +354,12 @@ export const Navbar: React.FC = () => {
       >
         {solutionsList.map((sol) => (
           <Link
-            key={sol}
-            to={`/solutions?industry=${encodeURIComponent(sol)}`}
+            key={sol.id}
+            to={`/solutions/${sol.id}`}
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-sm font-medium text-slate-600 hover:text-primary py-1"
           >
-            {sol}
+            {sol.label}
           </Link>
         ))}
       </motion.div>

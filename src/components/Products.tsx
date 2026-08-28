@@ -10,10 +10,11 @@ const products = [
     id: 'inspectra',
     name: 'Inspectra',
     tagline: 'Dot Print Inspection',
-    description: 'High precision, high speed dot print inspection.',
+    description: 'High precision, ultra high-speed dot print inspection designed for complex packaging lines. Inspectra ensures 100% real-time defect verification without slowing production speeds.',
     inspections: [
-      'OCR/OCV & Dot print verification',
-      'Seal integrity & Package damage detection'
+      'OCR & OCV Intelligence',
+      'Dot Print & Seal Integrity Verification',
+      'Inline High-Speed Processing',
     ],
     icon: <ShieldCheck className="text-primary" size={32} />,
     image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786111584/ChatGPT_Image_Aug_7_2026_07_27_46_PM_tscd0j.jpg",
@@ -24,20 +25,22 @@ const products = [
     tagline: 'Continuous Flow Production Line Inspection',
     description: 'Fast, accurate inspection with OCR/OCV for continuous flow production lines, with real-time monitoring and inspection of surface defects and dimensions.',
     inspections: [
-      'OCR/OCV & Surface defect detection',
-      'Diameter and concentricity checks'
+      'Continuous Profile Tracking',
+      'Micron-Level Defect Detection',
+      'Live Alarms & Analytics'
     ],
     icon: <Zap className="text-primary" size={32} />,
     image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786101974/ChatGPT_Image_Aug_7_2026_04_55_04_PM_rgjonz.png",
   },
   {
-    id: 'codex',
-    name: 'Codex',
+    id: 'CodexQ',
+    name: 'CodexQ',
     tagline: 'Code Reading & OCR',
-    description: 'Reliable decoding and OCR for QR, 1D, 2D and pharma codes with high-speed verification and compliance logging.',
+    description: 'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
     inspections: [
-      'QR, 1D & 2D decoding',
-      'Pharma code support & Verification'
+      '1D & 2D Array Decoding',
+      'Pharma Traceability Compliance',
+      'High-Speed Industrial Processing'
     ],
     icon: <CheckCircle2 className="text-primary" size={32} />,
     image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786112210/ChatGPT_Image_Aug_7_2026_07_45_30_PM_gy7vfq.jpg",
@@ -46,10 +49,11 @@ const products = [
     id: 'opus',
     name: 'Opus',
     tagline: 'Geometry & Color Inspection',
-    description: 'Advanced inspection for geometry, size, shape, surface and color consistency across production lines.',
+    description: 'Precise shape, size, and color consistency verification for complex manufacturing components.',
     inspections: [
-      'Shape, size & Surface inspection',
-      'Color verification & Analytics'
+      'Dimensional Tolerance Checks',
+      'Spectrum Color Matching',
+      'Surface Defect Inspection'
     ],
     icon: <BarChart3 className="text-primary" size={32} />,
     image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786098904/file_00000000923c8208860b3fb1f3dbee50_pj5kiu.png",
@@ -58,10 +62,11 @@ const products = [
     id: 'panorama',
     name: 'Panorama',
     tagline: '360° Inspection',
-    description: 'Complete 360-degree inspection for containers and products with full surface coverage.',
+    description: 'Complete cylindrical surface inspection using multi-camera arrays for bottles, cans, and tubes.',
     inspections: [
-      'Full circumference inspection',
-      'Multi-camera synchronization'
+      '360° Seamless Coverage',
+      'Cap & Label Alignment',
+      'Panoramic Image Unwrapping'
     ],
     icon: <Orbit className="text-primary" size={32} />,
     image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786117786/IMG_20260807_211740_vtalnq.jpg",
@@ -105,9 +110,9 @@ export const Products: React.FC = () => {
         <div className="text-center mb-10 sm:mb-16">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <PixtronArrows size={22} />
-            <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">Our Solutions</span>
+            <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">Our Products</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Precision Inspection Products</h2>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">Pixtron Inspection Suite</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
             Each of our systems is engineered for specific industrial challenges with targeted inspection capabilities.
           </p>

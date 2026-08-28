@@ -1,34 +1,3 @@
-/**
- * PanoramaAnimation.tsx
- * ---------------------------------------------------------------------------
- * Animated product hero for PIXTRON PANORAMA (360° Cylindrical Inspection).
- *
- * Ported from the original standalone panorama_animation.html into the same
- * architecture as CodexAnimation.tsx:
- *  - GSAP for the conveyor / camera-rig / defect-analysis animation.
- *  - Fully self-contained: styles injected via a scoped <style> tag, no
- *    Tailwind or external CSS dependency.
- *  - Responsive with CSS *container queries* (not just viewport media
- *    queries), so it lays out correctly no matter how narrow the card/frame
- *    it's dropped into is — not only how wide the browser window is.
- *  - No JS "scale-to-fit" transform and no resize listener. The original
- *    HTML manually computed `scale(...)` on a fixed 1200x700 canvas on
- *    every resize; here the machine SVG instead uses a cropped viewBox
- *    (matching the original's own mobile crop) inside a CSS Grid `aspect-
- *    ratio` box, so the browser's normal layout/paint engine handles all
- *    scaling for free — exactly like CODEX's `.cxh-stage`.
- *  - CSS Grid based layout: nothing is `position: absolute` over the art
- *    board, so nothing clips or overlaps on small screens.
- *  - Respects prefers-reduced-motion.
- *  - Safe for multiple instances on one page (all ids are unique per
- *    instance via React's useId).
- *
- * Usage:
- *   npm install gsap
- *   import PanoramaAnimation from "./PanoramaAnimation";
- *   <PanoramaAnimation brochureHref="/files/panorama-brochure.pdf" />
- */
-
 import React, { useEffect, useId, useRef } from "react";
 import { gsap } from "gsap";
 
@@ -603,7 +572,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
 
     // Background/throttled tabs make timers fall behind; wipe + restart
     // fresh on visibility regain so queued spawns never land on top of
-    // each other (same pattern as CodexAnimation).
+    // each other (same pattern as CodexQAnimation).
     const handleVisibility = () => {
       if (reduceMotion) return;
       if (document.hidden) {
@@ -1032,7 +1001,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
 
 /* ============================================================
    STYLES (scoped by .pnr- prefix, container-query responsive —
-   same structural approach as CodexAnimation's CSS)
+   same structural approach as CodexQAnimation's CSS)
 ============================================================ */
 
 const CSS = `

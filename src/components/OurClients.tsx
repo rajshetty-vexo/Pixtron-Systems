@@ -62,21 +62,6 @@ export const OurClients: React.FC = () => {
         }
       `}</style>
 
-      {/* Gemini Blue Glow Background Effect */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse at center, rgba(14, 116, 233, 0.28) 0%, rgba(6, 68, 162, 0.12) 45%, rgba(255, 255, 255, 0) 75%)",
-          filter: "blur(35px)",
-        }}
-      />
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[180px] pointer-events-none z-0 opacity-80"
-        style={{
-          background: "radial-gradient(circle, rgba(8, 120, 232, 0.35) 0%, rgba(255, 255, 255, 0) 70%)",
-          filter: "blur(45px)",
-        }}
-      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -122,7 +107,7 @@ export const OurClients: React.FC = () => {
    <div
   key={`${client.id}-${idx}`}
   // Solid 2px border (border-2) and ring effect to prevent layout movement/jitter
-  className="group relative flex items-center gap-4 bg-slate-50/90 border-2 border-slate-200/80 px-5 py-4 rounded-2xl min-w-[280px] sm:min-w-[320px] shrink-0 transition-colors duration-200 shadow-sm cursor-pointer backdrop-blur-xs hover:bg-white hover:border-[#FFD400] hover:shadow-md active:border-[#FFD400] focus:border-[#FFD400] focus:outline-none"
+  className="group relative flex items-center gap-4 bg-slate-50/90 border-1 border-[#FFD400] px-5 py-4 rounded-2xl min-w-[280px] sm:min-w-[320px] shrink-0 transition-all duration-200 shadow-sm cursor-pointer backdrop-blur-xs hover:bg-white hover:shadow-md focus:outline-none"
   tabIndex={0}
 >
   {/* Logo Box */}

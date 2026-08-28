@@ -16,7 +16,7 @@ const inspectionModes = [
     status: 'VERIFIED',
     object: 'code',
     fps: '1800 FPS',
-    details: 'CODEX SERIES'
+    details: 'CodexQ SERIES'
   },
   {
     id: 'cable',

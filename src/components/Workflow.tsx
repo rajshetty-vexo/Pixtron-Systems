@@ -10,7 +10,7 @@ const steps = [
     icon: <Camera size={24} />,
   },
   {
-    title: 'Intelligence Processing',
+    title: 'Intelligent Processing',
     desc: 'Proprietary vision algorithms analyze patterns, dimensions, and defects in milliseconds.',
     icon: <Cpu size={24} />,
   },

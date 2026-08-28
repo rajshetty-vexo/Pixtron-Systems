@@ -5,7 +5,8 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ProductsPage } from './pages/ProductsPage';
-import { SolutionPage } from './pages/SolutionPage';
+import { SolutionsPage } from './pages/SolutionsPage';
+import { SolutionDetailPage } from './pages/SolutionDetailPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { CompanyPage } from './pages/CompanyPage';
 import { ContactPage } from './pages/ContactPage';
@@ -138,7 +139,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/solutions" element={<SolutionPage />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/solutions/:solutionId" element={<SolutionDetailPage />} />
           <Route path="/products/:productId" element={<ProductDetailPage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/contact" element={<ContactPage />} />

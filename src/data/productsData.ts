@@ -1,3 +1,22 @@
+
+export interface ProductEdition {
+  eco: {
+    title: string;
+    description: string;
+    features: string[];
+  };
+  pro: {
+    title: string;
+    description: string;
+    features: string[];
+  };
+  evo: {
+    title: string;
+    description: string;
+    features: string[];
+  };
+}
+
 export interface ProductDetail {
   id: string;
   name: string;
@@ -13,6 +32,7 @@ export interface ProductDetail {
   }[];
   industriesUsed: string[];
   specifications?: { label: string; value: string }[];
+  editions?: ProductEdition;
 }
 
 export const productsData: ProductDetail[] = [
@@ -45,8 +65,39 @@ export const productsData: ProductDetail[] = [
       'FMCG High-Speed Assembly',
       'Automotive Component Marking',
     ],
+    editions: {
+      eco: {
+        title: 'Basic Presence Check',
+        description: 'Standard optical check for basic presence/absence & binary thresholding.',
+        features: [
+          'Presence / Absence verification',
+          'Basic thresholding & contrast checks',
+          'Standard PASS / FAIL output signals',
+        ],
+      },
+      pro: {
+        title: 'High Precision & Deep Inspection',
+        description: 'Micron-level defect detection for micro-scratches, complex contours & OCR.',
+        features: [
+          'Advanced OCR & OCV character reading',
+          'Micro-scratch & surface defect analysis',
+          'Complex shape & depth profile checking',
+        ],
+      },
+      evo: {
+        title: 'Custom Evolutionary Mode',
+        description: 'Client-tailored logic for custom logo matching, custom scripts & dynamic rules.',
+        features: [
+          'Custom logo presence & alignment check',
+          'Tailored software logic & API integration',
+          'Dynamic recipe & rule customization',
+        ],
+      },
+    },
 
   },
+
+
   {
     id: 'rapid',
     name: 'Rapid',
@@ -75,15 +126,47 @@ export const productsData: ProductDetail[] = [
       'Metal & Sheet Inspection',
       'Textile & Paper Rolls',
     ],
+    editions: {
+    eco: {
+      title: 'Basic Line & Edge Tracking',
+      description: 'Continuous web presence, edge alignment, and basic thresholding for extrusion/flow lines.',
+      features: [
+        'Web edge & alignment tracking',
+        'Basic surface presence & break checks',
+        'Standard PASS / FAIL line output',
+      ],
+    },
+    pro: {
+      title: 'High Precision Surface & Dimension Inspection',
+      description: 'Micron-level continuous profile scanning for micro-scratches, dents, and color variations.',
+      features: [
+        'Continuous profile & dimension scanning',
+        'Micro-scratch, dent & tear detection',
+        'Sub-pixel surface defect measurement',
+      ],
+    },
+    evo: {
+      title: 'Custom Line Integration Mode',
+      description: 'Customized software logic for client-specific line speeds, PLC signals, and print logo checks.',
+      features: [
+        'Custom logo & print mark verification',
+        'Tailored PLC & hardware sync logic',
+        'Dynamic recipe setup for custom web widths',
+      ],
+    },
   },
+  },
+
+
+
   {
-    id: 'codex',
-    name: 'Codex',
+    id: 'CodexQ',
+    name: 'CodexQ',
     category: 'Code Reading & OCR',
     subtitle: 'Ultra-Fast Traceability & Code Verification',
     description:
       'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
-    brochureUrl: '/brochures/codex-spec-sheet.pdf',
+    brochureUrl: '/brochures/CodexQ-spec-sheet.pdf',
     mainFeatures: [
       {
         title: '1D & 2D Array Decoding',
@@ -102,8 +185,42 @@ export const productsData: ProductDetail[] = [
       'Pharmaceutical Supply Chain',
       'Logistics & Warehousing',
     ],
+    editions: {
+    eco: {
+      title: 'Standard Barcode Reader',
+      description: 'Reliable 1D/2D code decoding for standard production lines.',
+      features: [
+        '1D & 2D Barcode Decoding (QR, DataMatrix)',
+        'Basic Batch Code & Expiry Reading',
+        'Up to 300 Decodes/Min Line Speed',
+        'Standard CSV Log Export'
+      ]
+    },
+    pro: {
+      title: 'High-Speed OCR & Traceability',
+      description: 'Pharma-compliant, high-density code reading with deep OCR verification.',
+      features: [
+        'GS1 & Pharma Traceability Compliance',
+        'Advanced OCR/OCV Character Verification',
+        'Damaged & Low-Contrast Code Recovery',
+        'High-Speed Line Processing (1000+ PPM)',
+        'Real-time Audit Trail & ERP Integration'
+      ]
+    },
+    evo: {
+      title: 'Custom Multi-Camera System',
+      description: 'Tailored vision array for multi-side scanning and custom label workflows.',
+      features: [
+        'Multi-Camera 360° Code Reading',
+        'Custom OCR Font Training & Validation',
+        'PLC & Robotic Reject System Triggering',
+        'Tailored Industrial API & Database Sync'
+      ]
+    }
+  },
       
   },
+
   {
     id: 'opus',
     name: 'Opus',
@@ -130,7 +247,42 @@ export const productsData: ProductDetail[] = [
       'Automotive Parts',
       'Electronics Assembly',
     ],
+    editions: {
+    eco: {
+      title: 'Standard Geometry Check',
+      description: 'Basic dimensional measurement and color verification for standard assembly lines.',
+      features: [
+        '2D Shape & Edge Measurement',
+        'Basic Delta-E Color Matching',
+        'Standard Angle, Length & Diameter Checks',
+        'Pass/Fail Signal Output via GPIO'
+      ]
+    },
+    pro: {
+      title: 'High-Precision Color & Surface',
+      description: 'Micron-level dimensional checks with deep spectrum color matching and defect analysis.',
+      features: [
+        'Sub-Millimeter Fractional Tolerance Inspection',
+        'Advanced Multi-Spectral Color Matching',
+        'Real-Time Surface Scratch & Dent Detection',
+        'High-Speed Line Synchronization',
+        'Detailed Analytics & Defect Heatmaps'
+      ]
+    },
+    evo: {
+      title: 'Custom Multi-Axis Vision',
+      description: 'Tailored 3D geometry array with custom lighting and robotic sorting integration.',
+      features: [
+        'Multi-Camera 3D Geometric Verification',
+        'Custom Illumination & Spectrum Tuning',
+        'PLC & Robotic Reject System Integration',
+        'Tailored Quality Control API & Enterprise Logging'
+      ]
+    }
   },
+  },
+
+
   {
     id: 'panorama',
     name: 'Panorama',
@@ -156,9 +308,43 @@ export const productsData: ProductDetail[] = [
     industriesUsed: [
       'Beverages & Distilleries',
       'Cosmetics & Tubes',
-    ],
-     
+    ], 
+    editions: {
+    eco: {
+      title: 'Standard 360° Surface Check',
+      description: 'Basic full-circumference inspection for bottle labeling and cap presence.',
+      features: [
+        'Multi-Lens 360° Cylindrical Coverage',
+        'Basic Cap Presence & Ring Integrity Check',
+        'Label Position & Skew Verification',
+        'Standard Pass/Fail Reject Signal'
+      ]
+    },
+    pro: {
+      title: 'Advanced Panoramic Unwrapping',
+      description: 'Zero blind-spot inspection with real-time image unwrapping and high-speed defect tracking.',
+      features: [
+        'Real-Time Panoramic Image Unwrapping',
+        'Micro-Crack & Dent Detection on Bottles/Cans',
+        'Precision Cap Crimping & Seal Integrity Analysis',
+        'High-Speed Conveyor Line Processing (600+ BPM)',
+        'Defect Classification & Statistical Analytics'
+      ]
+    },
+    evo: {
+      title: 'Custom Multi-Array System',
+      description: 'Tailored multi-camera rig for complex container geometries and specialized line setups.',
+      features: [
+        'Custom Lens & Lighting Array Configuration',
+        'Multi-Size Container Auto-Switching Support',
+        'High-Speed Pneumatic Rejecter Synchronization',
+        'Tailored Factory Automation & PLC Integration'
+      ]
+    }
   },
+  },
+
+
   // {
   // id: 'blister-inspection-system',
   // name: 'Blister Inspection System',

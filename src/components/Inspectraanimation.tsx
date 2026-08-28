@@ -1,42 +1,3 @@
-
-/**
- * InspectraAnimation.tsx
- * ---------------------------------------------------------------------------
- * Animated product hero for PIXTRON INSPECTRA (Dot Print Inspection).
- *
- * Extracted from the INSPECTRA brochure:
- *  - AI-powered machine vision for dot print & seal integrity inspection.
- *  - Handles conveyor feeds up to 2500 FPS with instant rejection.
- *  - Verifies batch numbers / expiry dates via OCR & OCV (printed dot-matrix
- *    text — NOT barcodes/QR, that's Codex's job).
- *  - Detects: print smudging, missing dots, seal gaps, micro-tears.
- *  - Used on cylindrical packaging (vials, bottles, cans, sachets).
- *
- * Same battle-tested architecture as CodexAnimation.tsx:
- *  - GSAP-driven conveyor/camera/inspection animation, continuous motion
- *    (no belt pausing), fast strobe flash timed to the product passing
- *    under the camera.
- *  - Container-query responsive (works inside any frame width, not just
- *    viewport width) — no fixed pixel overlays.
- *  - `variant="compact"` drops straight into an existing image/video slot
- *    (e.g. ProductDetailPage) without a fixed aspect-ratio, so it never
- *    clips on mobile or grows a stray scrollbar on desktop.
- *  - Live metrics strip fills the empty space under the stage (desktop
- *    only, auto-hidden on narrow frames).
- *  - Pauses spawning + clears stale product elements on tab visibility
- *    change, so returning to a backgrounded tab never dumps overlapping
- *    products.
- *  - Respects prefers-reduced-motion, unique ids via useId (multi-instance
- *    safe).
- *
- * Usage:
- *   npm install gsap
- *   import InspectraAnimation from "./InspectraAnimation";
- *   <InspectraAnimation brochureHref="/brochures/inspectra-spec-sheet.pdf" />
- *   // or, dropped into an existing media frame:
- *   <InspectraAnimation variant="compact" />
- */
-
 import React, { useEffect, useId, useRef } from "react";
 import { gsap } from "gsap";
 
@@ -242,6 +203,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
   const rejectHeadRef = useRef<SVGRectElement | null>(null);
   const rejectFlashRef = useRef<SVGCircleElement | null>(null);
   const rollersRef = useRef<SVGGElement | null>(null);
+  const previewDotRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -294,9 +256,21 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
       }
     };
 
+    const renderPreviewDots = (product: Product, defect: DefectType | null) => {
+      const svg = previewDotRef.current;
+      if (!svg) return;
+      svg.innerHTML = "";
+      const line1 = renderDotText(`LOT ${product.lot}`, 2.6, 1.4, defect);
+      line1.setAttribute("transform", "translate(4,10)");
+      svg.appendChild(line1);
+      const line2 = renderDotText(`EXP ${product.exp}`, 2.6, 1.4, defect);
+      line2.setAttribute("transform", "translate(4,28)");
+      svg.appendChild(line2);
+    };
+
     const updatePanel = (product: Product, defect: DefectType | null) => {
       const faulty = !!defect;
-      setText("printedText", `LOT ${product.lot}  /  EXP ${product.exp}`);
+      renderPreviewDots(product, defect);
       setText("lotValue", product.lot + (faulty ? "" : " \u2713"));
       setText("mfgValue", product.mfg + (faulty ? "" : " \u2713"));
       setText("expValue", product.exp + (faulty ? "" : " \u2713"));
@@ -353,10 +327,27 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
 
     let stopped = false;
 
+    // Deterministic sequence: exactly 2 faulty units out of every batch of 5
+    // (shuffled within the batch so it doesn't feel mechanical), instead of
+    // an independent random chance per spawn — matches the requested
+    // "2 out of every 5" pattern.
+    let batchQueue: boolean[] = [];
+    const nextFaulty = (): boolean => {
+      if (batchQueue.length === 0) {
+        const batch = [true, true, false, false, false];
+        for (let i = batch.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [batch[i], batch[j]] = [batch[j], batch[i]];
+        }
+        batchQueue = batch;
+      }
+      return batchQueue.shift()!;
+    };
+
     const spawnProduct = () => {
       if (stopped || !productsGroupRef.current) return;
       const product = randomProduct();
-      const faulty = Math.random() < 0.22;
+      const faulty = nextFaulty();
       const defect = faulty ? DEFECT_TYPES[Math.floor(Math.random() * DEFECT_TYPES.length)] : null;
       const bottle = buildBottle(product, defect);
       productsGroupRef.current.appendChild(bottle);
@@ -437,7 +428,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
       return [h, m, s].map((v) => String(v).padStart(2, "0")).join(":");
     };
     setText("lineSpeed", "312 ppm");
-    setText("camFps", "2,480 fps");
+    setText("scanDpi", "1,200 dpi");
     setText("avgOcr", "12 ms");
     setText("uptime", "00:00:00");
 
@@ -445,7 +436,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
     if (!reduceMotion) {
       metricsInterval = window.setInterval(() => {
         setText("lineSpeed", `${296 + Math.floor(Math.random() * 30)} ppm`);
-        setText("camFps", `${(2350 + Math.floor(Math.random() * 150)).toLocaleString()} fps`);
+        setText("scanDpi", `${(1150 + Math.floor(Math.random() * 100)).toLocaleString()} dpi`);
         setText("avgOcr", `${9 + Math.floor(Math.random() * 8)} ms`);
         setText("uptime", formatUptime(Date.now() - startedAt));
       }, 1000);
@@ -639,8 +630,8 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
               </span>
             </div>
             <div className="isp-mini">
-              <span className="isp-mini-label">CAMERA FPS</span>
-              <span className="isp-mini-value" data-role="camFps">
+              <span className="isp-mini-label">SCAN DPI</span>
+              <span className="isp-mini-value" data-role="scanDpi">
                 &mdash;
               </span>
             </div>
@@ -679,9 +670,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
                 <span className="isp-preview-brand">
                   INSPECTRA
                 </span>
-                <div className="isp-preview-box" data-role="printedText">
-                  &mdash;
-                </div>
+                <svg ref={previewDotRef} className="isp-preview-box" viewBox="0 0 190 40" preserveAspectRatio="xMidYMid meet" />
               </div>
               <span className="isp-preview-scan" data-role="previewScan" />
             </div>
@@ -944,9 +933,8 @@ const CSS = `
 .isp-preview-brand { position: absolute; top: 8px; left: 10px; font-size: 9px; font-weight: 800; color: var(--isp-blue-800); }
 .isp-preview-brand span { color: var(--isp-yellow); }
 .isp-preview-box {
-  width: 78%; height: 40%; border: 1px solid var(--isp-yellow); box-shadow: 0 0 8px rgba(255,212,0,0.3); border-radius: 3px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: monospace; font-size: 9px; font-weight: 700; color: #0B1E38; text-align: center; padding: 4px;
+  width: 78%; height: 42%; border: 1px solid var(--isp-yellow); box-shadow: 0 0 8px rgba(255,212,0,0.3); border-radius: 3px;
+  background: #fff; display: block;
 }
 .isp-preview-scan { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: var(--isp-yellow); box-shadow: 0 0 12px var(--isp-yellow); opacity: 0; }
 

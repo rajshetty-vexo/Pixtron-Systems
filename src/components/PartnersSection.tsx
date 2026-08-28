@@ -12,7 +12,7 @@ export interface Partner {
 
 const partners: Partner[] = [
   { id: "1", name: "Lite-Banana", logo: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80", category: "Packaging" },
-  { id: "2", name: "Wellness Foods", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=300&q=80", category: "FMCG" },
+  { id: "2", name: "Ramp Automation", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=300&q=80", category: "Automation" },
   { id: "3", name: "Sunrise Beverages", logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&w=300&q=80", category: "Pharma" },
   { id: "4", name: "Nova Pack", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=300&q=80", category: "Automotive" },
   { id: "5", name: "Cognex Vision", logo: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=80", category: "Robotics" },

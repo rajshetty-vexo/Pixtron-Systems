@@ -26,7 +26,7 @@ const hasRealImages = !!product.images && product.images.length > 0;
 const productImages = hasRealImages ? product.images! : (AnimationComponent ? [] : ["/placeholder-image.jpg"]);
 const showingAnimation = !!AnimationComponent && currentImageIndex === 0;
 const totalSlides = productImages.length + (AnimationComponent ? 1 : 0);
-
+const [selectedEdition, setSelectedEdition] = useState<'eco' | 'pro' | 'evo'>('pro'); // default 'pro' ya null rakho
   
   // const productImages = product.images && product.images.length > 0 
   //   ? product.images 
@@ -265,8 +265,111 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
 
 
 <MainFeaturesSection product={product} />
+{/* PRODUCT EDITIONS SECTION (Reusable for Inspectra, Rapid, etc.) */}
+{product.editions && (
+  <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+    <div className="bg-slate-50 rounded-3xl p-4 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm overflow-hidden">
+      
+      {/* Section Header */}
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14 px-2">
+        <span className="text-[#003882] font-extrabold uppercase text-xs tracking-widest bg-blue-100/70 text-[#003882] px-3.5 py-1.5 rounded-full border border-blue-200">
+          AVAILABLE EDITIONS
+        </span>
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+          Choose the Right Edition for Your Line
+        </h2>
+        <p className="text-slate-600 text-sm sm:text-base mt-2">
+          From standard thresholding to micron-level precision and custom client workflows.
+        </p>
+      </div>
 
+      {/* Cards Scroll View till Tablet (lg: grid) */}
+      <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 md:overflow-visible md:pb-0 [perspective:1000px] no-scrollbar">
 
+        {/* 1. ECO TIER */}
+        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-auto lg:max-w-none shrink-0 snap-center group bg-white rounded-2xl p-6 sm:p-8 border-2 border-slate-200 hover:border-slate-500 active:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-2xl transition-all duration-200 ease-out [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none">
+          <div>
+            <div className="inline-block bg-slate-100 text-slate-800 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider mb-4 group-hover:bg-slate-800 group-hover:text-white group-active:bg-slate-800 group-active:text-white transition-colors duration-300">
+              ECO
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
+              {product.editions.eco.title}
+            </h3>
+            <p className="text-black text-xs sm:text-sm leading-relaxed mb-6">
+              {product.editions.eco.description}
+            </p>
+            <hr className="border-slate-100 my-4" />
+            <ul className="space-y-3 text-xs sm:text-sm text-black font-medium">
+              {product.editions.eco.features.map((feat, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* 2. PRO TIER */}
+        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-auto lg:max-w-none shrink-0 snap-center group bg-primary text-white rounded-2xl p-6 sm:p-8 border-2 border-slate-300 hover:border-blue-500 active:border-blue-400 shadow-xl hover:shadow-2xl hover:shadow-blue-900/30 flex flex-col justify-between relative transition-all duration-200 ease-out hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none antialiased [transform-style:preserve-8d] [will-change:transform]">
+          
+          <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-tr-[14px] rounded-bl-xl uppercase tracking-wider pointer-events-none">
+            Ultra Precision
+          </div>
+
+          <div>
+            <div className="inline-block bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider mb-4 group-hover:bg-blue-600 group-hover:text-white group-active:bg-blue-600 group-active:text-white transition-colors duration-300">
+              PRO
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 transform-gpu">
+              {product.editions.pro.title}
+            </h3>
+            <p className="text-white text-xs sm:text-sm leading-relaxed mb-6 transform-gpu">
+              {product.editions.pro.description}
+            </p>
+            <hr className="border-slate-800 my-4" />
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-300 font-medium transform-gpu">
+              {product.editions.pro.features.map((feat, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-blue-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* 3. EVO TIER */}
+        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-[calc(50%-12px)] md:col-span-2 md:justify-self-center lg:w-auto lg:col-span-1 shrink-0 snap-center group bg-white rounded-2xl p-6 sm:p-8 border-2 border-[#FFD400] hover:border-amber-500 active:border-amber-600 relative shadow-md hover:shadow-2xl hover:shadow-amber-500/15 flex flex-col justify-between transition-all duration-200 ease-out [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none">
+          <div className="absolute top-0 right-0 bg-[#FFD400] text-slate-900 text-[10px] font-black px-3 py-1 rounded-tr-[14px] rounded-bl-xl uppercase tracking-wider">
+            Customizable
+          </div>
+          <div>
+            <div className="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider mb-4 group-hover:bg-[#FFD400] group-active:bg-[#FFD400] transition-colors duration-300">
+              EVO
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
+              {product.editions.evo.title}
+            </h3>
+            <p className="text-black text-xs sm:text-sm leading-relaxed mb-6">
+              {product.editions.evo.description}
+            </p>
+            <hr className="border-slate-100 my-4" />
+            <ul className="space-y-3 text-xs sm:text-sm text-black   font-medium">
+              {product.editions.evo.features.map((feat, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-[#003882] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+)}
 {/* 4. INDUSTRIES USED SECTION (Clean Light Theme Match) */}
 
 <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
