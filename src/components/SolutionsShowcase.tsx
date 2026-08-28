@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
@@ -17,8 +17,25 @@ const featuredSolutionIds = [
 
 const featuredSolutions = solutionsData.filter((s) => featuredSolutionIds.includes(s.id));
 
+// Only fire the left/right slide-in on desktop (matches the md: grid breakpoint below).
+// On mobile/tablet, the section is a horizontal-scroll carousel, so an extra
+// sideways slide-in fights with the user's own scroll gesture — disable it there.
+function useIsDesktop(breakpoint = 768) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= breakpoint);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [breakpoint]);
+
+  return isDesktop;
+}
+
 export const SolutionsShowcase: React.FC = () => {
   const navigate = useNavigate();
+  const isDesktop = useIsDesktop();
 
   return (
     <section id="solutions" className="py-14 sm:py-20 bg-white">
@@ -39,27 +56,31 @@ export const SolutionsShowcase: React.FC = () => {
         </div>
 
         {/* Horizontal scroll slider on mobile/tablet / Grid on desktop */}
-    <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 md:overflow-visible md:pb-0">
-  {featuredSolutions.map((solution, index) => {
-    const Icon = solution.icon;
-    const fromLeft = index % 2 === 0;
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 md:overflow-visible md:pb-0">
+          {featuredSolutions.map((solution, index) => {
+            const Icon = solution.icon;
+            const fromLeft = index % 2 === 0;
 
-    return (
-      <motion.div
-        key={solution.id}
-        initial={{ opacity: 0, x: fromLeft ? -80 : 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{
-          duration: 0.7,
-          delay: (index % 3) * 0.12,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-        whileHover={{ scale: 1.05, y: -8 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={() => navigate(`/solutions/${solution.id}`)}
-        className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 h-64 sm:h-72 w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer"
-      >
+            return (
+              <motion.div
+                key={solution.id}
+                initial={
+                  isDesktop
+                    ? { opacity: 0, x: fromLeft ? -80 : 80, y: 0 }
+                    : { opacity: 0, x: 0, y: 20 }
+                }
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{
+                  duration: 0.7,
+                  delay: (index % 3) * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{ scale: 1.05, y: -8 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => navigate(`/solutions/${solution.id}`)}
+                className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 h-64 sm:h-72 w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer"
+              >
                 {/* Glow ring — the "explode/highlight" moment on hover/tap */}
                 <motion.div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
 
