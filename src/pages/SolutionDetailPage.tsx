@@ -213,26 +213,37 @@ export const SolutionDetailPage: React.FC = () => {
             <BarChart3 className="text-primary" size={20} />
             <span className="text-primary font-bold uppercase tracking-widest text-xs">Key Metrics</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-950 mb-8 tracking-tight">
-            {solution.name} Inspection Performance
+           <h2 className="text-2xl sm:text-4xl font-black text-slate-950 mb-8 tracking-tight">
+            Performance Metrics
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {solution.keyMetrics.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-                className="bg-slate-50 border border-slate-200/80 p-4 rounded-2xl text-center hover:border-primary/30 transition-colors"
-              >
-                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1.5 min-h-[2rem] flex items-center justify-center">
-                  {item.metric}
-                </p>
-                <p className="text-primary text-lg sm:text-xl font-black">{item.value}</p>
-              </motion.div>
-            ))}
+            {solution.keyMetrics.map((item, index) => {
+              // splits values like "4 (scratch, insulation, diameter, print)"
+              // into a big main number + a smaller detail line underneath
+              const match = item.value.match(/^(.*?)\s*\((.*)\)\s*$/);
+              const mainValue = match ? match[1].trim() : item.value;
+              const detail = match ? match[2].trim() : null;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  className="flex flex-col items-center justify-center text-center bg-slate-50 border border-slate-200/80 p-4 rounded-2xl min-h-[9.5rem] hover:border-primary/30 transition-colors"
+                >
+                  <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-2">
+                    {item.metric}
+                  </p>
+                  <p className="text-primary text-lg sm:text-xl font-black leading-tight">{mainValue}</p>
+                  {detail && (
+                    <p className="text-slate-500 text-[11px] font-medium mt-1.5 leading-snug">{detail}</p>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
