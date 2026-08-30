@@ -55,7 +55,7 @@ export const VisionGraphic: React.FC = () => {
   const currentMode = inspectionModes[modeIndex];
 
   return (
-    <div className="relative w-full max-w-xl aspect-square flex items-center justify-center perspective-1000 p-4 overflow-visible">
+    <div className="relative w-full max-w-xl aspect-square flex items-center justify-center perspective-1000 p-4 overflow-visible scale-[0.62] sm:scale-[0.78] lg:scale-100 origin-center">
       {/* 3D Container Box (Wireframe) */}
       <motion.div 
         className="relative w-72 h-80 border-2 border-primary/20 rounded-2xl flex items-center justify-center bg-slate-50/50"

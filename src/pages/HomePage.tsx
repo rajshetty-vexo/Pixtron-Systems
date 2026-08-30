@@ -9,6 +9,7 @@ import { Products } from '../components/Products';
 import { Workflow } from '../components/Workflow';
 import { SolutionsShowcase } from '../components/SolutionsShowcase';
 import { PixtronArrows } from '../components/PixtronArrows';
+import { HeroSlider } from '../components/HeroSlider';
 import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -27,9 +28,9 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
-<section className="relative pt-28 pb-10 lg:pt-28 lg:pb-16 overflow-hidden bg-white group">
-        {/* Base faint grid — always visible, subtle */}
-{/* Base faint grid — always visible, subtle */}
+     
+{/* <section className="relative pt-28 pb-10 lg:pt-28 lg:pb-16 overflow-hidden bg-white group">
+
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808016_1px,transparent_1px),linear-gradient(to_bottom,#80808016_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-auto">
@@ -136,8 +137,8 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-
+      </section> */}
+       <HeroSlider />
       <Industries />
       <Products activeSuite={activeSuite} onToggle={setActiveSuite} />
       <Workflow activeSuite={activeSuite} />
