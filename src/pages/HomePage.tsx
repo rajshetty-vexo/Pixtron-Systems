@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
- <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-24 overflow-hidden bg-white group">
+<section className="relative pt-28 pb-10 lg:pt-28 lg:pb-16 overflow-hidden bg-white group">
         {/* Base faint grid — always visible, subtle */}
 {/* Base faint grid — always visible, subtle */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808016_1px,transparent_1px),linear-gradient(to_bottom,#80808016_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
@@ -89,26 +89,25 @@ export const HomePage: React.FC = () => {
                   About Pixtron
                 </Link>
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="mt-14 lg:mt-20 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 opacity-60 grayscale hover:grayscale-0 transition-all"
-              >
-                <div className="flex items-center gap-2">
-                  <Zap size={20} className="text-primary" />
-                  <span className="text-sm font-bold uppercase tracking-tighter">2500 FPS Speed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck size={20} className="text-primary" />
-                  <span className="text-sm font-bold uppercase tracking-tighter">24/7 Support</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <BarChart3 size={20} className="text-primary" />
-                  <span className="text-sm font-bold uppercase tracking-tighter">99.9% Accuracy</span>
-                </div>
-              </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.6 }}
+  className="mt-8 lg:mt-10 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 opacity-60 grayscale hover:grayscale-0 transition-all"
+>
+  <div className="flex items-center gap-2">
+    <Zap size={20} className="text-primary" />
+    <span className="text-sm font-bold uppercase tracking-tighter">Real-Time Inspection</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <ShieldCheck size={20} className="text-primary" />
+    <span className="text-sm font-bold uppercase tracking-tighter">24/7 Support</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <BarChart3 size={20} className="text-primary" />
+    <span className="text-sm font-bold uppercase tracking-tighter">99.9% Accuracy</span>
+  </div>
+</motion.div>
             </div>
 
             <motion.div

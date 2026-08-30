@@ -107,6 +107,7 @@ export const Footer: React.FC = () => {
                 { label: 'CodexQ', id: 'CodexQ' },
                 { label: 'Opus', id: 'opus' },
                 { label: 'Panorama', id: 'panorama' },
+                { label: 'Primus', id: 'primus' },
                 // { label: 'Blister Inspection', id: 'blister-inspection-system' },
               ].map((product) => (
                 <li key={product.id}>

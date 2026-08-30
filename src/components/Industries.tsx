@@ -72,7 +72,7 @@ const industriesList: IndustryItem[] = [
     longDesc: 'High-precision inspection solutions for electronic components, semiconductor packaging, and printed circuit boards (PCB). Our advanced cameras and algorithms inspect micron-level details at lightning speed to catch errors before reflow.',
     keyMetrics: [
       { metric: 'Placement Accuracy', value: '±5 microns' },
-      { metric: 'AOI Inspection Speed', value: '45000 CPH' },
+      { metric: 'AOI Inspection Speed', value:'750 components/min' },
       { metric: 'Minimum Defect Size', value: '0.01mm' },
       { metric: 'Yield Improvement', value: 'Avg. 15%' }
     ],
@@ -120,7 +120,7 @@ const industriesList: IndustryItem[] = [
     longDesc: 'High-speed inspection systems for the F&B sector focusing on seal integrity, label correctness, packaging quality, and fill levels. Designed with food-grade sanitary standards to run in washdown environments.',
     keyMetrics: [
       { metric: 'Hygienic Design', value: 'IP69K Washdown' },
-      { metric: 'Max. Throughput', value: '90,000 BPH' },
+      { metric: 'Max. Throughput', value: '1,500 bottles/min' },
       { metric: 'Fill Level Precision', value: '±0.5mm' },
       { metric: 'Seal Integrity (Micro-leaks)', value: '>99.5%' }
     ],
@@ -168,7 +168,7 @@ const industriesList: IndustryItem[] = [
     longDesc: 'Automation solutions for logistics and distribution centers enabling rapid parcel sorting, volume measurement, and tracking. Handles variations in shape, material, and barcode placement at peak velocities.',
     keyMetrics: [
       { metric: 'Sorting Efficiency', value: '99.9%' },
-      { metric: 'Scan Rate (Omnidirectional)', value: '15,000 pph' },
+      { metric: 'Scan Rate (Omnidirectional)', value: '250 packages/min' },
       { metric: 'Barcode Read Rate (1D/2D)', value: '>99.95%' },
       { metric: 'False Rejects', value: '< 0.01%' }
     ],
@@ -233,15 +233,15 @@ export const Industries: React.FC = () => {
               viewport={{ once: true }}
               className="flex items-center justify-center md:justify-start gap-2 mb-3 md:mb-4"
             >
-              <PixtronArrows size={24} />
-              <span className="text-primary font-bold tracking-widest uppercase text-sm">Global Impact</span>
+              <PixtronArrows size={20} />
+              <span className="text-primary font-bold tracking-widest uppercase text-sm">INDUSTRY REACH</span>
             </motion.div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
               Industries We Empower
             </h2>
           </div>
           <p className="text-slate-600 max-w-md text-base sm:text-lg font-medium">
-            Our vision systems are versatile enough to adapt to the most rigorous standards of diverse global sectors.
+            Our vision systems are versatile enough to adapt to the most rigorous standards across diverse industries.
           </p>
         </div>
 
@@ -369,23 +369,29 @@ export const Industries: React.FC = () => {
                   <hr className="border-slate-100 my-6" />
 
                   {/* Metrics */}
-                  {selectedIndustry.keyMetrics && selectedIndustry.keyMetrics.length > 0 && (
-                    <div className="mb-6">
-                      <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-                        <BarChart3 size={18} className="text-primary" />
-                        Key Inspection Metrics
-                      </h3>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        {selectedIndustry.keyMetrics.map((item, index) => (
-                          <div key={index} className="bg-slate-50 border border-slate-100 p-3.5 rounded-2xl text-center">
-                            <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1 line-clamp-1">{item.metric}</p>
-                            <p className="text-primary text-lg sm:text-xl font-black">{item.value}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
+{selectedIndustry.keyMetrics && selectedIndustry.keyMetrics.length > 0 && (
+  <div className="mb-6">
+    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+      <BarChart3 size={18} className="text-primary" />
+      Key Inspection Metrics
+    </h3>
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      {selectedIndustry.keyMetrics.map((item, index) => (
+        <div
+          key={index}
+          className="bg-slate-50 border border-slate-100 p-3.5 rounded-2xl text-center flex flex-col items-center justify-center min-h-[92px]"
+        >
+          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-1 line-clamp-2 min-h-[2.2em] flex items-start justify-center">
+            {item.metric}
+          </p>
+          <p className="text-primary text-lg sm:text-xl font-black leading-tight">
+            {item.value}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
                   <hr className="border-slate-100 my-6" />
 
                   {/* Applications */}
@@ -461,12 +467,12 @@ export const Industries: React.FC = () => {
                   Need custom configuration? Talk to our engineers.
                 </span>
                 <div className="flex gap-2.5 w-full sm:w-auto">
-                  <button 
+                  {/* <button 
                     onClick={() => setSelectedIndustry(null)}
                     className="flex-1 sm:flex-initial px-5 py-2 rounded-xl border border-slate-200 text-slate-600 font-bold hover:bg-slate-100 transition-colors text-xs sm:text-sm cursor-pointer text-center"
                   >
                     Explore More
-                  </button>
+                  </button> */}
                   <Link 
                     to="/contact"
                     className="flex-1 sm:flex-initial px-6 py-2 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-all text-xs sm:text-sm text-center shadow-md shadow-primary/20"

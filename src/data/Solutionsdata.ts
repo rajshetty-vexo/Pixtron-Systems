@@ -33,28 +33,28 @@ export interface SolutionItem {
 }
 
 export const solutionsData: SolutionItem[] = [
-  {
-    id: 'tetra-pack-inspection',
-    name: 'Tetra Pack Inspection',
-    icon: Package, // <-- Fixed: Added Icon
-    tagline: 'Complete carton integrity & print verification for aseptic packaging',
-    desc: 'High-speed inspection of tetra and carton packs for seal integrity, print quality, fill level, and code verification on fast-moving beverage and dairy lines.',
-    longDesc:
-      'Our Tetra Pack inspection solution combines multi-camera 360° coverage with high-speed code reading and print verification to catch seal defects, mis-registered print, and short-fills before they ever leave the line. Built for the demands of aseptic carton lines, it runs inline without slowing production and feeds every result into a central quality dashboard for full batch traceability.',
-    keyMetrics: [
-      { metric: 'Line Speed', value: 'Up to 24,000 packs/hr' },
-      { metric: 'Seal Defect Detection', value: '>99.5%' },
-      { metric: 'Print Registration Accuracy', value: '±0.3mm' },
-      { metric: 'False Reject Rate', value: '<0.1%' },
-    ],
-    industriesUsed: ['Food & Beverage', 'Dairy & Beverages', 'FMCG Packaging'],
-    productsUsed: ['panorama', 'codex', 'inspectra'],
-    applications: [
-      'Longitudinal & top seal seam inspection',
-      'Print registration and colour consistency check',
-      'Best-before date and batch code OCR',
-      'Fill-level and pack squareness verification',
-    ],
+    {
+      id: 'tetra-pack-inspection',
+      name: 'Tetra Pack Inspection',
+      icon: Package, // <-- Fixed: Added Icon
+      tagline: 'Complete carton integrity & print verification for aseptic packaging',
+      desc: 'High-speed inspection of tetra and carton packs for seal integrity, print quality, fill level, and code verification on fast-moving beverage and dairy lines.',
+      longDesc:
+        'Our Tetra Pack inspection solution combines multi-camera 360° coverage with high-speed code reading and print verification to catch seal defects, mis-registered print, and short-fills before they ever leave the line. Built for the demands of aseptic carton lines, it runs inline without slowing production and feeds every result into a central quality dashboard for full batch traceability.',
+      keyMetrics: [
+        { metric: 'Line Speed', value:  'Up to 400 packs/min' },
+        { metric: 'Seal Defect Detection', value: '>99.5%' },
+        { metric: 'Print Registration Accuracy', value: '±0.3mm' },
+        { metric: 'False Reject Rate', value: '<0.1%' },
+      ],
+      industriesUsed: ['Food & Beverage', 'Dairy & Beverages', 'FMCG Packaging'],
+      productsUsed: ['panorama', 'codex', 'inspectra'],
+      applications: [
+        'Longitudinal & top seal seam inspection',
+        'Print registration and colour consistency check',
+        'Best-before date and batch code OCR',
+        'Fill-level and pack squareness verification',
+      ],
     caseStudies: [
       {
         title: 'Dairy Carton Line Seal Verification',
@@ -166,10 +166,10 @@ export const solutionsData: SolutionItem[] = [
     id: 'vial-counting-inspection',
     name: 'Vial Counting Inspection',
     icon: TestTube2, // <-- Fixed: Added Icon
-    tagline: '360° presence, count & orientation verification for vials & ampoules',
-    desc: 'Multi-camera 360° verification that every tray, tub, or nest contains the correct count of vials or ampoules, correctly oriented, before secondary packaging.',
+    tagline: 'Top-Side Presence, Count & Orientation Verification for Vials & Ampoules',
+    desc: 'Overhead camera verification that every tray, tub, or nest contains the correct count of vials or ampoules, correctly oriented, before secondary packaging.',
     longDesc:
-      'Short-fills and misplaced vials in secondary packaging are a serious compliance risk in pharma manufacturing. This solution uses a 360° multi-camera array to verify vial or ampoule count, presence, and orientation in trays, tubs, and nests at the point of packing, rejecting any carrier that doesn’t match the expected configuration before it moves downstream.',
+      'Short-fills and misplaced vials in secondary packaging are a serious compliance risk in pharma manufacturing. This solution uses a high-resolution overhead camera to verify vial or ampoule count, presence, and orientation in trays, tubs, and nests at the point of packing, rejecting any carrier that doesn’t match the expected configuration before it moves downstream.',
     keyMetrics: [
       { metric: 'Counting Accuracy', value: '100%' },
       { metric: 'Max. Tray Throughput', value: '40 trays/min' },
@@ -268,6 +268,7 @@ export const solutionsData: SolutionItem[] = [
       'Pharmacode and linear barcode decoding',
       'QR and 2D matrix code verification',
       'Batch, lot & expiry date OCR/OCV',
+       'Human-readable text verification alongside barcode data',
       'Damaged or low-contrast code recovery',
     ],
     caseStudies: [

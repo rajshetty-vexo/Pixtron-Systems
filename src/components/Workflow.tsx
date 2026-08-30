@@ -8,7 +8,7 @@ type SuiteType = 'vision' | 'trackTrace';
 const visionSteps = [
   {
     title: 'Image Acquisition',
-    desc: 'High-speed global shutter cameras capture crystal clear frames at up to 2500 FPS.',
+    desc: 'High-speed cameras capture crystal-clear frames at extreme speeds',
     icon: <Camera size={24} />,
   },
   {
@@ -18,12 +18,12 @@ const visionSteps = [
   },
   {
     title: 'Decision Logic',
-    desc: 'System determines Pass/Fail status based on pre-defined EVO/PRO parameters.',
+    desc: 'System determines Pass/Fail status based on your configured inspection parameters.',
     icon: <Zap size={24} />,
   },
   {
     title: 'Action Trigger',
-    desc: 'High-speed rejection systems or PLC signals ensure only perfect products proceed.',
+    desc: 'High-speed rejection systems ensure only perfect products proceed.',
     icon: <CheckCircle size={24} />,
   },
 ];

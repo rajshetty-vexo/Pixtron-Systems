@@ -42,7 +42,7 @@ export const SolutionsShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-14">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <PixtronArrows size={22} />
+            <PixtronArrows size={20} />
             <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">
               Solutions
             </span>
@@ -62,52 +62,52 @@ export const SolutionsShowcase: React.FC = () => {
             const fromLeft = index % 2 === 0;
 
             return (
-              <motion.div
-                key={solution.id}
-                initial={
-                  isDesktop
-                    ? { opacity: 0, x: fromLeft ? -80 : 80, y: 0 }
-                    : { opacity: 0, x: 0, y: 20 }
-                }
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{
-                  duration: 0.7,
-                  delay: (index % 3) * 0.12,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => navigate(`/solutions/${solution.id}`)}
-                className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 h-64 sm:h-72 w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer"
-              >
-                {/* Glow ring — the "explode/highlight" moment on hover/tap */}
-                <motion.div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
+        <motion.div
+  key={solution.id}
+  initial={
+    isDesktop
+      ? { opacity: 0, x: fromLeft ? -80 : 80, y: 0 }
+      : { opacity: 0, x: 0, y: 20 }
+  }
+  whileInView={{ opacity: 1, x: 0, y: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{
+    duration: 0.7,
+    delay: (index % 3) * 0.12,
+    ease: [0.16, 1, 0.3, 1],
+  }}
+  whileHover={{ y: -8 }}
+  whileTap={{ y: -4 }}
+  onClick={() => navigate(`/solutions/${solution.id}`)}
+  className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 min-h-[280px] sm:min-h-[300px] w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer"
+>
+  {/* Glow ring — ab yehi hover ka main "highlight/pop" effect hai */}
+  <motion.div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/25" />
+  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/25" />
 
-                <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-7">
-                  <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                    <Icon size={22} strokeWidth={1.75} />
-                  </div>
+  <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-7">
+    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+      <Icon size={22} strokeWidth={1.75} />
+    </div>
 
-                  <div>
-                    <h3 className="text-white font-bold text-lg sm:text-xl mb-1.5">
-                      {solution.name}
-                    </h3>
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-2 mb-4">
-                      {solution.desc}
-                    </p>
+    <div>
+      <h3 className="text-white font-bold text-lg sm:text-xl mb-1.5">
+        {solution.name}
+      </h3>
+      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+        {solution.desc}
+      </p>
 
-                    <div className="flex items-center gap-2 font-bold text-sm text-white pt-2">
-                      <span>Learn More</span>
-                      <div className="transition-transform duration-300 group-hover:translate-x-1">
-                        <PixtronArrows variant="white" size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+      <div className="flex items-center gap-2 font-bold text-sm text-white pt-2">
+        <span>Learn More</span>
+        <div className="transition-transform duration-300 group-hover:translate-x-1">
+          <PixtronArrows variant="white" size={14} />
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.div>
             );
           })}
         </div>

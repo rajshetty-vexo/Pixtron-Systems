@@ -311,7 +311,7 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
         </div>
 
         {/* 2. PRO TIER */}
-        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-auto lg:max-w-none shrink-0 snap-center group bg-primary text-white rounded-2xl p-6 sm:p-8 border-2 border-slate-300 hover:border-blue-500 active:border-blue-400 shadow-xl hover:shadow-2xl hover:shadow-blue-900/30 flex flex-col justify-between relative transition-all duration-200 ease-out hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none antialiased [transform-style:preserve-8d] [will-change:transform]">
+        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-auto lg:max-w-none shrink-0 snap-center group bg-primary/90 text-white rounded-2xl p-6 sm:p-8 border-2 border-slate-300 hover:border-blue-500 active:border-blue-400 shadow-xl hover:shadow-2xl hover:shadow-blue-900/30 flex flex-col justify-between relative transition-all duration-200 ease-out hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none antialiased [transform-style:preserve-8d] [will-change:transform]">
           
           <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-tr-[14px] rounded-bl-xl uppercase tracking-wider pointer-events-none">
             Ultra Precision
@@ -327,7 +327,7 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
             <p className="text-white text-xs sm:text-sm leading-relaxed mb-6 transform-gpu">
               {product.editions.pro.description}
             </p>
-            <hr className="border-slate-800 my-4" />
+            <hr className="border-slate-100 my-4" />
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300 font-medium transform-gpu">
               {product.editions.pro.features.map((feat, i) => (
                 <li key={i} className="flex items-start gap-2.5">
@@ -339,32 +339,32 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
           </div>
         </div>
 
-        {/* 3. EVO TIER */}
-        <div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-[calc(50%-12px)] md:col-span-2 md:justify-self-center lg:w-auto lg:col-span-1 shrink-0 snap-center group bg-white rounded-2xl p-6 sm:p-8 border-2 border-[#FFD400] hover:border-amber-500 active:border-amber-600 relative shadow-md hover:shadow-2xl hover:shadow-amber-500/15 flex flex-col justify-between transition-all duration-200 ease-out [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none">
-          <div className="absolute top-0 right-0 bg-[#FFD400] text-slate-900 text-[10px] font-black px-3 py-1 rounded-tr-[14px] rounded-bl-xl uppercase tracking-wider">
-            Customizable
-          </div>
-          <div>
-            <div className="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider mb-4 group-hover:bg-[#FFD400] group-active:bg-[#FFD400] transition-colors duration-300">
-              EVO
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
-              {product.editions.evo.title}
-            </h3>
-            <p className="text-black text-xs sm:text-sm leading-relaxed mb-6">
-              {product.editions.evo.description}
-            </p>
-            <hr className="border-slate-100 my-4" />
-            <ul className="space-y-3 text-xs sm:text-sm text-black   font-medium">
-              {product.editions.evo.features.map((feat, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-[#003882] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
-                  <span>{feat}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+    {/* 3. EVO TIER */}
+<div className="w-[82vw] sm:w-[310px] sm:flex-1 md:w-[calc(50%-12px)] md:col-span-2 md:justify-self-center lg:w-auto lg:col-span-1 shrink-0 snap-center group bg-gradient-to-br from-primary via-primary to-[#002860] rounded-2xl p-6 sm:p-8 border-2 border-[#FFD400] hover:border-amber-500 active:border-amber-600 relative shadow-md hover:shadow-2xl hover:shadow-amber-500/15 flex flex-col justify-between transition-all duration-200 ease-out [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform hover:[transform:translateZ(30px)] active:scale-[0.98] md:active:scale-100 hover:z-20 cursor-pointer select-none">
+  <div className="absolute top-0 right-0 bg-[#FFD400] text-slate-900 text-[10px] font-black px-3 py-1 rounded-tr-[14px] rounded-bl-xl uppercase tracking-wider">
+    Customizable
+  </div>
+  <div>
+    <div className="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider mb-4 group-hover:bg-[#FFD400] group-active:bg-[#FFD400] transition-colors duration-300">
+      EVO
+    </div>
+    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+      {product.editions.evo.title}
+    </h3>
+    <p className="text-white text-xs sm:text-sm leading-relaxed mb-6">
+      {product.editions.evo.description}
+    </p>
+    <hr className="border-slate-100 my-4" />
+    <ul className="space-y-3 text-xs sm:text-sm text-white font-medium">
+      {product.editions.evo.features.map((feat, i) => (
+        <li key={i} className="flex items-start gap-2.5">
+          <CheckCircle2 size={16} className="text-blue-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+          <span>{feat}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
 
       </div>
     </div>

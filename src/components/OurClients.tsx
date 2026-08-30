@@ -70,7 +70,7 @@ export const OurClients: React.FC = () => {
           
           {/* Subtitle with Pixtron Arrows */}
           <div className="inline-flex items-center justify-center gap-2 text-sm font-extrabold uppercase tracking-widest text-[#003882] mb-3">
-            <PixtronArrows size={14} />
+            <PixtronArrows size={20} />
             TRUSTED BY
           </div>
 

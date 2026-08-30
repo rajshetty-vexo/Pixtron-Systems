@@ -10,7 +10,7 @@ type DefectType = "missing" | "smudge" | "contrast" | "misalign";
 interface Product {
   brand: string;
   lot: string;
-  mfg: string;
+  // mfg: string;
   exp: string;
 }
 
@@ -49,9 +49,9 @@ function randomProduct(): Product {
   const brand = BRANDS[Math.floor(Math.random() * BRANDS.length)];
   const lot = Math.floor(4000 + Math.random() * 5900) + String.fromCharCode(65 + Math.floor(Math.random() * 26));
   const d = new Date();
-  const mfg = `${pad(d.getMonth() + 1)}/${(d.getFullYear() - 1).toString().slice(2)}`;
+  // const mfg = `${pad(d.getMonth() + 1)}/${(d.getFullYear() - 1).toString().slice(2)}`;
   const exp = `${pad(d.getMonth() + 1)}/${(d.getFullYear() + 2).toString().slice(2)}`;
-  return { brand, lot, mfg, exp };
+  return { brand, lot, exp };
 }
 
 /* ============================================================
@@ -272,7 +272,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
       const faulty = !!defect;
       renderPreviewDots(product, defect);
       setText("lotValue", product.lot + (faulty ? "" : " \u2713"));
-      setText("mfgValue", product.mfg + (faulty ? "" : " \u2713"));
+      // setText("mfgValue", product.mfg + (faulty ? "" : " \u2713"));
       setText("expValue", product.exp + (faulty ? "" : " \u2713"));
       setText("defectValue", faulty ? DEFECT_LABELS[defect as DefectType] : "CLEAN");
       setColor("lotValue", faulty ? "var(--isp-red)" : "var(--isp-green)");
@@ -428,7 +428,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
       return [h, m, s].map((v) => String(v).padStart(2, "0")).join(":");
     };
     setText("lineSpeed", "312 ppm");
-    setText("scanDpi", "1,200 dpi");
+    setText("readAccuracy", "99.8%");
     setText("avgOcr", "12 ms");
     setText("uptime", "00:00:00");
 
@@ -436,7 +436,7 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
     if (!reduceMotion) {
       metricsInterval = window.setInterval(() => {
         setText("lineSpeed", `${296 + Math.floor(Math.random() * 30)} ppm`);
-        setText("scanDpi", `${(1150 + Math.floor(Math.random() * 100)).toLocaleString()} dpi`);
+        setText("readAccuracy", `${(99.5 + Math.random() * 0.5).toFixed(1)}%`);
         setText("avgOcr", `${9 + Math.floor(Math.random() * 8)} ms`);
         setText("uptime", formatUptime(Date.now() - startedAt));
       }, 1000);
@@ -625,13 +625,13 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
           <div className="isp-stage-foot">
             <div className="isp-mini">
               <span className="isp-mini-label">LINE SPEED</span>
-              <span className="isp-mini-value" data-role="lineSpeed">
+              <span className="isp-mini-value" data-role="lineSpeed">   
                 &mdash;
               </span>
             </div>
             <div className="isp-mini">
-              <span className="isp-mini-label">SCAN DPI</span>
-              <span className="isp-mini-value" data-role="scanDpi">
+              <span className="isp-mini-label">READ ACCURACY</span>
+              <span className="isp-mini-value" data-role="readAccuracy">
                 &mdash;
               </span>
             </div>
@@ -694,10 +694,10 @@ export default function InspectraAnimation({ brochureHref, className, variant = 
                 <span>LOT NO</span>
                 <span data-role="lotValue">&mdash;</span>
               </div>
-              <div className="isp-captured-row">
+              {/* <div className="isp-captured-row">
                 <span>MFG DATE</span>
                 <span data-role="mfgValue">&mdash;</span>
-              </div>
+              </div> */}
               <div className="isp-captured-row">
                 <span>EXP DATE</span>
                 <span data-role="expValue">&mdash;</span>

@@ -459,7 +459,7 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
       return [h, m, s].map((v) => String(v).padStart(2, "0")).join(":");
     };
     setText("lineSpeed", "218 ppm");
-    setText("scanDpi", "600 dpi");
+    setText("readAccuracy", "99.8%");
     setText("avgDecode", "34 ms");
     setText("uptime", "00:00:00");
 
@@ -467,7 +467,7 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
     if (!reduceMotion) {
       metricsInterval = window.setInterval(() => {
         setText("lineSpeed", `${205 + Math.floor(Math.random() * 22)} ppm`);
-        setText("scanDpi", `${580 + Math.floor(Math.random() * 60)} dpi`);
+        setText("readAccuracy", `${(99.5 + Math.random() * 0.5).toFixed(1)}%`);
         setText("avgDecode", `${29 + Math.floor(Math.random() * 14)} ms`);
         setText("uptime", formatUptime(Date.now() - startedAt));
       }, 1000);
@@ -664,8 +664,8 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
               </span>
             </div>
             <div className="cxh-mini">
-              <span className="cxh-mini-label">SCAN DPI</span>
-              <span className="cxh-mini-value" data-role="scanDpi">
+              <span className="cxh-mini-label">READ ACCURACY</span>
+              <span className="cxh-mini-value" data-role="readAccuracy">
                 &mdash;
               </span>
             </div>

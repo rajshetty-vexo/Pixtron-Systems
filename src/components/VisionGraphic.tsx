@@ -7,7 +7,7 @@ const inspectionModes = [
     label: 'GEOMETRY & COLOR',
     status: 'PASS',
     object: 'shape',
-    fps: '2500 FPS',
+    accuracy: '99.9% Accurate',
     details: 'OPUS SERIES'
   },
   {
@@ -15,7 +15,7 @@ const inspectionModes = [
     label: 'DOT PRINT / OCR',
     status: 'VERIFIED',
     object: 'code',
-    fps: '1800 FPS',
+    accuracy: '99.8% Accurate',
     details: 'CodexQ SERIES'
   },
   {
@@ -23,7 +23,7 @@ const inspectionModes = [
     label: 'CABLE & WIRE',
     status: 'SCANNING',
     object: 'wire',
-    fps: '3200 FPS',
+    accuracy: '99.9% Accurate',
     details: 'RAPID SERIES'
   },
   {
@@ -31,7 +31,7 @@ const inspectionModes = [
     label: 'TETRA BRIK',
     status: 'SEAL OK',
     object: 'brik',
-    fps: '2200 FPS',
+    accuracy: '99.7% Accurate',
     details: 'INSPECTRA SERIES'
   }
 ];
@@ -174,7 +174,7 @@ export const VisionGraphic: React.FC = () => {
             ))}
           </div>
           <div className="flex justify-between items-center">
-            <div className="text-[10px] font-bold text-amber-400">{currentMode.fps}</div>
+            <div className="text-[10px] font-bold text-amber-400">{currentMode.accuracy}</div>
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
           </div>
         </motion.div>

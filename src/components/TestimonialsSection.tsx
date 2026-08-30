@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Youtube, Building2, Quote } from "lucide-react";
+import { Play, Youtube, Building2, Quote, ChevronLeft, ChevronRight  } from "lucide-react";
 import { PixtronArrows } from "./PixtronArrows";
 import { SmartMedia } from "./SmartMedia";
 
@@ -162,6 +162,7 @@ export const TestimonialsSection: React.FC = () => {
   const [active, setActive] = useState(0);
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [thumbnails, setThumbnails] = useState<Record<string, string>>({});
+  const [videoProgress, setVideoProgress] = useState(0);
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const playerRef = useRef<any>(null);
@@ -209,6 +210,14 @@ export const TestimonialsSection: React.FC = () => {
     startAutoplay();
   };
 
+    const handlePrev = () => {
+    goTo((active - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleNext = () => {
+    goTo((active + 1) % testimonials.length);
+  };
+
   const playInline = (slide: TestimonialSlide) => {
     if (slide.mediaType !== "youtube") return;
     const videoId = parseYouTubeId(slide.mediaUrl);
@@ -245,6 +254,24 @@ export const TestimonialsSection: React.FC = () => {
     });
   }, [playingId]);
 
+    useEffect(() => {
+    if (!playingId) {
+      setVideoProgress(0);
+      return;
+    }
+    const interval = setInterval(() => {
+      const player = playerRef.current;
+      if (player?.getCurrentTime && player?.getDuration) {
+        const duration = player.getDuration();
+        const currentTime = player.getCurrentTime();
+        if (duration > 0) {
+          setVideoProgress((currentTime / duration) * 100);
+        }
+      }
+    }, 250);
+    return () => clearInterval(interval);
+  }, [playingId]);
+
   const handleMouseEnter = () => stopAutoplay();
   const handleMouseLeave = () => {
     if (!playingId) startAutoplay();
@@ -264,7 +291,7 @@ export const TestimonialsSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="flex items-center justify-center gap-2 mb-2.5">
-            <PixtronArrows size={14} />
+            <PixtronArrows size={20} />
             <span className="text-sm font-bold uppercase tracking-widest text-primary">
               Client Feedback
             </span>
@@ -408,22 +435,57 @@ export const TestimonialsSection: React.FC = () => {
 
           </div>
         </div>
+        {/* Progress Bar + Prev/Next Navigation */}
+        <div className="flex items-center justify-center gap-3 mt-6 sm:mt-8 max-w-lg mx-auto">
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="shrink-0 w-9 h-9 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 hover:text-primary transition-all cursor-pointer shadow-sm"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft size={18} />
+          </button>
 
-        {/* Slide Dots */}
-        <div className="flex justify-center items-center gap-2 mt-6 sm:mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => goTo(index)}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                index === active
-                  ? "w-8 bg-primary"
-                  : "w-2.5 bg-slate-200 hover:bg-slate-300"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+          <div className="flex items-center gap-2 flex-1">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => goTo(index)}
+                className="relative flex-1 h-1.5 rounded-full bg-slate-200 overflow-hidden cursor-pointer"
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                {index < active && (
+                  <div className="absolute inset-0 bg-primary rounded-full" />
+                )}
+                {index === active && (
+                  playingId === current.id ? (
+                    <div
+                      className="absolute inset-0 bg-primary rounded-full"
+                      style={{ width: `${videoProgress}%`, transition: "width 0.25s linear" }}
+                    />
+                  ) : (
+                    <motion.div
+                      key={`${current.id}-progress`}
+                      className="absolute inset-0 bg-primary rounded-full"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: AUTOPLAY_MS / 1000, ease: "linear" }}
+                    />
+                  )
+                )}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={handleNext}
+            className="shrink-0 w-9 h-9 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 hover:text-primary transition-all cursor-pointer shadow-sm"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
 
       </div>

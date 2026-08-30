@@ -12,6 +12,7 @@ const productsList = [
   { label: 'CodexQ', id: 'CodexQ' },
   { label: 'Opus', id: 'opus' },
   { label: 'Panorama', id: 'panorama' },
+  { label: 'Primus', id: 'primus' },
   // { label: 'Blister Inspection', id: 'blister-inspection-system' },
 ];
 const solutionsList = solutionsData.map((s) => ({ label: s.name, id: s.id }));

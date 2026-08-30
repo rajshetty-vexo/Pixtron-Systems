@@ -15,11 +15,11 @@ const visionProducts = [
     description: 'High precision, ultra high-speed dot print inspection designed for complex packaging lines. Inspectra ensures 100% real-time defect verification without slowing production speeds.',
     inspections: [
       'OCR & OCV Intelligence',
-      'Dot Print & Seal Integrity Verification',
+      'Dot Print Inspection',
       'Inline High-Speed Processing',
     ],
     icon: <ShieldCheck className="text-primary" size={32} />,
-    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786111584/ChatGPT_Image_Aug_7_2026_07_27_46_PM_tscd0j.jpg",
+    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1788022359/drilldown_qhk7g2.jpg",
   },
   {
     id: 'rapid',
@@ -40,12 +40,12 @@ const visionProducts = [
     tagline: 'Code Reading & OCR',
     description: 'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
     inspections: [
-      '1D & 2D Array Decoding',
+      '1D & 2D Code Decoding',
       'Pharma Traceability Compliance',
       'High-Speed Industrial Processing'
     ],
     icon: <CheckCircle2 className="text-primary" size={32} />,
-    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1786112210/ChatGPT_Image_Aug_7_2026_07_45_30_PM_gy7vfq.jpg",
+    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1788089895/CodexQ_im5yxr.jpg",
   },
   {
     id: 'opus',
@@ -64,7 +64,7 @@ const visionProducts = [
     id: 'panorama',
     name: 'Panorama',
     tagline: '360° Inspection',
-    description: 'Complete cylindrical surface inspection using multi-camera arrays for bottles, cans, and tubes.',
+    description: 'Complete 360° surface inspection using synchronized multi-camera systems for bottles, cans, and tubes.',
     inspections: [
       '360° Seamless Coverage',
       'Cap & Label Alignment',
@@ -122,9 +122,16 @@ export const Products: React.FC<ProductsProps> = ({ activeSuite, onToggle }) => 
     setActiveCardIndex(0);
     scrollContainerRef.current?.scrollTo({ left: 0 });
   }, [activeSuite]);
-
   const handleScroll = () => {
-    // ...unchanged
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.firstElementChild
+        ? (container.firstElementChild as HTMLElement).offsetWidth + 16 // +16 for the gap-4
+        : 300;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveCardIndex(index);
+    }
   };
 
   const headingContent = activeSuite === 'vision'
@@ -143,7 +150,7 @@ export const Products: React.FC<ProductsProps> = ({ activeSuite, onToggle }) => 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div className="text-center mb-10 sm:mb-16">
   <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-    <PixtronArrows size={22} />
+    <PixtronArrows size={20} />
     <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">Our Products</span>
   </div>
 
