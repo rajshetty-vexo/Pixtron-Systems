@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { VisionGraphic } from '../components/VisionGraphic';
+import { HeroInspectionShowcase } from '../components/HeroInspectionShowcase';
 import { Industries } from '../components/Industries';
 import  OurClients  from '../components/OurClients';
 import { TestimonialsSection } from '../components/TestimonialsSection';
@@ -9,6 +10,8 @@ import { Products } from '../components/Products';
 import { Workflow } from '../components/Workflow';
 import { SolutionsShowcase } from '../components/SolutionsShowcase';
 import { PixtronArrows } from '../components/PixtronArrows';
+import { ProductVisualsGrid } from '../components/ProductVisualsGrid';
+
 import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -116,10 +119,10 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="flex-1 w-full flex justify-center lg:justify-end relative"
             >
-              <VisionGraphic />
-
+              {/* <VisionGraphic /> */}
+              <HeroInspectionShowcase />
               <motion.div
-                className="absolute top-0 right-0 bg-white shadow-2xl p-4 rounded-2xl border border-slate-100 hidden xl:block"
+                className="absolute -top-6 right-4 xl:right-0 bg-white shadow-2xl p-3 xl:p-4 rounded-2xl border border-slate-100 hidden xl:block z-50"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
@@ -138,6 +141,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section> 
        
+{/* <ProductVisualsGrid />   */}
       <Industries />
       <Products activeSuite={activeSuite} onToggle={setActiveSuite} />
       <Workflow activeSuite={activeSuite} />

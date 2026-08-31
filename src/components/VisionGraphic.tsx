@@ -55,7 +55,7 @@ export const VisionGraphic: React.FC = () => {
   const currentMode = inspectionModes[modeIndex];
 
   return (
-    <div className="relative w-full max-w-xl aspect-square flex items-center justify-center perspective-1000 p-4 overflow-visible">
+    <div className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[460px] lg:max-w-xl aspect-square flex items-center justify-center perspective-1000 p-4 overflow-visible">
       {/* 3D Container Box (Wireframe) */}
       <motion.div 
         className="relative w-72 h-80 border-2 border-primary/20 rounded-2xl flex items-center justify-center bg-slate-50/50"
@@ -142,10 +142,10 @@ export const VisionGraphic: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className="absolute -right-8 md:-right-16 top-6 bg-white/95 backdrop-blur-md p-3 md:p-4 rounded-xl border border-slate-200 shadow-2xl w-40 md:w-48 z-40"
+           className="absolute -right-2 sm:-right-6 lg:-right-16 top-6 bg-white/95 backdrop-blur-md p-3 lg:p-4 rounded-xl border border-slate-200 shadow-2xl w-44 sm:w-48 lg:w-48 z-40"
           >
             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">System Analysis</div>
-            <div className="text-xs md:text-sm font-black text-primary mb-2 truncate">{currentMode.label}</div>
+            <div className="text-[11px] sm:text-xs md:text-sm font-black text-primary mb-2 leading-tight">{currentMode.label}</div>
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold text-slate-500">{currentMode.details}</span>
               <span className={`text-[10px] font-black px-1.5 py-0.5 rounded ${
@@ -160,7 +160,7 @@ export const VisionGraphic: React.FC = () => {
         </AnimatePresence>
 
         <motion.div 
-          className="absolute -left-8 md:-left-16 bottom-6 bg-slate-900 p-3 md:p-4 rounded-xl border border-slate-700 shadow-2xl w-40 md:w-48 z-40"
+          className="absolute -left-2 sm:-left-6 lg:-left-16 bottom-6 bg-slate-900 p-3 lg:p-4 rounded-xl border border-slate-700 shadow-2xl w-32 sm:w-40 lg:w-48 z-40"
         >
           <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Sensor Telemetry</div>
           <div className="flex items-end gap-1 h-6 md:h-8 mb-2">
@@ -181,8 +181,8 @@ export const VisionGraphic: React.FC = () => {
       </motion.div>
 
       {/* Decorative Technical Background Rings */}
-      <div className="absolute inset-0 border border-slate-200/50 rounded-full -z-10 scale-125 pointer-events-none" />
-      <div className="absolute inset-0 border border-dashed border-slate-300/40 rounded-full -z-10 scale-110 pointer-events-none" />
+      <div className="absolute inset-0 border border-slate-200/25 rounded-full -z-10 scale-125 pointer-events-none" />      
+     <div className="absolute inset-0 border border-dashed border-slate-300/20 rounded-full -z-10 scale-110 pointer-events-none" />
     </div>
   );
 };
