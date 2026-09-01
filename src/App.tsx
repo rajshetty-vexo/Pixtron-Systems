@@ -165,7 +165,7 @@ export default function App() {
           style={{ transitionDuration: `${INTRO_FADE_MS}ms` }}
           aria-hidden="true"
         >
-          <PixtronLogoAnimation width="min(60vw, 320px)" background="transparent" />
+          <PixtronLogoAnimation width="min(60vw, 350px)" background="transparent" />
         </div>
       )}
       
