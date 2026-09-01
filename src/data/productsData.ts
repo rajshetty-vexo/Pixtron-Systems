@@ -395,7 +395,7 @@ evo: {
       description: 'QR-based serialization engine — generates, prints, and verifies unique codes at the point of production.',
     },
     {
-      title: 'Primus-REF',
+      title: 'Primus-RF',
       description: 'Reference & aggregation system — links unit, case, and pallet-level codes into a full traceable hierarchy.',
     },
     {
@@ -440,8 +440,8 @@ evo: {
   },
 },
 {
-  id: 'primus-ref',
-  name: 'Primus-REF',
+  id: 'primus-rf',
+  name: 'Primus-RF',
   suite: 'trackTrace',
   parentId: 'primus', 
   category: 'Serialization & Track & Trace',

@@ -94,9 +94,9 @@ const trackTraceProducts = [
     tagline: 'Serialization & Track & Trace',
     description: 'End-to-end serialization, aggregation, and traceability platform that ensures product authenticity and regulatory compliance across the entire supply chain.',
     inspections: [
-      'Unique Code Serialization',
-      'Parent-Child Aggregation',
-      'Regulatory Compliance Reporting',
+      'Primus-QR',
+      'Primus-RF',
+      'Primus-GUI',
     ],
     icon: <ScanLine className="text-primary" size={32} />,
     image: "PUT_PRIMUS_IMAGE_URL_HERE",
