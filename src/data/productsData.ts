@@ -399,7 +399,7 @@ evo: {
       description: 'Reference & aggregation system — links unit, case, and pallet-level codes into a full traceable hierarchy.',
     },
     {
-      title: 'Primus-GUI',
+      title: 'Primus-GEO',
       description: 'Central dashboard & compliance interface — unifies live status, reporting, and access control across every module.',
     },
   ],
@@ -502,8 +502,8 @@ evo: {
   },
 },
 {
-  id: 'primus-gui',
-  name: 'Primus-GUI',
+  id: 'primus-GEO',
+  name: 'Primus-GEO',
   parentId: 'primus', 
   suite: 'trackTrace',
   category: 'Track & Trace',

@@ -90,7 +90,7 @@ export const Navbar: React.FC = () => {
         <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-t border-l border-slate-100" />
 
         <div className="px-3 pt-1.5 pb-2 mb-1 border-b border-slate-100/80">
-          <p className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">Vision Systems</p>
+          <p className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">Vision</p>
         </div>
 
         <div className="flex flex-col gap-0.5 relative z-10">
