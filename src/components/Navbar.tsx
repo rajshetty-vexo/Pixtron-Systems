@@ -4,17 +4,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PixtronLogo } from './PixtronLogo';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { solutionsData } from '../data/Solutionsdata';
+import { productsData } from '../data/productsData';
 
 // Dropdown Items Data
-const productsList = [
-  { label: 'Inspectra', id: 'inspectra' },
-  { label: 'Rapid', id: 'rapid' },
-  { label: 'CodexQ', id: 'CodexQ' },
-  { label: 'Opus', id: 'opus' },
-  { label: 'Panorama', id: 'panorama' },
-  { label: 'Primus', id: 'primus' },
-  // { label: 'Blister Inspection', id: 'blister-inspection-system' },
-];
+const visionProducts = productsData.filter((p) => p.suite === 'vision' && !p.parentId);
+const trackTraceProducts = productsData.filter((p) => p.suite === 'trackTrace' && !p.parentId)
+const getSubProducts = (hubId: string) => productsData.filter((p) => p.parentId === hubId);
 const solutionsList = solutionsData.map((s) => ({ label: s.name, id: s.id }));
 
 const companyList = [
@@ -29,12 +24,13 @@ export const Navbar: React.FC = () => {
 
   // Desktop Hover States
   const [activeDropdown, setActiveDropdown] = useState<'products' | 'solutions' | 'company'| null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
 
   // Mobile Accordion States
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-
+  const [mobilePrimusOpen, setMobilePrimusOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -89,28 +85,89 @@ export const Navbar: React.FC = () => {
         {/* TOP POINTER TRIANGLE */}
         <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-t border-l border-slate-100" />
 
-        <div className="px-3 pt-1.5 pb-2 mb-1 border-b border-slate-100/80">
-          <p className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">Vision</p>
-        </div>
+        {/* VISION SECTION */}
+<div className="px-3 pt-1.5 pb-2 mb-1 border-b border-slate-100/80">
+  <p className="text-[10px] font-bold text-primary/100 uppercase tracking-wider">Vision</p>
+</div>
 
-        <div className="flex flex-col gap-0.5 relative z-10">
-          {productsList.map((product) => (
-            <Link
-              key={product.id}
-              to={`/products/${product.id}`}
-              onClick={() => setActiveDropdown(null)}
-              className="group flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-200"
-            >
-              <span className="group-hover:translate-x-1.5 transition-transform duration-200">
-                {product.label}
-              </span>
-              {/* HORIZONTAL CURIOSITY ARROW */}
+<div className="flex flex-col gap-0.5 relative z-10 mb-2">
+  {visionProducts.map((product) => (
+    <Link
+      key={product.id}
+      to={`/products/${product.id}`}
+      onClick={() => setActiveDropdown(null)}
+      className="group flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-200"
+    >
+      <span className="group-hover:translate-x-1.5 transition-transform duration-200">
+        {product.name}
+      </span>
+      <span className="text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 font-bold text-xl leading-none">
+        →
+      </span>
+    </Link>
+  ))}
+</div>
+
+<div>
+  <p className="text-[10px] font-bold text-primary uppercase tracking-wider mb-1.5 px-3">
+    Track &amp; Trace
+  </p>
+  <div className="flex flex-col gap-0.5">
+    {trackTraceProducts.map((product) => {
+      const subProducts = getSubProducts(product.id);
+      const hasSubProducts = subProducts.length > 0;
+
+      return (
+        <div
+          key={product.id}
+          className="relative"
+          onMouseEnter={() => hasSubProducts && setActiveSubDropdown(product.id)}
+          onMouseLeave={() => hasSubProducts && setActiveSubDropdown(null)}
+        >
+          <Link
+            to={`/products/${product.id}`}
+            onClick={() => setActiveDropdown(null)}
+            className="group flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-200"
+          >
+            <span>{product.name}</span>
+       
               <span className="text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 font-bold text-xl leading-none">
                 →
               </span>
-            </Link>
-          ))}
+        
+          </Link>
+
+          {/* DESKTOP SIDE FLYOUT MENU */}
+          {hasSubProducts && activeSubDropdown === product.id && (
+            <motion.div
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -8 }}
+              transition={{ duration: 0.15 }}
+              className="absolute top-0 left-full ml-2 w-48 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-slate-100 p-2 z-50"
+            >
+              <div className="flex flex-col gap-0.5">
+                {subProducts.map((sub) => (
+                  <Link
+                    key={sub.id}
+                    to={`/products/${sub.id}`}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      setActiveSubDropdown(null);
+                    }}
+                    className="flex items-center justify-between px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
+      );
+    })}
+  </div>
+</div>
       </motion.div>
     )}
   </AnimatePresence>
@@ -293,25 +350,99 @@ export const Navbar: React.FC = () => {
   
   <AnimatePresence initial={false}>
     {mobileProductsOpen && (
-      <motion.div
-        key="mobile-products"
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: 1, height: 'auto' }}
-        exit={{ opacity: 0, height: 0 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="pl-4 pt-2 flex flex-col gap-2 overflow-hidden"
-      >
-        {productsList.map((product) => (
-          <Link
-            key={product.id}
-            to={`/products/${product.id}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-sm font-medium text-slate-600 hover:text-primary py-1"
-          >
-            {product.label}
-          </Link>
-        ))}
-      </motion.div>
+  <motion.div
+  key="mobile-products"
+  initial={{ opacity: 0, height: 0 }}
+  animate={{ opacity: 1, height: 'auto' }}
+  exit={{ opacity: 0, height: 0 }}
+  transition={{ duration: 0.3, ease: 'easeInOut' }}
+  className="pl-4 pt-2 flex flex-col gap-3 overflow-hidden"
+>
+  <div>
+    <p className="text-[10px] font-bold text-primary/100 uppercase tracking-wider mb-1.5">Vision</p>
+    <div className="flex flex-col gap-2">
+      {visionProducts.map((product) => (
+        <Link
+          key={product.id}
+          to={`/products/${product.id}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="text-sm font-medium text-slate-600 hover:text-primary py-1"
+        >
+          {product.name}
+        </Link>
+      ))}
+    </div>
+  </div>
+<div>
+  <p className="text-[10px] font-bold text-primary/100 uppercase tracking-wider mb-1.5">Track &amp; Trace</p>
+  <div className="flex flex-col gap-2">
+    {trackTraceProducts.map((product) => {
+      const subProducts = getSubProducts(product.id);
+      const hasSubProducts = subProducts.length > 0;
+
+      return (
+        <div key={product.id}>
+          <div className="flex items-center justify-between py-1">
+            {/* Primus Name Click -> Direct Route */}
+            <Link
+              to={`/products/${product.id}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-sm font-medium text-slate-600 hover:text-primary"
+            >
+              {product.name}
+            </Link>
+
+            {/* Separate Dropdown Arrow for Sub-products */}
+            {hasSubProducts && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMobilePrimusOpen(!mobilePrimusOpen);
+                }}
+                className="p-1 text-slate-500 hover:text-primary focus:outline-none"
+                aria-label="Toggle Subproducts"
+              >
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${mobilePrimusOpen ? 'rotate-180 text-primary' : ''}`}
+                />
+              </button>
+            )}
+          </div>
+
+          {/* Collapsible Sub-products Menu */}
+          {hasSubProducts && (
+            <AnimatePresence initial={false}>
+              {mobilePrimusOpen && (
+                <motion.div
+                  key="mobile-primus-subproducts"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  className="pl-4 flex flex-col gap-1.5 mt-1 overflow-hidden"
+                >
+                  {subProducts.map((sub) => (
+                    <Link
+                      key={sub.id}
+                      to={`/products/${sub.id}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-xs font-medium text-slate-500 hover:text-primary py-0.5"
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>
+</motion.div>
     )}
   </AnimatePresence>
 </div>
