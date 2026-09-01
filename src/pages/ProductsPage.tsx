@@ -3,18 +3,21 @@ import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { productsData } from '../data/productsData';
 import { PixtronArrows } from '../components/PixtronArrows';
+import { useSearchParams } from 'react-router-dom';
 
 
 export const ProductsPage: React.FC = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [activeSuite, setActiveSuite] = useState<'vision' | 'trackTrace'>('vision');
+  const [searchParams] = useSearchParams();
+  const [activeSuite, setActiveSuite] = useState<'vision' | 'trackTrace'>(
+  searchParams.get('suite') === 'trackTrace' ? 'trackTrace' : 'vision');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  const displayedProducts = activeSuite === 'vision'
-  ? productsData.filter((p) => p.id !== 'primus')
-  : productsData.filter((p) => p.id === 'primus');
+const displayedProducts = productsData.filter(
+  (p) => p.suite === activeSuite && !p.parentId
+);
 
   const headingContent = activeSuite === 'vision'
     ? {

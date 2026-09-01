@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
@@ -15,6 +15,7 @@ import { TermsConditions } from "./pages/TermsConditions";
 import { SeoMeta } from './components/SeoMeta';
 import { ScrollToTop } from './components/ScrollToTop';
 import { CookieConsent } from './components/CookieConsent';
+import PixtronLogoAnimation from './components/PixtronLogoAnimation';
 
 const baseBusinessSchema = {
   '@context': 'https://schema.org',
@@ -119,12 +120,55 @@ function getPageConfig(pathname: string) {
   }
 }
 
+const INTRO_HOLD_MS = 2200;
+const INTRO_FADE_MS = 500;
+
+const INTRO_SESSION_KEY = 'pixtron_intro_shown';
+
 export default function App() {
   const location = useLocation();
   const pageConfig = getPageConfig(location.pathname);
-
+ 
+  const [showIntro, setShowIntro] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return !window.sessionStorage.getItem(INTRO_SESSION_KEY);
+  });
+  const [introFading, setIntroFading] = useState(false);
+ 
+  useEffect(() => {
+    if (!showIntro) return;
+ 
+    // Lock background scroll while the splash is covering the page.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+ 
+    const fadeTimer = window.setTimeout(() => setIntroFading(true), INTRO_HOLD_MS);
+    const removeTimer = window.setTimeout(() => {
+      setShowIntro(false);
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, '1');
+    }, INTRO_HOLD_MS + INTRO_FADE_MS);
+ 
+    return () => {
+      window.clearTimeout(fadeTimer);
+      window.clearTimeout(removeTimer);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [showIntro]);
+ 
   return (
     <div className="min-h-screen font-sans flex flex-col relative">
+      {showIntro && (
+        <div
+          className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity ease-out ${
+            introFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
+          style={{ transitionDuration: `${INTRO_FADE_MS}ms` }}
+          aria-hidden="true"
+        >
+          <PixtronLogoAnimation width="min(60vw, 320px)" background="transparent" />
+        </div>
+      )}
+      
       <ScrollToTop />
       <SeoMeta
         title={pageConfig.title}

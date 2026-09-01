@@ -11,10 +11,12 @@ import { Download, ArrowLeft, Building2, CheckCircle2 } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 import { productAnimations } from "../components/Productanimations";
 import {SmartMedia} from "../components/SmartMedia";
+import { ProductHub } from '../components/ProductHub';
 
 export const ProductDetailPage: React.FC = () => {
 
 const { productId } = useParams<{ productId: string }>();
+
 const [isModalOpen, setIsModalOpen] = useState(false);
 // Find matching product or fallback to Inspectra
 const product = productsData.find((p) => p.id === productId) || productsData[0];
@@ -26,11 +28,14 @@ const hasRealImages = !!product.images && product.images.length > 0;
 const productImages = hasRealImages ? product.images! : (AnimationComponent ? [] : ["/placeholder-image.jpg"]);
 const showingAnimation = !!AnimationComponent && currentImageIndex === 0;
 const totalSlides = productImages.length + (AnimationComponent ? 1 : 0);
-const [selectedEdition, setSelectedEdition] = useState<'eco' | 'pro' | 'evo'>('pro'); // default 'pro' ya null rakho
+const [selectedEdition, setSelectedEdition] = useState<'eco' | 'pro' | 'evo'>('pro'); 
+const subProducts = productsData.filter((p) => p.parentId === product.id);
   
   // const productImages = product.images && product.images.length > 0 
   //   ? product.images 
   //   : ["/placeholder-image.jpg"];
+
+ 
 
   // 4. AUTO-SLIDE EFFECT
   useEffect(() => {
@@ -43,6 +48,9 @@ const [selectedEdition, setSelectedEdition] = useState<'eco' | 'pro' | 'evo'>('p
     return () => clearInterval(interval);
   }, [isPaused, productImages.length]);
 
+if (subProducts.length > 0) {
+  return <ProductHub product={product} subProducts={subProducts} />;
+}
 
 // 1. URLs & Description
 const currentUrl = "https://www.pixtronsystems.com/your-page-path";
@@ -84,17 +92,14 @@ return (
 {/* Back Button Navigation */}
 
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-
 <Link
-
-to="/products"
-
-className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-primary transition-colors"
-
+  to={product.parentId ? `/products/${product.parentId}` : `/products?suite=${product.suite}`}
+  className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-primary transition-colors"
 >
-
-<ArrowLeft size={16} /> Back to Products
-
+  <ArrowLeft size={16} />
+  {product.parentId
+    ? `Back to ${productsData.find((p) => p.id === product.parentId)?.name ?? 'Products'}`
+    : 'Back to Products'}
 </Link>
 
 </div>

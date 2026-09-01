@@ -21,6 +21,8 @@ export interface ProductDetail {
   id: string;
   name: string;
   category: string;
+  suite: 'vision' | 'trackTrace';
+  parentId?: string; 
   subtitle: string;
   description: string;
   brochureUrl: string;
@@ -39,6 +41,7 @@ export const productsData: ProductDetail[] = [
   {
     id: 'inspectra',
     name: 'Inspectra',
+    suite: 'vision',
     category: 'Dot Print Inspection',
     subtitle: 'Next-Generation High-Speed Optical Inspection Engine',
     description:
@@ -101,6 +104,7 @@ export const productsData: ProductDetail[] = [
   {
     id: 'rapid',
     name: 'Rapid',
+    suite: 'vision',
     category: 'Continuous Flow Production Line Inspection',
     subtitle: 'Continuous Flow Optical Quality Assurance',
     description:
@@ -162,6 +166,7 @@ evo: {
   {
     id: 'CodexQ',
     name: 'CodexQ',
+    suite: 'vision',
     category: 'Code Reading & OCR',
     subtitle: 'Ultra-Fast Traceability & Code Verification',
     description:
@@ -223,6 +228,7 @@ editions: {
   {
     id: 'opus',
     name: 'Opus',
+    suite: 'vision',
     category: 'Geometry & Color Inspection',
     subtitle: 'Precise Shape, Size, and Color Verification',
     description:
@@ -280,10 +286,10 @@ evo: {
   },
   },
 
-
   {
     id: 'panorama',
     name: 'Panorama',
+    suite: 'vision',
     category: '360 Degree Inspection',
     subtitle: 'Complete Surface Vision Array',
     description:
@@ -374,66 +380,130 @@ evo: {
   // "https://res.cloudinary.com/owsr7mjw/image/upload/v1786684289/blister4_znj1o5.jpg",
   //   ]
   // },
+{
+  id: 'primus',
+  name: 'Primus',
+  suite: 'trackTrace',
+  category: 'Serialization & Track & Trace',
+  subtitle: 'End-to-End Serialization & Supply Chain Traceability Platform',
+  description:
+    'End-to-end serialization, aggregation, and traceability platform that ensures product authenticity and regulatory compliance across the entire supply chain.',
+  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+   mainFeatures: [
+    {
+      title: 'Primus-QR',
+      description: 'QR-based serialization engine — generates, prints, and verifies unique codes at the point of production.',
+    },
+    {
+      title: 'Primus-REF',
+      description: 'Reference & aggregation system — links unit, case, and pallet-level codes into a full traceable hierarchy.',
+    },
+    {
+      title: 'Primus-GUI',
+      description: 'Central dashboard & compliance interface — unifies live status, reporting, and access control across every module.',
+    },
+  ],
+  industriesUsed: [ /* ... */ ],
+},
 
-  // productsData.ts — array ke end mein (Panorama ke baad) ye naya object add karo:
-
-  {
-    id: 'primus',
-    name: 'Primus',
-    category: 'Serialization & Track & Trace',
-    subtitle: 'End-to-End Serialization & Supply Chain Traceability Platform',
-    description:
-      'End-to-end serialization, aggregation, and traceability platform that ensures product authenticity and regulatory compliance across the entire supply chain.',
-    brochureUrl: 'PUT_BROCHURE_URL_HERE',
-    videoUrl: 'PUT_VIDEO_URL_HERE', // ya hata do agar video nahi hai
-    mainFeatures: [
-      {
-        title: 'Unique Code Serialization',
-        description: 'Generates and assigns tamper-proof, unique serial codes to every unit as per GS1 and regulatory standards.',
-      },
-      {
-        title: 'Parent-Child Aggregation',
-        description: 'Links unit, case, and pallet-level codes into a full parent-child hierarchy for complete traceability.',
-      },
-      {
-        title: 'Regulatory Compliance Reporting',
-        description: 'Automatically syncs serialization data with your ERP/MES and regulatory bodies for DSCSA/FMD compliance.',
-      },
-    ],
-    industriesUsed: [
-      'Pharmaceutical & Healthcare Packaging',
-      'FMCG & Consumer Goods',
-      'Food & Beverage Supply Chain',
-      'Electronics Component Traceability',
-    ],
-    editions: {
-      eco: {
-        title: 'Basic Serialization',
-        description: 'Standard unit-level code generation and printing for essential compliance.',
-        features: [
-          'Unique serial code generation',
-          'Standard barcode/DataMatrix printing',
-          'Basic PASS / FAIL verification',
-        ],
-      },
-      pro: {
-        title: 'Aggregation & Verification',
-        description: 'Full aggregation hierarchy with inline verification at every packing level.',
-        features: [
-          'Unit-case-pallet aggregation',
-          'Inline code verification & OCR cross-check',
-          'Real-time exception handling',
-        ],
-      },
-      evo: {
-        title: 'Custom Compliance Integration',
-        description: 'Client-tailored serialization logic with direct regulatory/ERP system integration.',
-        features: [
-          'Custom ERP/MES integration',
-          'Region-specific regulatory formatting (DSCSA/FMD)',
-          'Dynamic recipe & rule customization',
-        ],
-      },
+{
+  id: 'primus-qr',
+  name: 'Primus-QR',
+  suite: 'trackTrace',
+  parentId: 'primus', 
+  category: 'Serialization & Track & Trace',
+  subtitle: 'QR-Based Serialization & Code Assignment Engine',
+  description: 'High-speed QR code generation and assignment engine for unit-level serialization at the point of production.',
+  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  mainFeatures: [
+    { title: 'Unique QR Code Generation', description: 'Generates tamper-proof, unique QR codes per unit as per GS1 standards.' },
+    { title: 'Inline Print & Verify', description: 'Prints and instantly verifies each QR code before the unit moves downstream.' },
+    { title: 'High-Speed Assignment', description: 'Assigns serial numbers at full production line speed without bottlenecking.' },
+  ],
+  industriesUsed: ['Pharmaceutical & Healthcare Packaging', 'FMCG & Consumer Goods'],
+  editions: {
+    eco: {
+      title: 'Basic QR Assignment',
+      description: 'Standard unit-level QR code generation and printing.',
+      features: ['Unique QR code generation', 'Standard printing', 'Basic PASS / FAIL verification'],
+    },
+    pro: {
+      title: 'Verified QR Serialization',
+      description: 'Inline QR verification with real-time exception handling.',
+      features: ['Inline code verification', 'Real-time exception handling', 'ERP sync-ready'],
+    },
+    evo: {
+      title: 'Custom QR Integration',
+      description: 'Client-tailored QR logic with direct system integration.',
+      features: ['Custom ERP/MES integration', 'Region-specific formatting', 'Dynamic recipe customization'],
     },
   },
+},
+{
+  id: 'primus-ref',
+  name: 'Primus-REF',
+  suite: 'trackTrace',
+  parentId: 'primus', 
+  category: 'Serialization & Track & Trace',
+  subtitle: 'Reference & Aggregation Management System',
+  description: 'Manages unit-case-pallet aggregation hierarchies and cross-references serialized data across packing levels.',
+  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  mainFeatures: [
+    { title: 'Parent-Child Aggregation', description: 'Links unit, case, and pallet-level codes into a full hierarchy.' },
+    { title: 'Cross-Reference Validation', description: 'Validates that every aggregated unit matches its parent record.' },
+    { title: 'Audit Trail Logging', description: 'Maintains a complete, timestamped record of every aggregation event.' },
+  ],
+  industriesUsed: ['Pharmaceutical & Healthcare Packaging', 'Food & Beverage Supply Chain'],
+  editions: {
+    eco: {
+      title: 'Basic Aggregation',
+      description: 'Standard unit-to-case linking.',
+      features: ['Unit-case linking', 'Standard PASS / FAIL verification', 'Basic reporting'],
+    },
+    pro: {
+      title: 'Full Hierarchy Verification',
+      description: 'Complete unit-case-pallet aggregation with inline checks.',
+      features: ['Unit-case-pallet aggregation', 'Inline cross-reference validation', 'Real-time exception handling'],
+    },
+    evo: {
+      title: 'Custom Aggregation Logic',
+      description: 'Client-tailored aggregation rules and integration.',
+      features: ['Custom ERP/MES integration', 'Region-specific compliance formatting', 'Dynamic recipe customization'],
+    },
+  },
+},
+{
+  id: 'primus-gui',
+  name: 'Primus-GUI',
+  parentId: 'primus', 
+  suite: 'trackTrace',
+  category: 'Serialization & Track & Trace',
+  subtitle: 'Central Dashboard & Compliance Reporting Interface',
+  description: 'The operator dashboard and reporting layer that ties every Primus module together into a single view, with Bluetooth connectivity for wireless handheld and tablet access on the line.',
+  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  mainFeatures: [
+    { title: 'Unified Dashboard', description: 'Live view of serialization, aggregation, and line status in one place.' },
+    { title: 'Bluetooth Connectivity', description: 'Pairs wirelessly with handheld scanners, tablets, and portable print/verify units for on-the-floor access without cabling.' },
+    { title: 'Regulatory Reporting', description: 'Generates DSCSA/FMD-compliant reports on demand.' },
+    { title: 'Role-Based Access', description: 'Operator, supervisor, and admin views with permission controls.' },
+  ],
+  industriesUsed: ['Pharmaceutical & Healthcare Packaging', 'Electronics Component Traceability'],
+  editions: {
+    eco: {
+      title: 'Basic Dashboard',
+      description: 'Standard line-status view and manual reporting.',
+      features: ['Live line status view', 'Manual report export', 'Basic user login'],
+    },
+    pro: {
+      title: 'Automated Reporting',
+      description: 'Scheduled compliance reports with alerting, plus wireless Bluetooth access for floor operators.',
+      features: ['Scheduled DSCSA/FMD reports', 'Real-time alerting', 'Role-based access', 'Bluetooth pairing with handheld scanners'],
+    },
+    evo: {
+      title: 'Custom Dashboard Integration',
+      description: 'Client-tailored dashboard views, system integration, and multi-device Bluetooth fleet management.',
+      features: ['Custom ERP/MES integration', 'Tailored dashboard views', 'Dynamic rule customization', 'Multi-device Bluetooth fleet pairing'],
+    },
+  },
+},
 ];

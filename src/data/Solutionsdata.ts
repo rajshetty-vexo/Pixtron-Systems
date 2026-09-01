@@ -39,6 +39,7 @@ export const solutionsData: SolutionItem[] = [
       icon: Package, // <-- Fixed: Added Icon
       tagline: 'Complete carton integrity & print verification for aseptic packaging',
       desc: 'High-speed inspection of tetra and carton packs for seal integrity, print quality, fill level, and code verification on fast-moving beverage and dairy lines.',
+      images:["https://res.cloudinary.com/owsr7mjw/image/upload/v1788238920/TetraPack_w5ygl1.svg"],
       longDesc:
         'Our Tetra Pack inspection solution combines multi-camera 360° coverage with high-speed code reading and print verification to catch seal defects, mis-registered print, and short-fills before they ever leave the line. Built for the demands of aseptic carton lines, it runs inline without slowing production and feeds every result into a central quality dashboard for full batch traceability.',
       keyMetrics: [
@@ -82,6 +83,7 @@ export const solutionsData: SolutionItem[] = [
     icon: Cable, // <-- Fixed: Added Icon
     tagline: 'Continuous surface, insulation & print inspection for extrusion lines',
     desc: 'Non-stop inline inspection of cable and wire surfaces for scratches, insulation defects, diameter variance, and print/marking quality at extrusion line speeds.',
+    images:["https://res.cloudinary.com/owsr7mjw/image/upload/v1788246198/Cabel-wire_rgctee.svg"],
     longDesc:
       'Purpose-built for continuous-flow production, this solution keeps the line running while a high-speed camera tunnel scans every meter of cable or wire that passes through. Surface scratches, insulation gaps, out-of-tolerance diameter, and missing or smudged print are flagged instantly, with automatic line-stop and alarm on critical defects so operators can react before a fault propagates down the reel.',
     keyMetrics: [
@@ -125,6 +127,7 @@ export const solutionsData: SolutionItem[] = [
     icon: Sparkles, // <-- Fixed: Added Icon
     tagline: 'Glare-resistant defect detection on metal, foil & laminate surfaces',
     desc: 'Specialized lighting and multi-angle capture for inspecting highly reflective metal, foil, and laminate surfaces where standard cameras are blinded by glare.',
+    images:["https://res.cloudinary.com/owsr7mjw/image/upload/v1788244454/Reflective_Material_u4rkjd.svg"],
     longDesc:
       'Reflective and specular surfaces are notoriously difficult for standard machine vision — direct light bounces straight back into the lens and hides real defects. This solution uses structured, diffuse and multi-angle lighting together with our geometry & colour engine to cut through glare and reliably surface scratches, dents, and finish inconsistencies on metal, foil, and laminated materials.',
     keyMetrics: [
@@ -168,6 +171,7 @@ export const solutionsData: SolutionItem[] = [
     icon: TestTube2, // <-- Fixed: Added Icon
     tagline: 'Top-Side Presence, Count & Orientation Verification for Vials & Ampoules',
     desc: 'Overhead camera verification that every tray, tub, or nest contains the correct count of vials or ampoules, correctly oriented, before secondary packaging.',
+    images: ["https://res.cloudinary.com/owsr7mjw/image/upload/v1788244454/Vial-Inspection_jnyuej.svg"],
     longDesc:
       'Short-fills and misplaced vials in secondary packaging are a serious compliance risk in pharma manufacturing. This solution uses a high-resolution overhead camera to verify vial or ampoule count, presence, and orientation in trays, tubs, and nests at the point of packing, rejecting any carrier that doesn’t match the expected configuration before it moves downstream.',
     keyMetrics: [
@@ -211,6 +215,7 @@ export const solutionsData: SolutionItem[] = [
     icon: Pill, // <-- Fixed: Added Icon
     tagline: 'Cavity-level tablet & seal integrity verification for blister lines',
     desc: 'High-speed vision inspection for blister packaging lines, detecting missing, broken, or discoloured tablets and foil seal defects at every cavity.',
+    images: ["https://res.cloudinary.com/owsr7mjw/image/upload/v1788245596/Blister_Inspection_vki7my.svg"],
     longDesc:
       'Every cavity, every blister, every cycle — this solution inspects blister packs immediately after sealing to catch missing, broken, chipped, or wrong-colour tablets alongside foil seal defects like pinholes and wrinkles. Multi-row, multi-cavity layouts are analysed simultaneously so inspection keeps pace with even the fastest blister lines.',
     keyMetrics: [
@@ -254,6 +259,7 @@ export const solutionsData: SolutionItem[] = [
     icon: QrCode, // <-- Fixed: Added Icon
     tagline: 'Ultra-fast code reading and text verification across pack formats',
     desc: 'Reads and verifies 1D barcodes, 2D codes, and pharma codes alongside OCR/OCV of batch, lot, and expiry text — all inline, at full production speed.',
+    images: ["https://res.cloudinary.com/owsr7mjw/image/upload/v1788247147/Pharma-Code_and_OCR_u7zkws.svg"],
     longDesc:
       'From cartons to blister foils to shipping labels, this solution combines high-speed 1D/2D code decoding with OCR/OCV of variable print — batch numbers, lot codes, expiry dates — in a single inspection pass. Damaged, low-contrast, or partially printed codes are still reliably decoded, and every result is matched against expected values for full track-and-trace compliance.',
     keyMetrics: [
@@ -263,7 +269,7 @@ export const solutionsData: SolutionItem[] = [
       { metric: 'Inspection Speed', value: 'Up to 2,500 units/min' },
     ],
     industriesUsed: ['Pharmaceuticals', 'Logistics', 'FMCG Packaging'],
-    productsUsed: ['codex', 'inspectra'],
+    productsUsed: ['CodexQ', 'inspectra'],
     applications: [
       'Pharmacode and linear barcode decoding',
       'QR and 2D matrix code verification',
@@ -298,6 +304,7 @@ export const solutionsData: SolutionItem[] = [
     icon: ScanLine, // <-- Fixed: Added Icon
     tagline: 'Serialization-grade DataMatrix decoding for global track-and-trace',
     desc: 'High-density DataMatrix decoding paired with OCR/OCV, built for serialization workflows and regulatory track-and-trace compliance.',
+    images: ["https://res.cloudinary.com/owsr7mjw/image/upload/v1788244452/Data-Metrics_and_OCR_kr0y1z.svg"],
     longDesc:
       'Built specifically for serialization-grade traceability, this solution decodes high-density GS1 DataMatrix codes — including damaged, low-contrast, or laser-etched marks — and cross-verifies the encoded serial number, batch, and expiry against printed OCR text and the serialization database. It’s designed to meet the accuracy demands of global track-and-trace mandates without adding a bottleneck to the line.',
     keyMetrics: [
@@ -307,7 +314,7 @@ export const solutionsData: SolutionItem[] = [
       { metric: 'Damaged Code Recovery', value: 'Up to 30% obscured' },
     ],
     industriesUsed: ['Pharmaceuticals', 'Electronics', 'Automotive'],
-    productsUsed: ['codex', 'inspectra'],
+    productsUsed: ['CodexQ', 'inspectra'],
     applications: [
       'GS1 DataMatrix serialization decoding',
       'Serial number, batch & expiry cross-verification',

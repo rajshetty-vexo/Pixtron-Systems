@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
 import { solutionsData } from '../data/Solutionsdata';
+import { SmartMedia } from './SmartMedia';
 import { ArrowRight } from 'lucide-react';
 
 // Curated homepage subset — no filters, no metrics, just the headline solutions
@@ -62,7 +63,7 @@ export const SolutionsShowcase: React.FC = () => {
             const fromLeft = index % 2 === 0;
 
             return (
-        <motion.div
+  <motion.div
   key={solution.id}
   initial={
     isDesktop
@@ -70,21 +71,28 @@ export const SolutionsShowcase: React.FC = () => {
       : { opacity: 0, x: 0, y: 20 }
   }
   whileInView={{ opacity: 1, x: 0, y: 0 }}
-  viewport={{ once: true, amount: 0.4 }}
+  viewport={{ once: true, amount: 0.2, margin: '100px' }}
   transition={{
     duration: 0.7,
     delay: (index % 3) * 0.12,
     ease: [0.16, 1, 0.3, 1],
   }}
-  whileHover={{ y: -8 }}
-  whileTap={{ y: -4 }}
+  whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
+  whileTap={{ y: -4, transition: { duration: 0.15, ease: 'easeOut' } }}
   onClick={() => navigate(`/solutions/${solution.id}`)}
-  className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 min-h-[280px] sm:min-h-[300px] w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer"
+  className="group relative rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 min-h-[280px] sm:min-h-[300px] w-[82%] md:w-auto md:min-w-0 snap-center shrink-0 cursor-pointer [transform:translateZ(0)] will-change-transform"
 >
-  {/* Glow ring — ab yehi hover ka main "highlight/pop" effect hai */}
-  <motion.div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-primary via-secondary to-primary opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10" />
+  <div className="absolute inset-0 z-0 pointer-events-none">
+   <SmartMedia
+  type="image"
+  src={solution.images?.[0] || ''}
+  alt={solution.name}
+  className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:will-change-transform [&_img]:transition-transform [&_img]:duration-300 [&_img]:ease-out group-hover:[&_img]:scale-105"
+/>
+    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30 transition-opacity duration-300 will-change-[opacity] group-hover:opacity-90" />
+  </div>
 
-  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/25" />
+ 
 
   <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-7">
     <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
