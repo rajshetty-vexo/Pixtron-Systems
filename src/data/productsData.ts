@@ -412,7 +412,7 @@ evo: {
   suite: 'trackTrace',
   parentId: 'primus', 
   category: 'Serialization & Track & Trace',
-  subtitle: 'QR-Based Serialization & Code Assignment Engine',
+  subtitle: 'QR-Based Serialization',
   description: 'High-speed QR code generation and assignment engine for unit-level serialization at the point of production.',
   brochureUrl: 'PUT_BROCHURE_URL_HERE',
   mainFeatures: [
@@ -445,30 +445,59 @@ evo: {
   suite: 'trackTrace',
   parentId: 'primus', 
   category: 'Serialization & Track & Trace',
-  subtitle: 'Reference & Aggregation Management System',
-  description: 'Manages unit-case-pallet aggregation hierarchies and cross-references serialized data across packing levels.',
+  subtitle: 'RFID-Based Management System',
+  description: 'Enables high-speed bulk RFID tagging and contactless unit-case-pallet aggregation verification across automated packing lines.',
   brochureUrl: 'PUT_BROCHURE_URL_HERE',
   mainFeatures: [
-    { title: 'Parent-Child Aggregation', description: 'Links unit, case, and pallet-level codes into a full hierarchy.' },
-    { title: 'Cross-Reference Validation', description: 'Validates that every aggregated unit matches its parent record.' },
-    { title: 'Audit Trail Logging', description: 'Maintains a complete, timestamped record of every aggregation event.' },
+    { 
+      title: 'Bulk RFID Aggregation', 
+      description: 'Instantaneously reads and links multiple unit-level RFID tags to case and pallet tags without line-of-sight requirements.' 
+    },
+    { 
+      title: 'Tag Encoding & Verification', 
+      description: 'Encodes GS1 EPC data into RFID chips and verifies chip data against printed 1D/2D barcodes in real time.' 
+    },
+    { 
+      title: 'Cross-Reference & Audit Logging', 
+      description: 'Validates full hierarchy integrity and maintains 21 CFR Part 11 compliant audit trails for every RFID write/read event.' 
+    },
   ],
-  industriesUsed: ['Pharmaceutical & Healthcare Packaging', 'Food & Beverage Supply Chain'],
+  industriesUsed: [
+    'Pharmaceutical & Healthcare Packaging', 
+    'Automotive & Spare Parts Distribution',
+    'Food & Beverage Supply Chain',
+    'High-Value FMCG Logistics'
+  ],
   editions: {
     eco: {
-      title: 'Basic Aggregation',
-      description: 'Standard unit-to-case linking.',
-      features: ['Unit-case linking', 'Standard PASS / FAIL verification', 'Basic reporting'],
+      title: 'Basic RFID Tagging',
+      description: 'Standard unit-to-case RFID encoding and verification.',
+      features: [
+        'Single-station RFID tag encoding',
+        'Unit-to-case tag linking',
+        'Standard PASS / FAIL signal output',
+        'Basic RFID read-count reporting'
+      ],
     },
     pro: {
-      title: 'Full Hierarchy Verification',
-      description: 'Complete unit-case-pallet aggregation with inline checks.',
-      features: ['Unit-case-pallet aggregation', 'Inline cross-reference validation', 'Real-time exception handling'],
+      title: 'Full Hierarchy RFID Aggregation',
+      description: 'Contactless multi-level aggregation with bulk reading gates.',
+      features: [
+        'Contactless Unit-Case-Pallet RFID aggregation',
+        'Bulk tunnel / antenna reader integration',
+        'Inline EPC cross-reference validation',
+        'Real-time misplaced/unencoded tag exception handling'
+      ],
     },
     evo: {
-      title: 'Custom Aggregation Logic',
-      description: 'Client-tailored aggregation rules and integration.',
-      features: ['Custom ERP/MES integration', 'Region-specific compliance formatting', 'Dynamic recipe customization'],
+      title: 'Enterprise Smart RFID Suite',
+      description: 'Custom RFID logic, multi-antenna arrays, and ERP/WMS sync.',
+      features: [
+        'Custom ERP / WMS / MES RFID stream integration',
+        'Multi-frequency (UHF/HF) reader & printer setup',
+        'Region-specific compliance formatting (DSCSA, EU FMD, GS1 EPCIS)',
+        'Dynamic tunnel recipe & power-level auto-tuning'
+      ],
     },
   },
 },
@@ -478,8 +507,8 @@ evo: {
   parentId: 'primus', 
   suite: 'trackTrace',
   category: 'Serialization & Track & Trace',
-  subtitle: 'Central Dashboard & Compliance Reporting Interface',
-  description: 'The operator dashboard and reporting layer that ties every Primus module together into a single view, with Bluetooth connectivity for wireless handheld and tablet access on the line.',
+  subtitle: 'Wireless Line Control Interface ',
+  description: 'Enables wireless floor access via seamless Bluetooth pairing with tablets and handheld scanners.',
   brochureUrl: 'PUT_BROCHURE_URL_HERE',
   mainFeatures: [
     { title: 'Unified Dashboard', description: 'Live view of serialization, aggregation, and line status in one place.' },

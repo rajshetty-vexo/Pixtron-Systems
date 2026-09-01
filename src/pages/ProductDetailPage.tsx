@@ -116,11 +116,11 @@ initial={{ opacity: 0, y: 15 }}
 whileInView={{ opacity: 1, y: 0 }}
 viewport={{ once: true, amount: 0.3 }}
 transition={{ duration: 0.7,ease:'easeOut' }}
-className="relative w-full max-w-4xl mx-auto"
+className="relative w-full max-w-4xl mx-auto flex items-center justify-center gap-2"
 
 >
 
-<PixtronArrows size={14} />
+<PixtronArrows size={20} />
 
 <span className="text-xs font-bold uppercase tracking-widest text-primary">
 

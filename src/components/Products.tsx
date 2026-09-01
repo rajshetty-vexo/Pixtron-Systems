@@ -99,7 +99,7 @@ const trackTraceProducts = [
       'Primus-GUI',
     ],
     icon: <ScanLine className="text-primary" size={32} />,
-    image: "PUT_PRIMUS_IMAGE_URL_HERE",
+    image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788259659/Primus_iej02l.png",
   },
 ];
 

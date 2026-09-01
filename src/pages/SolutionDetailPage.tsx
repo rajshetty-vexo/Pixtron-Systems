@@ -104,7 +104,7 @@ export const SolutionDetailPage: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative w-full max-w-4xl mx-auto flex items-center justify-center gap-2"
         >
-          <PixtronArrows size={14} />
+          <PixtronArrows size={20} />
           <span className="text-xs font-bold uppercase tracking-widest text-primary">Solutions</span>
         </motion.div>
 

@@ -23,7 +23,7 @@ export const ProductHub: React.FC<ProductHubProps> = ({ product, subProducts }) 
       </div>
       <section className="max-w-4xl mx-auto px-4 text-center mb-16">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <PixtronArrows size={14} />
+          <PixtronArrows size={20} />
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
             {product.category}
           </span>
