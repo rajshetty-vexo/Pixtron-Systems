@@ -470,7 +470,7 @@ export default function PrimusAgroAnimation({ brochureHref, className, variant =
 
             <div className="pag-loopnote">
               <span className="pag-loopdot" ref={loopDotRef} />
-              Demo loops automatically
+              QR-RFID-BLUETOOTH
             </div>
           </div>
         </div>
