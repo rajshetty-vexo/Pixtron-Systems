@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PixtronArrows } from './PixtronArrows';
 import { PixtronLogo } from './PixtronLogo';
+import { VisitorCounter } from './VisitorCounter';
 import { Mail, Phone, MapPin, Linkedin, Youtube, Instagram,Facebook} from 'lucide-react';
 
 const FOOTER_LOGO_MARGIN_LEFT = 0;
@@ -240,6 +241,7 @@ export const Footer: React.FC = () => {
           <p className="text-white/60 text-xs sm:text-sm text-center md:text-left">
             © 2026 Pixtron Systems. All rights reserved.
           </p>
+            <VisitorCounter />
           <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs sm:text-sm">
             <Link to="/privacy-policy" className="text-white/60 hover:text-[#fbbb0d] transition-colors">Privacy Policy</Link>
             <Link to="/terms-conditions" className="text-white/60 hover:text-[#fbbb0d] transition-colors">Terms & Conditions</Link>

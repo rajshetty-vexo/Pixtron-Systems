@@ -75,21 +75,30 @@ export const Workflow: React.FC<WorkflowProps> = ({ activeSuite }) => {
                 transition={{ delay: i * 0.2 }}
                 className="relative flex flex-col items-center text-center"
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center mb-6 sm:mb-8 shadow-[0_0_30px_rgba(0,57,133,0.5)] relative z-20 group">
-                  <div className="absolute inset-0 rounded-full border-2 border-secondary opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500" />
-                  <div className="text-white">
-                    {step.icon}
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-primary font-black flex items-center justify-center text-sm">
-                    {i + 1}
-                  </div>
-                </div>
+               <motion.div
+  whileHover={{ scale: 1 }}
+  whileTap={{ scale: 1 }}
+  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center mb-6 sm:mb-8 shadow-[0_0_30px_rgba(0,57,133,0.5)] relative z-20 group cursor-pointer"
+>
+  <motion.div
+    className="absolute inset-0 rounded-full border-2 border-secondary opacity-0"
+    whileHover={{ opacity: 1, scale: 1.25 }}
+    whileTap={{ opacity: 1, scale: 1.25 }}
+    transition={{ duration: 0.4 }}
+  />
+  <div className="text-white">
+    {step.icon}
+  </div>
+  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-primary font-black flex items-center justify-center text-sm">
+    {i + 1}
+  </div>
+</motion.div>
                 <h3 className="text-lg sm:text-xl font-bold mb-4">{step.title}</h3>
                 <p className="text-slate-400 leading-relaxed">{step.desc}</p>
                 
                 {/* Arrow Connector (Mobile/Tablet) */}
                 {i < steps.length - 1 && (
-                  <div className="lg:hidden mt-8 text-secondary">
+                  <div className="md:hidden mt-8 text-secondary">
                     <PixtronArrows size={32} />
                   </div>
                 )}

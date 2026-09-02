@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
       <PixtronLogo className="h-9 sm:h-10" />
     </Link>
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           
           <Link to="/" className="text-sm font-semibold text-slate-800 hover:text-primary transition-colors">
             Home
@@ -294,7 +294,7 @@ export const Navbar: React.FC = () => {
 
         {/* MOBILE TOGGLE BUTTON */}
         <button 
-          className="md:hidden text-primary p-1 focus:outline-none" 
+          className="lg:hidden text-primary p-1 focus:outline-none" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Navigation Menu"
         >
@@ -309,7 +309,7 @@ export const Navbar: React.FC = () => {
       initial={{ opacity: 0, y: -10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.95 }}
-      className="md:hidden absolute top-full left-0 right-0 mt-3 bg-white/100 backdrop-blur-xl rounded-3xl border border-slate-100 shadow-2xl overflow-hidden p-5"
+      className="lg:hidden absolute top-full left-0 right-0 mt-3 bg-white/100 backdrop-blur-xl rounded-3xl border border-slate-100 shadow-2xl overflow-hidden p-5"
     >
             <div className="max-w-7xl mx-auto px-5 py-2 flex flex-col gap-3">
               

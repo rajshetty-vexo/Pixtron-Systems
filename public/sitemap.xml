@@ -88,57 +88,85 @@
     <priority>0.90</priority>
   </url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/products/blister-inspection-system</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
 
+<url>
+  <loc>https://www.pixtronsystems.com/products/primus</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://www.pixtronsystems.com/products/primusagro</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.pixtronsystems.com/products/primuspharma</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.pixtronsystems.com/products/primusfruto</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
   <!-- ═══════════════════════════════════════════════════════════
        3. KEY SOLUTIONS & INDUSTRIES (TARGET KEYWORDS)
   ═══════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Automotive</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
+ <url>
+  <loc>https://www.pixtronsystems.com/solutions/tetra-pack-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Electronics</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/cable-wire-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Pharmaceuticals</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/reflective-material-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.82</priority>
+</url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Food%20%26%20Beverage</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/vial-counting-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Manufacturing</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/blister-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.88</priority>
+</url>
 
-  <url>
-    <loc>https://www.pixtronsystems.com/solutions?industry=Logistics</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/1d-2d-code-pharma-ocr-inspection</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.pixtronsystems.com/solutions/datamatrix-ocr-verification</loc>
+  <lastmod>2026-08-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.87</priority>
+</url>
 
   <!-- ═══════════════════════════════════════════════════════════
        4. HIGH-INTENT COMPUTER VISION SEARCH LANDINGS

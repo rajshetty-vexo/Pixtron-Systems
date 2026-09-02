@@ -47,7 +47,7 @@ export const productsData: ProductDetail[] = [
     subtitle: 'Next-Generation High-Speed Optical Inspection Engine',
     description:
       'High precision, ultra high-speed dot print inspection designed for complex packaging lines. Inspectra ensures 100% real-time defect verification without slowing production speeds.',
-    brochureUrl: 'https://drive.google.com/uc?export=download&id=15rL6vPZ1yqXhQxEk5ynmleaBDscnEHwy',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1hk6EWH09K5E9qi43im0DAtJxs0xg0ZJp',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-manufacturing-41525-large.mp4', // Demo video link
     mainFeatures: [
       {
@@ -110,7 +110,7 @@ export const productsData: ProductDetail[] = [
     subtitle: 'Continuous Flow Optical Quality Assurance',
     description:
       'Fast, accurate inspection with OCR/OCV for continuous flow production lines, with real-time monitoring and inspection of surface defects and dimensions.',
-    brochureUrl: '/brochures/rapid-spec-sheet.pdf',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1wrl1LWKxc9oozzfiMOGeA9tbbtEOy0Ur',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-robotic-arm-working-in-a-factory-41523-large.mp4',
     mainFeatures: [
       {
@@ -172,7 +172,7 @@ evo: {
     subtitle: 'Ultra-Fast Traceability & Code Verification',
     description:
       'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
-    brochureUrl: '/brochures/CodexQ-spec-sheet.pdf',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1ySW03ZI4Wxp93xNIRVt7OnP6a4dodJXK',
     mainFeatures: [
       {
         title: '1D & 2D Code Decoding',
@@ -234,7 +234,7 @@ editions: {
     subtitle: 'Precise Shape, Size, and Color Verification',
     description:
       'Precise shape, size, and color consistency verification for complex manufacturing components.',
-    brochureUrl: '/brochures/opus-spec-sheet.pdf',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1wtITLofQkQyULbIZZFKDY6jvdy9jPxFv',
     mainFeatures: [
       {
         title: 'Dimensional Tolerance Checks',
@@ -295,7 +295,7 @@ evo: {
     subtitle: 'Complete Surface Vision Array',
     description:
       'Complete 360° surface inspection using synchronized multi-camera systems for bottles, cans, and tubes.',
-    brochureUrl: '/brochures/panorama-spec-sheet.pdf',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1y4TMyndhewot6xZZyWFTg2bLFZmA6cdA',
     mainFeatures: [
       {
         title: '360° Seamless Coverage',
