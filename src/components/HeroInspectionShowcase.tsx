@@ -146,7 +146,7 @@ function PhaseB() {
 
   return (
     <div
-      className="relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-[380px] md:max-w-[460px] lg:max-w-xl rounded-[2rem] border border-slate-200 bg-gradient-to-br from-primary/5 via-slate-50 to-secondary/10 p-4 sm:p-6 shadow-sm"
+      className="relative mx-auto aspect-square w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] rounded-[2rem] border border-slate-200 bg-gradient-to-br from-primary/5 via-slate-50 to-secondary/10 p-4 sm:p-5 shadow-sm"
       role="img"
       aria-label={`${mode.details} before-and-after inspection demo`}
     >

@@ -18,52 +18,28 @@ export interface TestimonialSlide {
 
 const testimonials: TestimonialSlide[] = [
   {
-    id: "Mac",
+    id: " mr. ajay pendharkar ",
     quote:
-      "Since switching to Pixtron Machine Vision systems, our defect detection rate reached 99.9%. The setup was smooth, and print inspection is totally flawless.",
-    name: "Mac",
-    role: "Managing Director",
-    company: "Lite-banana",
-    initials: "LB",
-    photo: "https://res.cloudinary.com/mfutgeij/image/upload/v1786906017/My_Img_e0oalj.png",
-    mediaType: "youtube",
-    mediaUrl: "https://www.youtube.com/embed/xtm0oCCrNTs?si=11cf74oUJTytgDKK",
-  },
-  {
-    id: "anita-pillai",
-    quote:
-      "Their AI vision software integrated into our packaging line seamlessly within 2 days. We saved hundreds of hours in manual quality checks.",
-    name: "Anita Pillai",
-    role: "Plant Head",
-    company: "Wellness Foods Pvt Ltd",
-    initials: "AP",
-    photo: "",
-    mediaType: "youtube",
-    mediaUrl: "",
-  },
-  {
-    id: "sandeep-kulkarni",
-    quote:
-      "Pixtron Systems provided the most stable OCR inspection unit we have ever deployed. Zero downtime recorded in over six months of high-speed sorting.",
-    name: "Sandeep Kulkarni",
-    role: "Operations Manager",
-    company: "Sunrise Beverages",
-    initials: "SK",
-    photo: "",
+      "Pixtron Systems has delivered outstanding service and reliable products for our line. Their systems have measurably improved our OEE and machine uptime, while keeping quality inspection consistently precise.",
+    name: " Mr. Ajay Pendharkar",
+    role: "Director",
+    company: "Vicco Ayurveda Pvt. Ltd.",
+    initials: "VA",
+    photo: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788333213/Client_Male_Avatar_i1walr.png",
     mediaType: "image",
-    mediaUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    mediaUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1787124528/Vicco_Ayurveda_dljfvi.jpg",
   },
   {
-    id: "meera-joshi",
+    id: "s p vaidya",
     quote:
-      "High precision, prompt technical support, and intuitive software user interface. Pixtron is now our go-to partner for automated vision inspection.",
-    name: "Meera Joshi",
-    role: "Quality Assurance Lead",
-    company: "Nova Pharma Pack",
-    initials: "MJ",
-    photo: "",
-    mediaType: "youtube",
-    mediaUrl: "",
+      "Pixtron Systems CodexQ inspection system was tailored precisely to our line requirements. What impressed us most was the end-to-end integration printer, conveyor, and automated rejection handling delivered as one seamless solution.",
+    name: "Mr. S P Vaidya",
+    role: "Plant Head",
+    company: "DCI Pharmaceuticals Pvt. Ltd.",
+    initials: "DCI",
+    photo: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788333213/Client_Male_Avatar_i1walr.png",
+    mediaType: "image",
+    mediaUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1787124528/DCI_Logo_wajceq.jpg",
   },
 ];
 
@@ -285,6 +261,9 @@ export const TestimonialsSection: React.FC = () => {
       className="py-16 sm:py-24 bg-white relative overflow-hidden font-sans text-slate-900 border-t border-slate-100"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleMouseEnter}
+      onTouchEnd={handleMouseLeave}
+
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -7,11 +7,12 @@ import { PixtronArrows } from '../components/PixtronArrows';
 import {MainFeaturesSection} from '../components/MainFeaturesSection'
 import { BrochureModal } from '../components/BrochureModal';
 import { SeoMeta } from "../components/SeoMeta";
-import { Download, ArrowLeft, Building2, CheckCircle2 } from 'lucide-react';
+import { Download, ArrowLeft, Building2, CheckCircle2,QrCode, Radio, Bluetooth } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 import { productAnimations } from "../components/Productanimations";
 import {SmartMedia} from "../components/SmartMedia";
 import { ProductHub } from '../components/ProductHub';
+
 
 export const ProductDetailPage: React.FC = () => {
 
@@ -19,7 +20,11 @@ const { productId } = useParams<{ productId: string }>();
 
 const [isModalOpen, setIsModalOpen] = useState(false);
 // Find matching product or fallback to Inspectra
-const product = productsData.find((p) => p.id === productId) || productsData[0];
+const normalizeId = (id?: string) => id?.toLowerCase().replace(/[^a-z0-9]/g, '') || '';
+
+const product = productsData.find(
+  (p) => normalizeId(p.id) === normalizeId(productId)
+) || productsData[0];
 const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -35,6 +40,11 @@ const subProducts = productsData.filter((p) => p.parentId === product.id);
   //   ? product.images 
   //   : ["/placeholder-image.jpg"];
 
+  const MODULE_INFO = {
+  qr: { label: 'QR-Based Serialization', icon: QrCode, color: 'text-primary bg-primary/10' },
+  rfid: { label: 'RFID-Based Tracking', icon: Radio, color: 'text-secondary bg-secondary/10' },
+  bluetooth: { label: 'Bluetooth-Enabled Access', icon: Bluetooth, color: 'text-blue-600 bg-blue-100' },
+};
  
 
   // 4. AUTO-SLIDE EFFECT
@@ -73,6 +83,10 @@ const breadcrumbSchema = {
   ]
 };
 
+// useEffect(() => {
+//   window.scrollTo({ top: 0, behavior: 'smooth' });
+//   setCurrentImageIndex(0);
+// }, [productId])
 
 
 return (
@@ -270,6 +284,53 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
 
 
 <MainFeaturesSection product={product} />
+{/* TRACK & TRACE MODULES — optional, only for trackTrace products that specify baseModules */}
+{product.suite === 'trackTrace' && product.baseModules && product.baseModules.length > 0 && (
+  <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl shadow-slate-200/50"
+    >
+      <div className="flex items-center gap-2.5 mb-4">
+        <PixtronArrows size={20} />
+        <span className="text-primary font-bold uppercase tracking-widest text-xs">
+          Underlying Technology
+        </span>
+      </div>
+      <h2 className="text-2xl sm:text-4xl font-black text-slate-950 mb-8 tracking-tight">
+        Track &amp; Trace Modules
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {product.baseModules.map((mod, index) => {
+          const info = MODULE_INFO[mod];
+          const ModIcon = info.icon;
+          return (
+            <motion.div
+              key={mod}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="flex flex-col items-center text-center gap-3 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200"
+            >
+              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${info.color}`}>
+                <ModIcon size={26} strokeWidth={1.75} />
+              </div>
+              <span className="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                {info.label}
+              </span>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+  </section>
+)}
+
 {/* PRODUCT EDITIONS SECTION (Reusable for Inspectra, Rapid, etc.) */}
 {product.editions && (
   <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
@@ -375,6 +436,7 @@ className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed f
     </div>
   </section>
 )}
+
 {/* 4. INDUSTRIES USED SECTION (Clean Light Theme Match) */}
 
 <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

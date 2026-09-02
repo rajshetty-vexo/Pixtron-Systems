@@ -220,6 +220,18 @@ export const Industries: React.FC = () => {
     setSelectedIndustry(industry);
   };
 
+const getProductSlug = (prodName: string) => {
+  const name = prodName.toLowerCase().trim();
+  
+  if (name === 'codexq' || name === 'codex q' || name === 'codex-q') return 'codexq';
+  if (name === 'inspectra') return 'inspectra';
+  if (name === 'opus') return 'opus';
+  if (name === 'rapid') return 'rapid';
+  if (name === 'panorama') return 'panorama';
+
+  return name.replace(/\s+/g, '-');
+};
+
   return (
     <section id="industries" ref={sectionRef} className="py-14 lg:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -412,25 +424,26 @@ export const Industries: React.FC = () => {
 
                   <hr className="border-slate-100 my-6" />
 
-                  {/* Products Used */}
-                  <div className="mb-6">
-                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <PixtronArrows size={16} />
-                      Products Used In This Solution
-                    </h3>
-                    <div className="flex flex-wrap gap-2.5">
-                      {selectedIndustry.products.map((prod) => (
-                        <Link
-                          key={prod}
-                          to={`/products/${prod.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="bg-slate-100 hover:bg-primary hover:text-white text-slate-700 border border-slate-200/60 px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer group/btn"
-                        >
-                          <PixtronArrows size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
-                          {prod}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                {/* Products Used */}
+<div className="mb-6">
+  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+    <PixtronArrows size={16} />
+    Products Used In This Solution
+  </h3>
+  <div className="flex flex-wrap gap-2.5">
+    {selectedIndustry.products.map((prod) => (
+      <Link
+        key={prod}
+        to={`/products/${getProductSlug(prod)}`}
+        onClick={() => setSelectedIndustry(null)} // MUST: Close modal on navigation
+        className="bg-slate-100 hover:bg-primary hover:text-white text-slate-700 border border-slate-200/60 px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer group/btn"
+      >
+        <PixtronArrows size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+        {prod}
+      </Link>
+    ))}
+  </div>
+</div>
 
                   <hr className="border-slate-100 my-6" />
 

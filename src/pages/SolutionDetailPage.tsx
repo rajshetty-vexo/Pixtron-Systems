@@ -299,24 +299,23 @@ export const SolutionDetailPage: React.FC = () => {
           <h2 className="text-2xl sm:text-4xl font-black text-slate-950 mb-8 tracking-tight">
             Industries Using This Solution
           </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {solution.industriesUsed.map((industry, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-                className="flex items-center gap-3.5 bg-slate-50 border border-slate-200/80 rounded-2xl p-4 hover:border-slate-300 hover:bg-slate-100/60 transition-all duration-200"
-              >
-                <div className="shrink-0 p-2 bg-white rounded-xl border border-slate-200 shadow-xs">
-                  <PixtronArrows size={16} />
-                </div>
-                <span className="font-bold text-slate-900 text-sm sm:text-base leading-snug">{industry}</span>
-              </motion.div>
-            ))}
-          </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+  {solution.industriesUsed.map((industry, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="flex items-center gap-3.5 bg-slate-50 border border-slate-200/80 rounded-2xl p-4 hover:border-slate-300 hover:bg-slate-100/60 transition-all duration-200"
+    >
+      <div className="shrink-0 p-2 bg-white rounded-xl border border-slate-200 shadow-xs">
+        <PixtronArrows size={16} />
+      </div>
+      <span className="font-bold text-slate-900 text-sm sm:text-base leading-snug">{industry}</span>
+    </motion.div>
+  ))}
+</div>
         </motion.div>
       </section>
 
@@ -369,6 +368,7 @@ export const SolutionDetailPage: React.FC = () => {
       </section>
 
       {/* CASE STUDIES */}
+      {solution.caseStudies && solution.caseStudies.length > 0 && (
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -384,8 +384,8 @@ export const SolutionDetailPage: React.FC = () => {
             Proven In Production
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {solution.caseStudies.map((cs, index) => (
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {(solution.caseStudies ?? []).map((cs, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 15 }}
@@ -417,6 +417,7 @@ export const SolutionDetailPage: React.FC = () => {
           </div>
         </motion.div>
       </section>
+      )}
 
       {/* CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

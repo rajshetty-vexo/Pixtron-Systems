@@ -11,7 +11,7 @@ export interface Client {
 const clientsData: Client[] = [
   {
     id: "1",
-    name: "DCI Pharmaceuticals Pvt. Ltd.",
+    name: "DCI Pharmaceuticals",
     logoText: "DCI",
     logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1787124528/DCI_Logo_wajceq.jpg",
   },
@@ -20,6 +20,42 @@ const clientsData: Client[] = [
     name: "Vicco Ayurveda",
     logoText: "VA",
     logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1787124528/Vicco_Ayurveda_dljfvi.jpg",
+  },
+    {
+    id: "3",
+    name: "Huhtamaki",
+    logoText: "HM",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788314110/Huhtamaki_pzpn7s.svg",
+  },
+    {
+    id: "4",
+    name: "3M Science Applied to Life",
+    logoText: "3M",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788314684/3M_Science_Applied_to_Life_olib4p.svg",
+  },
+  {
+    id: "5",
+    name: "Tata AutoComp",
+    logoText: "TAC",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315040/Tata_AutoCOMP_xetwmp.png",
+  },
+  {
+    id: "6",
+    name: "CKA Birla Group",
+    logoText: "CKA",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315412/CKA_Birla_Group_uyvsdr.svg",
+  },
+    {
+    id: "7",
+    name: "Asian Paints",
+    logoText: "AP",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315766/AsianPaints_fptrfb.png",
+  },
+      {
+    id: "8",
+    name: "Finolex",
+    logoText: "FL",
+    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315942/Finolex_gg5rco.svg",
   },
 ];
 
@@ -52,7 +88,7 @@ export const OurClients: React.FC = () => {
         .animate-clients-marquee {
           display: flex;
           width: max-content;
-          animation: clientsMarquee 25s linear infinite;
+          animation: clientsMarquee 90s linear infinite;
           will-change: transform;
           backface-visibility: hidden;
           perspective: 1000px;
