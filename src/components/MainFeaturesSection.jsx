@@ -77,12 +77,12 @@ export const MainFeaturesSection = ({ product }) => (
       <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
         Explore the main features
       </h2>
-      <p className="text-slate-500 mt-2 font-normal">
+      <p className="text-slate-500 mt-2 font-normal max-w-xl mx-auto text-sm sm:text-base">
         Designed for high precision and effortless integration.
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       {product.mainFeatures.map((feature, idx) => (
         <FeatureCard key={idx} feature={feature} idx={idx} />
       ))}
