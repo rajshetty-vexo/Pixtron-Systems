@@ -11,7 +11,7 @@ export interface Partner {
 }
 
 const partners: Partner[] = [
-  { id: "2", name: "Ramp Automation", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=300&q=80", category: "Automation" },
+  { id: "2", name: "Ramp Automation", logo: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788506176/Ramp_Automation_oktj78.jpg", category: "Automation" },
 ];
 
 const stats = [

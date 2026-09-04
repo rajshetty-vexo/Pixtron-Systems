@@ -417,30 +417,30 @@ evo: {
   category: 'Track & Trace',
   subtitle: 'Agriculture & Farm-to-Retail Traceability',
   description: 'End-to-end traceability for agricultural produce from harvest lot to retail shelf combining QR-based unit serialization with bulk RFID crate tracking.',
-  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  brochureUrl: 'https://drive.google.com/uc?export=download&id=1GWDpYNE42V--4oCX61gmlqikmUNfc66C',
   mainFeatures: [
     { title: 'Harvest Lot QR Tagging', description: 'Assigns unique QR codes to harvest batches at the point of collection for farm-level traceability.' },
     { title: 'Crate-Level RFID Tracking', description: 'Bulk RFID tagging of crates and pallets for contactless tracking through storage and transport.' },
     { title: 'Cold-Chain & Storage Logging', description: 'Cross-references batch codes against storage and transit checkpoints for shelf-life compliance.' },
   ],
   industriesUsed: ['Agriculture & Farm Produce', 'Cold-Chain Logistics', 'Retail Supply Chain'],
-  editions: {
-    eco: {
-      title: 'Basic Harvest Tracking',
-      description: 'Standard QR tagging at the point of harvest.',
-      features: ['Harvest lot QR generation', 'Standard printing', 'Basic PASS / FAIL verification'],
-    },
-    pro: {
-      title: 'Crate & Cold-Chain Verification',
-      description: 'RFID crate tracking with checkpoint verification.',
-      features: ['Bulk RFID crate tagging', 'Checkpoint cross-verification', 'Real-time exception handling'],
-    },
-    evo: {
-      title: 'Custom Agri-Supply Integration',
-      description: 'Client-tailored logic across farm, storage, and retail systems.',
-      features: ['Custom ERP/WMS integration', 'Region-specific compliance formatting', 'Dynamic recipe customization'],
-    },
-  },
+  // editions: {
+  //   eco: {
+  //     title: 'Basic Harvest Tracking',
+  //     description: 'Standard QR tagging at the point of harvest.',
+  //     features: ['Harvest lot QR generation', 'Standard printing', 'Basic PASS / FAIL verification'],
+  //   },
+  //   pro: {
+  //     title: 'Crate & Cold-Chain Verification',
+  //     description: 'RFID crate tracking with checkpoint verification.',
+  //     features: ['Bulk RFID crate tagging', 'Checkpoint cross-verification', 'Real-time exception handling'],
+  //   },
+  //   evo: {
+  //     title: 'Custom Agri-Supply Integration',
+  //     description: 'Client-tailored logic across farm, storage, and retail systems.',
+  //     features: ['Custom ERP/WMS integration', 'Region-specific compliance formatting', 'Dynamic recipe customization'],
+  //   },
+  // },
 },
 {
   id: 'primuspharma',
@@ -451,30 +451,30 @@ evo: {
   category: 'Track & Trace',
   subtitle: 'Pharma-Grade Serialization & Compliance',
   description: 'Regulatory-compliant serialization bundle for pharmaceutical lines QR/DataMatrix unit serialization with RFID case aggregation for DSCSA/FMD compliance.',
-  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  brochureUrl: 'https://drive.google.com/uc?export=download&id=1BuONFSdmQ0XP2RiCSHmliOuDGQTHnIFw',
   mainFeatures: [
     { title: 'Unit-Level QR Serialization', description: 'GS1-compliant QR/DataMatrix code generation and verification per unit.' },
     { title: 'RFID Case Aggregation', description: 'Contactless case and pallet-level aggregation using RFID for high-speed packing lines.' },
     { title: 'DSCSA / FMD Compliance Reporting', description: 'Automated regulatory reporting synced with ERP/MES systems.' },
   ],
   industriesUsed: ['Pharmaceutical & Healthcare Packaging', 'Medical Device Manufacturing'],
-  editions: {
-    eco: {
-      title: 'Basic Pharma Serialization',
-      description: 'Standard unit-level QR/DataMatrix generation and printing.',
-      features: ['Unit-level code generation', 'Standard printing', 'Basic PASS / FAIL verification'],
-    },
-    pro: {
-      title: 'Full Aggregation & Verification',
-      description: 'RFID case aggregation with inline compliance checks.',
-      features: ['RFID case-pallet aggregation', 'Inline code verification', 'Real-time exception handling'],
-    },
-    evo: {
-      title: 'Custom Regulatory Integration',
-      description: 'Client-tailored serialization logic with direct regulatory system integration.',
-      features: ['Custom ERP/MES integration', 'Region-specific DSCSA/FMD formatting', 'Dynamic recipe customization'],
-    },
-  },
+  // editions: {
+  //   eco: {
+  //     title: 'Basic Pharma Serialization',
+  //     description: 'Standard unit-level QR/DataMatrix generation and printing.',
+  //     features: ['Unit-level code generation', 'Standard printing', 'Basic PASS / FAIL verification'],
+  //   },
+  //   pro: {
+  //     title: 'Full Aggregation & Verification',
+  //     description: 'RFID case aggregation with inline compliance checks.',
+  //     features: ['RFID case-pallet aggregation', 'Inline code verification', 'Real-time exception handling'],
+  //   },
+  //   evo: {
+  //     title: 'Custom Regulatory Integration',
+  //     description: 'Client-tailored serialization logic with direct regulatory system integration.',
+  //     features: ['Custom ERP/MES integration', 'Region-specific DSCSA/FMD formatting', 'Dynamic recipe customization'],
+  //   },
+  // },
 },
 {
   id: 'primusfruto',
@@ -485,29 +485,29 @@ evo: {
   category: 'Track & Trace',
   subtitle: 'Fresh Produce & Fruit Supply Traceability',
   description: 'Bluetooth-enabled floor tracking combined with QR batch serialization for fresh fruit and produce packing lines.',
-  brochureUrl: 'PUT_BROCHURE_URL_HERE',
+  brochureUrl: 'https://drive.google.com/uc?export=download&id=15qt_4yPnFHAOvwPefJLEPccv6V8SINsc',
   mainFeatures: [
     { title: 'Batch QR Serialization', description: 'Assigns and verifies QR codes at the point of grading and packing.' },
     { title: 'Wireless Floor Access', description: 'Bluetooth pairing with handheld scanners for on-the-floor grading and verification.' },
     { title: 'Shelf-Life & Origin Logging', description: 'Tracks batch origin, grading, and shelf-life data through the supply chain.' },
   ],
   industriesUsed: ['Fresh Produce & Fruit Packing', 'Retail Supply Chain', 'Export Logistics'],
-  editions: {
-    eco: {
-      title: 'Basic Batch Tagging',
-      description: 'Standard QR batch code generation and printing.',
-      features: ['Batch QR generation', 'Standard printing', 'Basic PASS / FAIL verification'],
-    },
-    pro: {
-      title: 'Wireless Floor Verification',
-      description: 'Bluetooth-connected handheld verification with real-time logging.',
-      features: ['Bluetooth handheld pairing', 'Real-time grading verification', 'Exception handling'],
-    },
-    evo: {
-      title: 'Custom Export Compliance',
-      description: 'Client-tailored logic for export and retail compliance systems.',
-      features: ['Custom ERP/WMS integration', 'Region-specific export formatting', 'Dynamic recipe customization'],
-    },
-  },
+  // editions: {
+  //   eco: {
+  //     title: 'Basic Batch Tagging',
+  //     description: 'Standard QR batch code generation and printing.',
+  //     features: ['Batch QR generation', 'Standard printing', 'Basic PASS / FAIL verification'],
+  //   },
+  //   pro: {
+  //     title: 'Wireless Floor Verification',
+  //     description: 'Bluetooth-connected handheld verification with real-time logging.',
+  //     features: ['Bluetooth handheld pairing', 'Real-time grading verification', 'Exception handling'],
+  //   },
+  //   evo: {
+  //     title: 'Custom Export Compliance',
+  //     description: 'Client-tailored logic for export and retail compliance systems.',
+  //     features: ['Custom ERP/WMS integration', 'Region-specific export formatting', 'Dynamic recipe customization'],
+  //   },
+  // },
 },
 ];

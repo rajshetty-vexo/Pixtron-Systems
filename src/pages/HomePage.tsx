@@ -10,7 +10,7 @@ import { Products } from '../components/Products';
 import { Workflow } from '../components/Workflow';
 import { SolutionsShowcase } from '../components/SolutionsShowcase';
 import { PixtronArrows } from '../components/PixtronArrows';
-import { ProductVisualsGrid } from '../components/ProductVisualsGrid';
+
 
 import { ArrowRight, Play, Zap, ShieldCheck, BarChart3, CheckCircle } from 'lucide-react';
 

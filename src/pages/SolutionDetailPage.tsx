@@ -79,7 +79,7 @@ export const SolutionDetailPage: React.FC = () => {
         title={`${solution.name} | Pixtron Systems`}
         description={pageDescription}
         pathname={`/solutions/${solution.id}`}
-        image="/og-image.png"
+        image="/og-image.svg"
         keywords={`${solution.name}, machine vision, Pixtron Systems`}
         structuredData={pageSchema}
         breadcrumbData={breadcrumbSchema}

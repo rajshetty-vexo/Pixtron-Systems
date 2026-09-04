@@ -323,18 +323,10 @@ export default async function handler(req: any, res: any) {
   }
 
 try {
-    const fromAddress = process.env.CONTACT_FROM_EMAIL || "Pixtron Systems <onboarding@resend.dev>";
-    
- 
-    const isProduction = process.env.NODE_ENV === "production";
-    
-    const targetUserEmail = isProduction 
-      ? email 
-      : "social.pixtronsystems@gmail.com";
-
-    const targetTeamEmail = isProduction 
-      ? (process.env.CONTACT_TO_EMAIL || "projects@pixtronsystems.com")
-      : "social.pixtronsystems@gmail.com";
+    // Always send directly to customer's actual email and team email from .env
+    const targetUserEmail = email;
+    const targetTeamEmail = process.env.CONTACT_TO_EMAIL || "projects@pixtronsystems.com";
+    const fromAddress     = process.env.CONTACT_FROM_EMAIL || "Pixtron Systems <onboarding@resend.dev>";
 
     // 1. Email to User
     await sendViaResend({
