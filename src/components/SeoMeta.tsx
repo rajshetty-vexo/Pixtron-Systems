@@ -36,7 +36,7 @@ export function SeoMeta({
   description,
   pathname,
   keywords = '',
-  image = '/og-image.svg', // 👈 Fixed: OG Image fallback (Favicon vector is too small for social cards)
+  image = '/og-image.png', // 👈 Fixed: OG Image fallback (Favicon vector is too small for social cards)
   type = 'website',
   structuredData,
   breadcrumbData,
