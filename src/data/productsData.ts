@@ -165,14 +165,14 @@ evo: {
 
 
   {
-    id: 'CodexQ',
-    name: 'CodexQ',
+    id: 'Codex',
+    name: 'Codex',
     suite: 'vision',
     category: 'Code Reading & OCR',
     subtitle: 'Ultra-Fast Traceability & Code Verification',
     description:
       'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
-    brochureUrl: 'https://drive.google.com/uc?export=download&id=1ySW03ZI4Wxp93xNIRVt7OnP6a4dodJXK',
+    brochureUrl: 'https://drive.google.com/uc?export=download&id=1BTEXNDPDvFb5E32t5bMS-519T_x5YIrh',
     mainFeatures: [
       {
         title: '1D & 2D Code Decoding',

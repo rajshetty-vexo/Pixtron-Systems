@@ -58,7 +58,7 @@ const industriesList: IndustryItem[] = [
       'Fastener, screw, and O-ring presence checks',
       'Part number laser marking & 2D code verification'
     ],
-    products: ['Inspectra', 'Opus', 'CodexQ'],
+    products: ['Inspectra', 'Opus', 'Codex'],
     subIndustries: [
       { name: 'EV Battery Assembly', desc: 'Inspects weld seam quality, cell dimensions, and alignment at high speeds.' },
       { name: 'Metal Press & Stampings', desc: 'Identifies structural cracks, wrinkles, and stamping defects dynamically.' }
@@ -106,7 +106,7 @@ const industriesList: IndustryItem[] = [
       'Vial, syringe, and ampoule visual inspection',
       'Label matching and character inspection (OCR/OCV)'
     ],
-    products: ['CodexQ', 'Inspectra', 'Panorama'],
+    products: ['Codex', 'Inspectra', 'Panorama'],
     subIndustries: [
       { name: 'Medical Device Assembly', desc: 'High-precision verification of syringe needles, catheters, and drug delivery systems.' },
       { name: 'Serialization & Packaging', desc: 'FDA-compliant barcode reading and OCR verification for complete traceability.' }
@@ -130,7 +130,7 @@ const industriesList: IndustryItem[] = [
       'Label placement, barcode readability, and expiry date OCR',
       'Foreign object detection in transparent containers'
     ],
-    products: ['Panorama', 'CodexQ', 'Inspectra'],
+    products: ['Panorama', 'Codex', 'Inspectra'],
     subIndustries: [
       { name: 'Canning & Bottling Lines', desc: 'High-speed double seam inspection, fill level check, and cap skew validation.' },
       { name: 'Carton & Box Packaging', desc: 'Checks print quality, label alignment, and barcode readability.' }
@@ -178,7 +178,7 @@ const industriesList: IndustryItem[] = [
       'Shipping label presence and OCR readability check',
       'De-palletizing and parcel singulation robot guidance'
     ],
-    products: ['CodexQ', 'Rapid'],
+    products: ['Codex', 'Rapid'],
     subIndustries: [
       { name: 'E-commerce Warehouses', desc: '3D package sizing, automated route sorting, and high-speed label scanning.' },
       { name: 'Supply Chain Sorting Gates', desc: 'Reads barcode data on damaged packages and logs sorting errors.' }
@@ -223,7 +223,7 @@ export const Industries: React.FC = () => {
 const getProductSlug = (prodName: string) => {
   const name = prodName.toLowerCase().trim();
   
-  if (name === 'codexq' || name === 'codex q' || name === 'codex-q') return 'codexq';
+  if (name === 'Codex' || name === 'codex q' || name === 'codex-q') return 'Codex';
   if (name === 'inspectra') return 'inspectra';
   if (name === 'opus') return 'opus';
   if (name === 'rapid') return 'rapid';

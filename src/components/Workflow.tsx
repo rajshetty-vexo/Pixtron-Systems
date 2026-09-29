@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { PixtronArrows } from './PixtronArrows';
 import { Camera, Cpu, Zap, CheckCircle, QrCode, Boxes, ScanLine, CloudUpload } from 'lucide-react';
@@ -35,13 +35,10 @@ const trackTraceSteps = [
   { title: 'Cloud Reporting', desc: 'Serialization data syncs with your ERP/MES and regulatory systems in real time.', icon: <CloudUpload size={24} /> },
 ];
 
+// 👇 activeSuite prop hataaya — Workflow ab apna khud ka toggle manage karta hai
+export const Workflow: React.FC = () => {
+  const [activeSuite, setActiveSuite] = useState<SuiteType>('vision');
 
-
-interface WorkflowProps {
-  activeSuite: SuiteType;
-}
-
-export const Workflow: React.FC<WorkflowProps> = ({ activeSuite }) => {
   const steps = activeSuite === 'vision' ? visionSteps : trackTraceSteps;
   const heading = activeSuite === 'vision' ? 'The Inspection Lifecycle' : 'The Track & Trace Lifecycle';
   const subheading = activeSuite === 'vision'
@@ -55,12 +52,47 @@ export const Workflow: React.FC<WorkflowProps> = ({ activeSuite }) => {
           <PixtronArrows size={800} />
         </div>
 
-        <div className="text-center mb-14 sm:mb-20 relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{heading}</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed">
-            {subheading}
-          </p>
-        </div>
+       <div className="text-center mb-10 sm:mb-14 relative z-10">
+  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{heading}</h2>
+
+  {/* 👇 Toggle ab yahan — heading aur subheading ke beech */}
+  <div className={`inline-flex items-center bg-white/5 border rounded-full p-1 mb-6 transition-colors duration-300 ${
+    activeSuite === 'vision' ? 'border-primary' : 'border-secondary'
+  }`}>
+    {(['vision', 'trackTrace'] as const).map((tab) => {
+      const isActive = activeSuite === tab;
+      const isVisionTab = tab === 'vision';
+
+      return (
+        <button
+          key={tab}
+          onClick={() => setActiveSuite(tab)}
+          className={`relative px-5 sm:px-7 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors z-10 ${
+            isActive
+              ? isVisionTab ? 'text-white' : 'text-slate-900'
+              : 'text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          {isActive && (
+            <motion.div
+              layoutId="workflowToggleBg"
+              className={`absolute inset-0 rounded-full -z-10 ${
+                isVisionTab ? 'bg-primary' : 'bg-secondary'
+              }`}
+              transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
+            />
+          )}
+          {tab === 'vision' ? 'Vision' : 'Track & Trace'}
+        </button>
+      );
+    })}
+  </div>
+
+  <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg font-normal leading-relaxed">
+    {subheading}
+  </p>
+</div>
+
         <div className="relative z-10">
           {/* Connector Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
@@ -75,28 +107,27 @@ export const Workflow: React.FC<WorkflowProps> = ({ activeSuite }) => {
                 transition={{ delay: i * 0.2 }}
                 className="relative flex flex-col items-center text-center"
               >
-               <motion.div
-  whileHover={{ scale: 1 }}
-  whileTap={{ scale: 1 }}
-  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center mb-6 sm:mb-8 shadow-[0_0_30px_rgba(0,57,133,0.5)] relative z-20 group cursor-pointer"
->
-  <motion.div
-    className="absolute inset-0 rounded-full border-2 border-secondary opacity-0"
-    whileHover={{ opacity: 1, scale: 1.25 }}
-    whileTap={{ opacity: 1, scale: 1.25 }}
-    transition={{ duration: 0.4 }}
-  />
-  <div className="text-white">
-    {step.icon}
-  </div>
-  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-primary font-black flex items-center justify-center text-sm">
-    {i + 1}
-  </div>
-</motion.div>
+                <motion.div
+                  whileHover={{ scale: 1 }}
+                  whileTap={{ scale: 1 }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center mb-6 sm:mb-8 shadow-[0_0_30px_rgba(0,57,133,0.5)] relative z-20 group cursor-pointer"
+                >
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-secondary opacity-0"
+                    whileHover={{ opacity: 1, scale: 1.25 }}
+                    whileTap={{ opacity: 1, scale: 1.25 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  <div className="text-white">
+                    {step.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-primary font-black flex items-center justify-center text-sm">
+                    {i + 1}
+                  </div>
+                </motion.div>
                 <h3 className="text-lg sm:text-xl font-bold mb-4">{step.title}</h3>
                 <p className="text-slate-400 leading-relaxed">{step.desc}</p>
-                
-                {/* Arrow Connector (Mobile/Tablet) */}
+
                 {i < steps.length - 1 && (
                   <div className="md:hidden mt-8 text-secondary">
                     <PixtronArrows size={32} />

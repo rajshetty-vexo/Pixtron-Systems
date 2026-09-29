@@ -4,7 +4,7 @@ import { VisionGraphic } from '../components/VisionGraphic';
 
 const B_MODES_SOURCE = [
   { id: 'geometry', label: 'GEOMETRY & COLOR', details: 'OPUS SERIES', object: 'shape' },
-  { id: 'ocr', label: 'DOT PRINT / OCR', details: 'CodexQ SERIES', object: 'code' },
+  { id: 'ocr', label: 'DOT PRINT / OCR', details: 'Codex SERIES', object: 'code' },
   { id: 'cable', label: 'CABLE & WIRE', details: 'RAPID SERIES', object: 'wire' },
   { id: 'packaging', label: 'TETRA BRIK', details: 'INSPECTRA SERIES', object: 'brik' },
 ];

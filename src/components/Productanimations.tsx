@@ -1,5 +1,5 @@
 import React from "react";
-import CodexQanimation from "./CodexQAnimation";
+import Codexanimation from "./CodexAnimation";
 import Inspectraanimation from "./Inspectraanimation";
 import Opusanimation from "./Opusanimation";
 import PanoramaAnimation from "./PanoramaAnimation"; 
@@ -16,12 +16,12 @@ import PrimusAgroAnimation from "./PrimusAgroAnimation";
  * animation yet.
  *
  * To give another product (e.g. "inspectra") its own animation later:
- *   1. Build InspectraAnimation.tsx the same way CodexQAnimation.tsx was built.
+ *   1. Build InspectraAnimation.tsx the same way CodexAnimation.tsx was built.
  *   2. Uncomment the import above.
  *   3. Add:  inspectra: InspectraAnimation,  below.
  */
 export const productAnimations: Record<string, React.ComponentType<{ variant?: "full" | "compact" }>> = {
-  CodexQ: CodexQanimation,
+  Codex: Codexanimation,
   inspectra: Inspectraanimation,
    opus: Opusanimation,
   panorama: PanoramaAnimation,

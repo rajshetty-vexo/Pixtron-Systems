@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
               {[
                 { label: 'Inspectra', id: 'inspectra' },
                 { label: 'Rapid', id: 'rapid' },
-                { label: 'CodexQ', id: 'CodexQ' },
+                { label: 'Codex', id: 'Codex' },
                 { label: 'Opus', id: 'opus' },
                 { label: 'Panorama', id: 'panorama' },
                 { label: 'Primus', id: 'primus' },

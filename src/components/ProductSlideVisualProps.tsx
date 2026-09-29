@@ -11,7 +11,7 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
  */
 
 export type ProductSlideVisualProps = {
-  /** e.g. "inspectra", "CodexQ", "panorama" — matched case-insensitively */
+  /** e.g. "inspectra", "Codex", "panorama" — matched case-insensitively */
   productId: string;
 };
 
@@ -30,13 +30,13 @@ function BarcodeGraphic({ state }: { state: GraphicState }) {
   return (
     <svg viewBox="0 0 100 70" className="h-full w-full" aria-hidden="true">
       <defs>
-        <filter id="codexq-blur" x="-20%" y="-20%" width="140%" height="140%">
+        <filter id="Codex-blur" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="1.4" />
         </filter>
       </defs>
       <g
         transform="translate(10 12)"
-        filter={defective ? "url(#codexq-blur)" : undefined}
+        filter={defective ? "url(#Codex-blur)" : undefined}
         opacity={defective ? 0.55 : 1}
       >
         {bars.map((w, i) => {
@@ -196,7 +196,7 @@ type ProductConfig = {
 };
 
 const PRODUCTS: Record<string, ProductConfig> = {
-  codexq: { label: "Barcode read", Graphic: BarcodeGraphic },
+  Codex: { label: "Barcode read", Graphic: BarcodeGraphic },
   inspectra: { label: "Dot-print label", Graphic: DotLabelGraphic },
   panorama: { label: "360° surface scan", Graphic: BottleGraphic },
 };

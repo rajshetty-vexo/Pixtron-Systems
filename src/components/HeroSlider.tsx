@@ -20,13 +20,13 @@
 //     highlights: ['Dot Print Verification',  'OCR/OCV Accuracy'],
 //   },
 //   {
-//     id: 'CodexQ',
+//     id: 'Codex',
 //     icon: CheckCircle2,
 //     question: 'Struggling with Low Contrast Codes?',
-//     highlight: 'CodexQ',
+//     highlight: 'Codex',
 //     description:
-//       'CodexQ reads and verifies 1D/2D barcodes and pharma codes instantly — even when standard readers fail on damaged or low-contrast prints.',
-//     productId: 'CodexQ',
+//       'Codex reads and verifies 1D/2D barcodes and pharma codes instantly — even when standard readers fail on damaged or low-contrast prints.',
+//     productId: 'Codex',
 //     highlights: ['1D & 2D Code Reading','Pharma Compliance'],
 //   },
 //   {

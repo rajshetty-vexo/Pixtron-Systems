@@ -32,7 +32,7 @@ const testimonials: TestimonialSlide[] = [
   {
     id: "s p vaidya",
     quote:
-      "Pixtron Systems CodexQ inspection system was tailored precisely to our line requirements. What impressed us most was the end-to-end integration printer, conveyor, and automated rejection handling delivered as one seamless solution.",
+      "Pixtron Systems Codex inspection system was tailored precisely to our line requirements. What impressed us most was the end-to-end integration printer, conveyor, and automated rejection handling delivered as one seamless solution.",
     name: "Mr. S P Vaidya",
     role: "Plant Head",
     company: "DCI Pharmaceuticals Pvt. Ltd.",

@@ -572,7 +572,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
 
     // Background/throttled tabs make timers fall behind; wipe + restart
     // fresh on visibility regain so queued spawns never land on top of
-    // each other (same pattern as CodexQAnimation).
+    // each other (same pattern as CodexAnimation).
     const handleVisibility = () => {
       if (reduceMotion) return;
       if (document.hidden) {
@@ -1001,7 +1001,7 @@ export default function PanoramaAnimation({ brochureHref, className, variant = "
 
 /* ============================================================
    STYLES (scoped by .pnr- prefix, container-query responsive —
-   same structural approach as CodexQAnimation's CSS)
+   same structural approach as CodexAnimation's CSS)
 ============================================================ */
 
 const CSS = `

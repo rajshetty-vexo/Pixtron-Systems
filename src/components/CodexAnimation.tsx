@@ -1,9 +1,9 @@
 
 
 /**
- * CodexQAnimation.tsx
+ * CodexAnimation.tsx
  * ---------------------------------------------------------------------------
- * Animated product hero for PIXTRON CodexQ (Code Reading & OCR).
+ * Animated product hero for PIXTRON Codex (Code Reading & OCR).
  *
  * - Built with GSAP for the conveyor / camera / decode animation.
  * - Fully self-contained: styles are injected via a scoped <style> tag,
@@ -20,8 +20,8 @@
  *
  * Usage:
  *   npm install gsap
- *   import CodexQAnimation from "./CodexQAnimation";
- *   <CodexQAnimation brochureHref="/files/CodexQ-brochure.pdf" />
+ *   import CodexAnimation from "./CodexAnimation";
+ *   <CodexAnimation brochureHref="/files/Codex-brochure.pdf" />
  */
 
 import React, { useEffect, useId, useRef } from "react";
@@ -42,7 +42,7 @@ interface Product {
   exp: string;
 }
 
-export interface CodexQAnimationProps {
+export interface CodexAnimationProps {
   /** Optional link for the "Download Brochure" button. If omitted, the button is hidden. */
   brochureHref?: string;
   /** Extra class name on the outer wrapper. */
@@ -235,7 +235,7 @@ function buildCarton(product: Product): SVGGElement {
    COMPONENT
 ============================================================ */
 
-export default function CodexQAnimation({ brochureHref, className, variant = "full" }: CodexQAnimationProps) {
+export default function CodexAnimation({ brochureHref, className, variant = "full" }: CodexAnimationProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -560,7 +560,7 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
             </div>
             <div className="cxh-producttag">
               <span className="cxh-line" />
-              CodexQ <em>|</em> CODE READING &amp; OCR
+              Codex <em>|</em> CODE READING &amp; OCR
             </div>
           </div>
 
@@ -692,7 +692,7 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
           {/* SOFTWARE PANEL */}
           <div className="cxh-panel">
             <div className="cxh-panel-head">
-              <span className="cxh-panel-title">CodexQ LIVE FEED</span>
+              <span className="cxh-panel-title">Codex LIVE FEED</span>
               <span className="cxh-running">
                 <i className="cxh-running-dot" /> LIVE
               </span>
@@ -704,7 +704,7 @@ export default function CodexQAnimation({ brochureHref, className, variant = "fu
               </span>
               <div className="cxh-preview-product">
                 <span className="cxh-preview-brand">
-                  CodexQ
+                  Codex
                 </span>
                 <div className="cxh-preview-box" />
               </div>

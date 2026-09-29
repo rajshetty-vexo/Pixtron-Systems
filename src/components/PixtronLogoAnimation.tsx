@@ -151,18 +151,18 @@ const PixtronLogoAnimation: React.FC<PixtronLogoAnimationProps> = ({
           0%,15%      { opacity:0; transform:translateY(1.8cqw) scale(0.7); }
           21%         { opacity:1; transform:translateY(0) scale(1.15); }
           26%,59%     { opacity:1; transform:translateY(0) scale(1); }
-          63%         { opacity:1; transform:translateY(0) scale(1.2); }
-          67%,78%     { opacity:1; transform:translateY(0) scale(1); }
-          90%,100%    { opacity:0; transform:translateY(1.8cqw) scale(0.7); }
+          // 63%         { opacity:1; transform:translateY(0) scale(1.2); }
+          // 67%,78%     { opacity:1; transform:translateY(0) scale(1); }
+          // 90%,100%    { opacity:0; transform:translateY(1.8cqw) scale(0.7); }
         }
 
         @keyframes pxl-navyDrop{
           0%,46%      { opacity:0; transform:translateY(2cqw) scale(0.7); }
           52%         { opacity:1; transform:translateY(0) scale(1.15); }
           57%,66%     { opacity:1; transform:translateY(0) scale(1); }
-          70%         { opacity:1; transform:translateY(0) scale(1.2); }
-          74%,78%     { opacity:1; transform:translateY(0) scale(1); }
-          90%,100%    { opacity:0; transform:translateY(2cqw) scale(0.7); }
+          // 70%         { opacity:1; transform:translateY(0) scale(1.2); }
+          // 74%,78%     { opacity:1; transform:translateY(0) scale(1); }
+          // 90%,100%    { opacity:0; transform:translateY(2cqw) scale(0.7); }
         }
       `}</style>
     </div>

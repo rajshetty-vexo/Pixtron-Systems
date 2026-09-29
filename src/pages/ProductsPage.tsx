@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { productsData } from '../data/productsData';
 import { PixtronArrows } from '../components/PixtronArrows';
 import { useSearchParams } from 'react-router-dom';
+import {Workflow} from '../components/Workflow';
 
 
 export const ProductsPage: React.FC = () => {
@@ -197,9 +198,17 @@ const displayedProducts = productsData.filter(
             />
           ))}
         </div>
+        </section>
+
+      <div className="mt-8 sm:mt-12" />
+
+       <Workflow/>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-14">
 
         {/* CTA Section */}
         <div className="mt-16 sm:mt-20 bg-secondary rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[4rem] p-8 sm:p-10 md:p-14 lg:p-20 text-primary flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative overflow-hidden">
+          
           <div className="absolute -bottom-20 -left-20 opacity-10 rotate-12">
             <PixtronArrows size={400} />
           </div>
@@ -221,6 +230,7 @@ const displayedProducts = productsData.filter(
           </div>
         </div>
       </section>
+      
     </main>
   );
 };

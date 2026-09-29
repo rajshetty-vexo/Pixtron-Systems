@@ -272,7 +272,7 @@ export const solutionsData: SolutionItem[] = [
       { metric: 'Inspection Speed', value: 'Up to 1,200 units/min' },
     ],
     industriesUsed: ['Pharmaceuticals', 'Logistics', 'FMCG Packaging'],
-    productsUsed: ['CodexQ', 'inspectra'],
+    productsUsed: ['Codex', 'inspectra'],
     applications: [
       'Pharmacode and linear barcode decoding',
       'QR and 2D matrix code verification',
@@ -317,7 +317,7 @@ export const solutionsData: SolutionItem[] = [
       { metric: 'Damaged Code Recovery', value: 'Up to 30% obscured' },
     ],
     industriesUsed: ['Pharmaceuticals', 'Electronics', 'Automotive'],
-    productsUsed: ['CodexQ', 'inspectra'],
+    productsUsed: ['Codex', 'inspectra'],
     applications: [
       'GS1 DataMatrix serialization decoding',
       'Serial number, batch & expiry cross-verification',

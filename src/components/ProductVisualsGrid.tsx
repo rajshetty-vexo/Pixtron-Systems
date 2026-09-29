@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
  * ProductVisualsGrid
  * -------------------
  * A grid of four mini "VisionGraphic"-style cards — one per product series
- * (Inspectra, Rapid, CodexQ, Opus) — each running its own continuous
+ * (Inspectra, Rapid, Codex, Opus) — each running its own continuous
  * inspection animation (3D wireframe box + scan beam + HUD readouts),
  * instead of VisionGraphic's single cycling display. Meant to sit right
  * below the main hero, same visual language, fully responsive.
@@ -40,8 +40,8 @@ const products: ProductVisual[] = [
     object: 'wire',
   },
   {
-    id: 'codexq',
-    series: 'CodexQ SERIES',
+    id: 'Codex',
+    series: 'Codex SERIES',
     label: 'CODE READING',
     status: 'VERIFIED',
     accuracy: '99.8% Accurate',

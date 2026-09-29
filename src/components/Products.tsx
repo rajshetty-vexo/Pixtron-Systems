@@ -35,8 +35,8 @@ const visionProducts = [
     image: "https://res.cloudinary.com/owsr7mjw/image/upload/v1786101974/ChatGPT_Image_Aug_7_2026_04_55_04_PM_rgjonz.png",
   },
   {
-    id: 'CodexQ',
-    name: 'CodexQ',
+    id: 'Codex',
+    name: 'Codex',
     tagline: 'Code Reading & OCR',
     description: 'Ultra-fast reading and OCR-based verification of 1D/2D codes, including pharma-grade traceability labels.',
     inspections: [
@@ -45,7 +45,7 @@ const visionProducts = [
       'High-Speed Industrial Processing'
     ],
     icon: <CheckCircle2 className="text-primary" size={32} />,
-    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1788089895/CodexQ_im5yxr.jpg",
+    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1788089895/Codex_im5yxr.jpg",
   },
   {
     id: 'opus',

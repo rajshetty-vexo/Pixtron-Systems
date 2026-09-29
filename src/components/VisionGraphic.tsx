@@ -16,7 +16,7 @@ const inspectionModes = [
     status: 'VERIFIED',
     object: 'code',
     accuracy: '99.8% Accurate',
-    details: 'CodexQ SERIES'
+    details: 'Codex SERIES'
   },
   {
     id: 'cable',

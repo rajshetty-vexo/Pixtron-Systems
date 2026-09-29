@@ -144,7 +144,7 @@ export const HomePage: React.FC = () => {
 {/* <ProductVisualsGrid />   */}
       <Industries />
       <Products activeSuite={activeSuite} onToggle={setActiveSuite} />
-      <Workflow activeSuite={activeSuite} />
+      <Workflow/>
       <SolutionsShowcase />
       <OurClients />
       <TestimonialsSection />
