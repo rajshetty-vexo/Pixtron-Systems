@@ -36,7 +36,7 @@ export const VisitorCounter: React.FC = () => {
     fetchRealVisitors();
   }, []);
 
-  // Smooth count-up animation jab target count mil jaye
+
   useEffect(() => {
     if (targetCount === null) return;
 

@@ -28,10 +28,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     let count: number;
     if (isNewVisit) {
-      // Naya visitor: Redis count ko +1 badhayein
+     
       count = await redis.incr(COUNTER_KEY);
     } else {
-      // Existing visit: Sirf current count fetch karein
+   
       const current = await redis.get<number>(COUNTER_KEY);
       count = current ?? 0;
     }
