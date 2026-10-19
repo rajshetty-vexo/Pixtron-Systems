@@ -45,7 +45,7 @@ const visionProducts = [
       'High-Speed Industrial Processing'
     ],
     icon: <CheckCircle2 className="text-primary" size={32} />,
-    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1788089895/Codex_im5yxr.jpg",
+    image:"https://res.cloudinary.com/owsr7mjw/image/upload/v1792241752/IMG_20261017_182203_i5j6ty.jpg",
   },
   {
     id: 'opus',

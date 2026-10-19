@@ -33,12 +33,12 @@ const clientsData: Client[] = [
     logoText: "3M",
     logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788314684/3M_Science_Applied_to_Life_olib4p.svg",
   },
-  {
-    id: "5",
-    name: "Tata AutoComp",
-    logoText: "TAC",
-    logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315040/Tata_AutoCOMP_xetwmp.png",
-  },
+  // {
+  //   id: "5",
+  //   name: "Tata AutoComp",
+  //   logoText: "TAC",
+  //   logoUrl: "https://res.cloudinary.com/owsr7mjw/image/upload/v1788315040/Tata_AutoCOMP_xetwmp.png",
+  // },
   {
     id: "6",
     name: "CKA Birla Group",
