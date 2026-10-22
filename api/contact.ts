@@ -70,7 +70,7 @@ export default async function handler(req: any, res: any) {
       body: JSON.stringify({
         from:
           process.env.CONTACT_FROM_EMAIL ||
-          "Pixtron Website <brochure@pixtronsystems.com>",
+          "Pixtron Website <inquiry@pixtronsystems.com>",
         to: ["projects@pixtronsystems.com"],
         reply_to: cleanEmail,
         subject: `New Inquiry from ${cleanName} - ${cleanCompany}`,
