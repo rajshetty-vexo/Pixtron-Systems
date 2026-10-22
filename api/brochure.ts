@@ -256,7 +256,7 @@ const buildUserEmailHtml = ({
                   Pixtron Systems
                 </p>
                 <p style="font-size:11px; color:#cbd5e1; margin:0 0 8px 0; font-style:italic; position:relative; z-index:2;">
-                  See Beyond Vision
+                  Intelligence In Every Frame
                 </p>
                 <p style="font-size:11px; color:#94a3b8; margin:0; position:relative; z-index:2;">
                   This is an automated email from Pixtron Systems.<br/>
@@ -326,7 +326,7 @@ try {
     // Always send directly to customer's actual email and team email from .env
     const targetUserEmail = email;
     const targetTeamEmail = process.env.CONTACT_TO_EMAIL || "projects@pixtronsystems.com";
-    const fromAddress     = process.env.CONTACT_FROM_EMAIL || "Pixtron Systems <onboarding@resend.dev>";
+    const fromAddress     = process.env.CONTACT_FROM_EMAIL || "Pixtron Systems <brochure@pixtronsystems.com>";
 
     // 1. Email to User
     await sendViaResend({
