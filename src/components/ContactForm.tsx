@@ -61,10 +61,28 @@ export const ContactForm: React.FC = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const handleChange =
-    (field: keyof ContactFormData) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFormData((previous) => ({ ...previous, [field]: event.target.value }));
-    };
+
+const handleChange =
+  (field: keyof ContactFormData) =>
+  (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    let value = event.target.value;
+
+    // Name and Company: block numbers
+  if (field === 'fullName') {
+  if (!/^[a-zA-Z\s]*$/.test(value)) return;
+}
+
+    // Phone: allow only digits and common phone symbols
+    if (field === 'phone') {
+      if (!/^[+\d\s()-]*$/.test(value)) return;
+    }
+
+    setFormData((previous) => ({
+      ...previous,
+      [field]: value,
+    }));
+  };
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -157,14 +175,17 @@ export const ContactForm: React.FC = () => {
           >
             <h4 className="text-2xl font-black text-slate-900 mb-8">Contact Form</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+
               <input
                 type="text"
                 placeholder="Full Name *"
                 required
+                 maxLength={80}
                 value={formData.fullName}
                 onChange={handleChange('fullName')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
+
               <input
                 type="text"
                 placeholder="Company *"
@@ -187,6 +208,8 @@ export const ContactForm: React.FC = () => {
                 type="tel"
                 placeholder="Phone Number *"
                 required
+                maxLength={20}
+                 inputMode="tel"
                 value={formData.phone}
                 onChange={handleChange('phone')}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"

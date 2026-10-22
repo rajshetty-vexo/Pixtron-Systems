@@ -27,10 +27,25 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
     website: "", // Honeypot field for bots
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name } = e.target;
+  let { value } = e.target;
+
+  // Full Name: allow only English letters and spaces
+  if (name === "name") {
+    if (!/^[a-zA-Z\s]*$/.test(value)) return;
+  }
+
+  // Phone: allow only digits
+  if (name === "phone") {
+    if (!/^\d*$/.test(value)) return;
+    if (value.length > 15) return;
+  }
+
+  setFormData((prev) => ({ ...prev, [name]: value }));
+};
+
 
   // ── INPUT SANITIZATION (CLIENT SIDE) ──
   const sanitizeInput = (text: string): string => {
@@ -233,6 +248,8 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
+                    maxLength={15}
+                    inputMode="numeric"
                     placeholder="Phone / WhatsApp Number *"
                     className="w-full border-b-2 border-slate-200 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#003985] transition-colors"
                   />

@@ -1,40 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { Users } from 'lucide-react';
 
-const BASE_COUNT = 900;
-const SPARK_BARS = [40, 65, 50, 80, 60, 90, 100];
+// const BASE_COUNT = 900;
+// const SPARK_BARS = [40, 65, 50, 80, 60, 90, 100];
 
 export const VisitorCounter: React.FC = () => {
   const [targetCount, setTargetCount] = useState<number | null>(null);
   const [displayCount, setDisplayCount] = useState(0);
 
-  useEffect(() => {
-    const fetchRealVisitors = async () => {
-      const alreadyCounted = sessionStorage.getItem('pixtron-visit-counted');
-      const endpoint = alreadyCounted
-        ? '/api/visitor-count'
-        : '/api/visitor-count?hit=true';
+useEffect(() => {
+  const fetchRealVisitors = async () => {
+    const alreadyCounted = sessionStorage.getItem(
+      'pixtron-visit-counted'
+    );
 
-      try {
-        const res = await fetch(endpoint);
-        const data = await res.json();
+    const endpoint = alreadyCounted
+      ? '/api/visitor-count'
+      : '/api/visitor-count?hit=true';
 
-        if (typeof data.count === 'number') {
-          setTargetCount(data.count);
-          if (!alreadyCounted) {
-            sessionStorage.setItem('pixtron-visit-counted', 'true');
-          }
-        } else {
-          setTargetCount(BASE_COUNT);
-        }
-      } catch (err) {
-        console.error('Visitor counter error:', err);
-        setTargetCount(BASE_COUNT);
+    try {
+      const res = await fetch(endpoint);
+      const data = await res.json();
+
+      if (
+        !res.ok ||
+        data.success !== true ||
+        typeof data.count !== 'number'
+      ) {
+        throw new Error(
+          data.message || 'Unable to load visitor count'
+        );
       }
-    };
 
-    fetchRealVisitors();
-  }, []);
+      setTargetCount(data.count);
+
+      if (!alreadyCounted) {
+        sessionStorage.setItem(
+          'pixtron-visit-counted',
+          'true'
+        );
+      }
+    } catch (err) {
+      console.error('Visitor counter error:', err);
+      setTargetCount(null);
+    }
+  };
+
+  fetchRealVisitors();
+}, []);
+
 
 
   useEffect(() => {
@@ -62,7 +76,7 @@ export const VisitorCounter: React.FC = () => {
       </span>
 
       {/* Mini sparkline graph */}
-      <div className="flex items-end gap-[3px] h-5 sm:h-6 shrink-0">
+      {/* <div className="flex items-end gap-[3px] h-5 sm:h-6 shrink-0">
         {SPARK_BARS.map((h, i) => (
           <span
             key={i}
@@ -70,13 +84,15 @@ export const VisitorCounter: React.FC = () => {
             style={{ height: `${h}%` }}
           />
         ))}
-      </div>
+      </div> */}
 
       <Users size={18} className="text-primary shrink-0" />
 
       <span className="text-sm sm:text-base font-bold text-primary whitespace-nowrap">
         <span className="font-black tabular-nums text-lg sm:text-xl">
-          {displayCount.toLocaleString()}
+         {targetCount === null
+  ? '—'
+  : displayCount.toLocaleString()}
         </span>{' '}
         Visitors
       </span>

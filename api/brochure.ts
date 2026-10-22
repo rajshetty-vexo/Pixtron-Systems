@@ -260,7 +260,7 @@ const buildUserEmailHtml = ({
                 </p>
                 <p style="font-size:11px; color:#94a3b8; margin:0; position:relative; z-index:2;">
                   This is an automated email from Pixtron Systems.<br/>
-                  Head Office: Pune - 411038
+                  Head Office: Pune - 411021
                 </p>
               </td>
             </tr>
