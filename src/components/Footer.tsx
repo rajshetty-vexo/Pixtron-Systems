@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
          <Facebook size={18} />
       </a>
       <a 
-        href="https://www.youtube.com/@pixtron_systems" 
+        href="https://youtube.com/@pixtron_systems?si=UIUNWAIr9TsR6-wA"
         target="_blank" 
         rel="noopener noreferrer"
         className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#fbbb0d] hover:text-slate-900 transition-all"
